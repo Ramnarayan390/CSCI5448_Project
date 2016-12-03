@@ -66,19 +66,23 @@ public class controller implements ActionListener {
 			}
 			else
 			{
-				System.out.println(((User)result.get(0)).username);
-				System.out.println("Entered password "+view.passField.getPassword());
-				System.out.println("DB Password "+((User)result.get(0)).password);
+				//System.out.println(((User)result.get(0)).username);
+				//System.out.println("Entered password "+view.passField.getPassword());
+				//System.out.println("DB Password "+((User)result.get(0)).password);
 				
 				//if(view.passField.getPassword().equals(((User)result.get(0)).password))
+				User user = (User)result.get(0);
 				String password = new String(view.passField.getPassword());
-				if(  ((User)result.get(0)).password.equals(password)  )
+				if(  user.verifyPass(password) )
 				{
 					System.out.println("Login Successfull");
+					FSystem system = new FSystem();
+					system.setUser(user);
+					system.showOptions();
 				}
 				else
 				{
-					System.out.println(((User)result.get(0)).username + "incorrect passowrd");
+					System.out.println(user.username + "incorrect passowrd");
 				}
 			}
 			//System.out.println("OK Clicked");			

@@ -28,7 +28,7 @@ public class User {
 	@Column(name="securityAnswer")
 	private String securityAnswer;
 	@Column(name="password")
-	public String password;
+	protected String password;
 	
 	public User()
 	{;}
@@ -90,6 +90,17 @@ public class User {
 		this.securityQuestion = securityQuestion;
 	}
 	
+	public boolean verifyPass(String password)
+	{
+		return password.equals(this.password);
+		
+	}
+	
+	public boolean verifySecurity(String securityAnswer)
+	{
+		return securityAnswer.equals(this.securityAnswer);
+		
+	}
 	
 	
 }
