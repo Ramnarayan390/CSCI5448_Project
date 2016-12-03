@@ -22,45 +22,27 @@ public class TrainerSystem extends FSystem {
 	{
 		return (Trainer) super.getUser();
 	}
-	
-	public void verifyProfileInfo()
-	{
-		
-	}
+
 	
 	public void viewSchedule()
 	{
-		String[][] schedule = this.getUser().getSchedule();
+		String[] schedule = this.getUser().getSchedule();
 		
 		String formatString = "";
 		for (int i = 0; i < schedule.length; i++)
 		{
-			for (int j = 0; j < schedule[i].length; j++)
-			{
-				formatString += schedule[i][j] + " ";
-			}
-			formatString += "\n";
+				formatString += (i+1) + ". " + schedule[i] + "\n";
 		}
 		JOptionPane.showMessageDialog(null, formatString);
 	}
 	
-	public void editSchedule()
+	private void editSchedule()
 	{
 		this.viewSchedule();
 		String dayToAdd = JOptionPane.showInputDialog(null, "What day would you like to add?");
 		String timeToAdd = JOptionPane.showInputDialog(null, "What time would you like to add for " + dayToAdd + "?");
-		this.getUser().changeSchedule(dayToAdd, timeToAdd, this.getUser().getName());
+		this.getUser().changeSchedule(dayToAdd, timeToAdd, "");
 		JOptionPane.showMessageDialog(null, "Successfully Added!");
 	}
 	
-	private void getVerified()
-	{
-		
-	}
-	
-	private void viewClient()
-	{
-		
-	}
-
 }
