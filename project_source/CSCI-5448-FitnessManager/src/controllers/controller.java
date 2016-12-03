@@ -4,6 +4,10 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
 import models.*;
 import views.*;
 
@@ -11,6 +15,8 @@ public class controller implements ActionListener {
 
 	private Model model;
 	private view view;
+	private SessionFactory userDB;
+	
 
 	//private ActionListener actionListner;
 	
@@ -18,9 +24,13 @@ public class controller implements ActionListener {
 	{
 		this.model = model;
 		this.view = view;	
-
+		this.userDB = new Configuration().configure().buildSessionFactory();
 	}
 	
+	protected void finalize()
+	{
+		userDB.close();
+	}
 	public void control()
 	{
 		view.getOkButton().addActionListener(this);
@@ -41,4 +51,21 @@ public class controller implements ActionListener {
 		updateCount();
 	}
 	
+	
+	public Session createDBSesssion(SessionFactory sessionFactory)
+	{
+		//provides session instances
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		return session;
+	}
+	
+	public Session closeDBSession(Session session)
+	{
+		
+        //commits transaction and closes session instance
+		session.getTransaction().commit();
+        session.close();        
+		return session;
+	}
 }

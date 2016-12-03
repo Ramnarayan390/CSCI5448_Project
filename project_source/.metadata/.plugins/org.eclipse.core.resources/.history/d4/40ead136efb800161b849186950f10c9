@@ -1,0 +1,64 @@
+package models;
+
+public class User {
+
+	public String username;
+	public String name;
+	public String gender;
+	public String email;
+	public String location;
+	private String securityQuestion;
+	private String securityAnswer;
+	private String password;
+	
+	
+	public String getUsername() {
+		return username;
+	}
+	
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getGender() {
+		return gender;
+	}
+	
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	
+	public String getSecurityQuestion() {
+		return securityQuestion;
+	}
+	
+	public void setSecurityQuestion(String securityQuestion) {
+		this.securityQuestion = securityQuestion;
+	}
+	
+	
+	
+}

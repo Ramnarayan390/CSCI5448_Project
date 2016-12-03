@@ -1,0 +1,8 @@
+package models;
+
+public class Trainer extends User {
+
+	public boolean Verified;
+	public String skills;
+	public String Summary;
+}
