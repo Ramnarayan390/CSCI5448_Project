@@ -28,8 +28,10 @@ public class User {
 	@Column(name="securityAnswer")
 	private String securityAnswer;
 	@Column(name="password")
-	private String password;
+	public String password;
 	
+	public User()
+	{;}
 	public User(String username, String name, String gender, String email, String location, String securityQuestion, String securityAnswer, String password)	
 	{
 		this.username = username;

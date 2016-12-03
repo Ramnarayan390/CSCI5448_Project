@@ -1,9 +1,11 @@
 package controllers;
 
-import java.awt.*;
+//import java.awt.*;
+import java.util.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -33,8 +35,10 @@ public class controller implements ActionListener {
 	}
 	public void control()
 	{
+		
 		view.getOkButton().addActionListener(this);
 		view.resetPasswordButton().addActionListener(this);
+
 
 	}
 	private void updateCount()
@@ -48,7 +52,46 @@ public class controller implements ActionListener {
 	public void actionPerformed(ActionEvent actionEvent)
 	{
 		System.out.println(actionEvent.getActionCommand());
-		updateCount();
+		Session session = createDBSesssion(this.userDB);
+		if (actionEvent.getActionCommand() == "OK")
+		{
+			//Trainer getTrainer = (Trainer)session.get(Trainer.class,5L);
+			Query q = session.createQuery("from Trainer as T where T.username = :username");
+			
+			q.setString("username",  view.userField.getText());
+			List result = q.list();
+			if (result.isEmpty()) 
+			{
+				System.out.println("Incorrect Username");
+			}
+			else
+			{
+				System.out.println(((User)result.get(0)).username);
+				System.out.println("Entered password "+view.passField.getPassword());
+				System.out.println("DB Password "+((User)result.get(0)).password);
+				
+				//if(view.passField.getPassword().equals(((User)result.get(0)).password))
+				String password = new String(view.passField.getPassword());
+				if(  ((User)result.get(0)).password.equals(password)  )
+				{
+					System.out.println("Login Successfull");
+				}
+				else
+				{
+					System.out.println(((User)result.get(0)).username + "incorrect passowrd");
+				}
+			}
+			//System.out.println("OK Clicked");			
+		}
+		else
+		{
+			updateCount();
+			
+			User user = new Trainer(true,"skills", "Summary", "HEY", "name", "gender", "email", "location", "securityQuestion", "securityAnswer", "abc");
+			session.save(user);
+			
+		}
+		session = closeDBSession(session);
 	}
 	
 	

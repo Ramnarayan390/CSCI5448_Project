@@ -13,8 +13,8 @@ public class view {
 	private JButton resetPasswordButton;
 	private JPanel panel;
 	private JPanel panel2;
-	private JTextField userField;
-	private JPasswordField passField;
+	public JTextField userField;
+	public JPasswordField passField;
 	
 	public view()
 	{

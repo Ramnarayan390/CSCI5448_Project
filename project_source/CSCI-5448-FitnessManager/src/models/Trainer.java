@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="soma_krishnamurthy_Book" )
+@Table(name="soma_krishnamurthy_Trainer" )
 public class Trainer extends User {
 
 	@Column(name="Verified")
@@ -19,7 +19,10 @@ public class Trainer extends User {
 	@Column(name="Summary")
 	public String Summary;
 	
-	
+	public Trainer()
+	{
+		;
+	}
 	public Trainer(boolean Verfied, String skills, String Summary, String username, String name, String gender, String email, String location, String securityQuestion, String securityAnswer, String password)
 	{
 		super(username, name, gender, email, location, securityQuestion, securityAnswer, password);
