@@ -1,0 +1,91 @@
+package views;
+
+import java.awt.*;
+import javax.swing.*;
+
+public class view {
+
+	private JFrame frame;
+	private JLabel screenLabel;
+	private JLabel userLabel;
+	private JLabel passLabel;
+	private JButton userButton;
+	private JButton resetPasswordButton;
+	private JPanel panel;
+	/*private JFrame frame;
+	private JLabel label;
+	private JButton button;
+	private JButton cancel;*/
+	
+	public view()
+	{
+		frame = new JFrame("login");
+		
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(300, 600);
+		//frame.getContentPane().setLayout(new Flow );
+		panel = new JPanel();
+		frame.add(panel);
+		
+		
+		//setBounds(x,y,width,height)
+		//panel.setLayout(null);
+		screenLabel = new JLabel("Login");
+		//screenLabel.setBounds(100,200,150,80);
+		panel.add(screenLabel);
+		
+		
+		userLabel = new JLabel("username");
+		//userLabel.setBounds(100,300,50,25);
+		panel.add(userLabel);
+		
+		
+		passLabel = new JLabel("password");
+		//passLabel.setBounds(100,400,50,25);
+		panel.add(passLabel);
+		
+		
+		userButton = new JButton("OK");
+		//userButton.setBounds(100,500,50,25);
+		panel.add(userButton);
+		
+		
+		resetPasswordButton = new JButton("Reset Password");
+		panel.add(resetPasswordButton);
+		//frame.getContentPane().add(resetPasswordButton);
+		
+		
+		
+		
+		
+		frame.setVisible(true);
+		
+		/*frame = new JFrame("view 2");
+		frame.getContentPane().setLayout(new FlowLayout());
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(200, 200);
+		
+		label = new JLabel("aaa", JLabel.CENTER);
+		frame.getContentPane().add(label, FlowLayout.LEFT);
+		
+		button = new JButton(" OK ");
+		frame.getContentPane().add(button, FlowLayout.CENTER);
+		
+		
+		cancel = new JButton(" Cancel ");
+		frame.getContentPane().add(cancel, FlowLayout.RIGHT);
+		frame.setVisible(true);*/
+	
+	}
+	
+	public JButton getButton()
+	{
+		return userButton;
+	}
+	
+	public void print(String abc)
+	{
+		System.out.println(abc);
+		
+	}
+}

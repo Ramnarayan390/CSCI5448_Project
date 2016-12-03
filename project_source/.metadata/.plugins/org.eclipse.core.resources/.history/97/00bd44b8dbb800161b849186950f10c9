@@ -1,0 +1,40 @@
+package controllers;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+import models.*;
+import views.*;
+
+public class controller implements ActionListener {
+
+	private Model model;
+	private view view1;
+	private view view2;
+	//private ActionListener actionListner;
+	
+	public Controller(Model model, View view1,View view2 )
+	{
+		this.model = model;
+		this.view1 = view1;	
+		this.view2 = view2;	
+	}
+	
+	public void control()
+	{
+		view.getButton().addActionListener(this);
+
+	}
+	private void updateCount()
+	{
+		model.incrementX();
+
+	}
+	public void actionPerformed(ActionEvent actionEvent)
+	{
+		System.out.println(actionEvent.getActionCommand());
+		updateCount();
+	}
+	
+}

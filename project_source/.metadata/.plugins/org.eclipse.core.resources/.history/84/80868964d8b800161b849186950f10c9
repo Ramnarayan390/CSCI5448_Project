@@ -1,0 +1,15 @@
+import views.*;
+
+
+
+public class driver {
+	
+	public static void main(String[] args)
+	{
+		view login;
+		login = new view();
+		
+		
+	}
+
+}

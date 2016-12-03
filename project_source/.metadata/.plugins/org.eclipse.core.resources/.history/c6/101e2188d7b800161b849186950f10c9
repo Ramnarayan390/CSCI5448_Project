@@ -1,0 +1,52 @@
+package views;
+
+import java.awt.*;
+import javax.swing.*;
+
+public class view {
+
+	private JFrame frame;
+	private JLabel screenLabel;
+	private JLabel userLabel;
+	private JLabel passLabel;
+	private JButton userButton;
+	private JButton resetPasswordButton;
+	private JPanel panel;
+	
+	
+	public View()
+	{
+		frame = new JFrame("login");
+		frame.setSize(600, 200);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//frame.getContentPane().setLayout(new Flow );
+		panel = new JPanel();
+		frame.add(panel);
+		
+		
+		//setBounds(x,y,width,height)
+		
+		screenLabel = new JLabel("Login");
+		panel.add(screenLabel);
+		screenLabel.setBounds(200,50,100,25);
+		
+		userLabel = new JLabel("username");
+		panel.add(userLabel);
+		
+		passLabel = new JLabel("password");
+		panel.add(passLabel);
+		
+		userButton = new JButton("OK");
+		panel.add(userButton);
+		
+		resetPasswordButton = new JButton("Reset Password");
+		panel.add(resetPasswordButton);
+		
+		
+		
+		
+		
+		frame.setVisible(true);
+	
+	}
+}

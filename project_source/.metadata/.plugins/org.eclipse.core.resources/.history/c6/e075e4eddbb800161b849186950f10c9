@@ -1,0 +1,21 @@
+import views.*;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class driver implements ActionListener {
+	
+	
+	public static void main(String[] args)
+	{
+		Model model = new Model();
+		View view2 = new View2("abc");
+		View view3 = new View3("abc");
+		Controller control = new Controller( model,view2,view3);
+		control.control();
+		 
+	}
+	
+
+}

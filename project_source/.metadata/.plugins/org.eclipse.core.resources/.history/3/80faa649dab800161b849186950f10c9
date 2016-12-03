@@ -1,0 +1,28 @@
+import views.*;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class driver implements ActionListener {
+	
+	
+	
+	public static void main(String[] args)
+	{
+		view login;
+		login = new view();
+		login.print("we here");
+		control(login);
+		
+		
+	}
+	
+	public void control(view login)
+	{
+		login.getButton().addActionListener(this);
+
+		login.getButton().addActionListener(this);
+	}
+
+}
