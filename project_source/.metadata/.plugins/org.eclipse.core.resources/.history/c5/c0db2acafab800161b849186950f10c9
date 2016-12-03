@@ -37,11 +37,11 @@ public class Trainer extends User {
 	}
 	
 	public String getSkills() {
-		return Skills;
+		return skills;
 	}
 	
 	public void setSkills(String skills) {
-		this.Skills = skills;
+		this.skills = skills;
 	}
 	
 	public String getSummary() {

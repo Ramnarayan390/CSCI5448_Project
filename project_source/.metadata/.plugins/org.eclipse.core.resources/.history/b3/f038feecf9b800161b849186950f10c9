@@ -39,7 +39,8 @@ public class User {
 		this.location = location;
 		this.securityQuestion = securityQuestion;
 		this.securityAnswer = securityAnswer;
-		this.password = password;		
+		this.password = password;
+		
 	}
 	public String getUsername() {
 		return username;

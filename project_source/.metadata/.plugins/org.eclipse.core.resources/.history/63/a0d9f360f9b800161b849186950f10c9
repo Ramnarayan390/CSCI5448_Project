@@ -30,17 +30,7 @@ public class User {
 	@Column(name="password")
 	private String password;
 	
-	public User(String username, String name, String gender, String email, String location, String securityQuestion, String securityAnswer, String password)	
-	{
-		this.username = username;
-		this.name = name;
-		this.gender = gender;
-		this.email = email;
-		this.location = location;
-		this.securityQuestion = securityQuestion;
-		this.securityAnswer = securityAnswer;
-		this.password = password;		
-	}
+	
 	public String getUsername() {
 		return username;
 	}
