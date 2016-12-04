@@ -11,8 +11,10 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 public class fitnessInfoView extends view implements ActionListener {
 
@@ -37,7 +39,7 @@ public class fitnessInfoView extends view implements ActionListener {
 	public fitnessInfoView() 
 	{
 		frame = new JFrame("Today's Fitness Info");
-		frame.setSize(850,850);
+		frame.setSize(500,500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		panel = new JPanel();
@@ -51,7 +53,7 @@ public class fitnessInfoView extends view implements ActionListener {
 
 		panel.setLayout(null);
 		headerLabel = new JLabel(""); 
-		headerLabel.setBounds(200,10,200,50);
+		headerLabel.setBounds(150,10,200,50);
 		headerLabel.setText("Today's Fitness Info"); 
 		panel.add(headerLabel);
 
@@ -71,58 +73,41 @@ public class fitnessInfoView extends view implements ActionListener {
 		homeButton.setBounds(320, 100, 90, 20);
 		panel.add(homeButton);
 		
-		breakfastText = new JLabel("Breakfast");
-		breakfastText.setBounds(10, 200, 90, 25);
-		panel.add(breakfastText);
-		
-		String[] calOptions = { "500", "1000", "1500", "2000", "2500", "3000" };
-		//Create the combo box, select item at index 4.
-		//Indices start at 0, so 4 specifies the pig.
-		breakfastChoice = new JComboBox(calOptions);
-		breakfastChoice.setSelectedIndex(5);
-		//petList.addActionListener(this);
-		breakfastChoice.setBounds(100, 200, 100, 20);
-		panel.add(breakfastChoice);
-		
-		lunchText = new JLabel("Lunch");
-		lunchText.setBounds(10, 300, 90, 25);
-		panel.add(lunchText);
-		
-		lunchChoice = new JComboBox(calOptions);
-		lunchChoice.setSelectedIndex(5);
-		//petList.addActionListener(this);
-		lunchChoice.setBounds(100, 300, 100, 20);
-		panel.add(lunchChoice);
-		
-		dinnerText = new JLabel("Dinner");
-		dinnerText.setBounds(10, 400, 90, 25);
-		panel.add(dinnerText);
-		
-		dinnerChoice = new JComboBox(calOptions);
-		dinnerChoice.setSelectedIndex(5);
-		//petList.addActionListener(this);
-		dinnerChoice.setBounds(100, 400, 100, 20);
-		panel.add(dinnerChoice);
-		
-		distText = new JLabel("Distance walked");
-		distText.setBounds(10, 500, 90, 25);
-		panel.add(distText);
-		
-		distChoice = new JComboBox(calOptions);
-		distChoice.setSelectedIndex(5);
-		//petList.addActionListener(this);
-		distChoice.setBounds(100, 500, 100, 20);
-		panel.add(distChoice);
-		
-		sleepText = new JLabel("Hours Slept");
-		sleepText.setBounds(10, 600, 90, 25);
-		panel.add(sleepText);
-		
-		sleepChoice = new JComboBox(calOptions);
-		sleepChoice.setSelectedIndex(5);
-		//petList.addActionListener(this);
-		sleepChoice.setBounds(100, 600, 100, 20);
-		panel.add(sleepChoice);
+		String[] columns = new String[] {
+	            "Id", "Name", "Verify"
+	        };
+	         
+	        //actual data for the table in a 2d array
+	        Object[][] data = new Object[][] {
+	            {"1", "John", false },
+	            {"2", "Rambo", false },
+	            {"3", "Zorro", false },
+	        };
+	         
+	        final Class[] columnClass = new Class[] {
+	            String.class, String.class, Boolean.class
+	        };
+	 
+	        //create table model with data
+	        DefaultTableModel model = new DefaultTableModel(data, columns) {
+	 
+	            @Override
+	            public boolean isCellEditable(int row, int column)
+	            {
+	                return true;
+	            }
+	 
+	            @Override
+	            public Class<?> getColumnClass(int columnIndex)
+	            {
+	                return columnClass[columnIndex];
+	            }
+	        };
+	         
+	        JTable table = new JTable(model);
+	         
+	        table.setBounds(20, 150, 400, 200);
+			panel.add(table);
 		
 		
 		this.register();
