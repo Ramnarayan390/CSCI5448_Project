@@ -34,6 +34,7 @@ public class controller {
 	
 	protected void finalize()
 	{
+		System.out.println("Controller Destructor");
 		userDB.close();
 	}
 	public void control()
@@ -54,7 +55,9 @@ public class controller {
 	
 	public void login(String username, String password)
 	{
+		System.out.println("DB almost");
 		Session session = createDBSesssion(this.userDB);
+		System.out.println("DB 1almost");
 		Query q = session.createQuery("from Trainer as T where T.username = :username");		
 		q.setString("username",  username);
 		List result = q.list();
@@ -71,17 +74,19 @@ public class controller {
 			if(  user.verifyPass(password) )
 			{
 				System.out.println("Login Successfull");
+				
+				//do system factory here
 				FSystem system = new TrainerSystem((Trainer)user); //based on the login type change this	
 				view.setVisible(false);
 				// view = null;
-				system.showOptions();
+				system.showOptions("createProfile");
 			}
 			else
 			{
 				System.out.println(user.username + "incorrect passowrd");
 			}
 		}
-			//System.out.println("OK Clicked");			
+		System.out.println("DB almost");			
 		session = closeDBSession(session);
 	}
 	
@@ -89,8 +94,11 @@ public class controller {
 	public Session createDBSesssion(SessionFactory sessionFactory)
 	{
 		//provides session instances
+		System.out.println("1");
 		Session session = sessionFactory.openSession();
+		System.out.println("2");
 		session.beginTransaction();
+		System.out.println("3");
 		return session;
 	}
 	

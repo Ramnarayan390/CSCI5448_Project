@@ -20,18 +20,18 @@ public abstract class FSystem {
 	}
 	
 	public void deleteProfile() {
-		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+	/*	SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		session.delete(this.user);
 		session.getTransaction().commit();
 		session.close();
-		sessionFactory.close();
+		sessionFactory.close();*/
 	}
 	
 	
 	
-	abstract void showOptions();  //view view = new view();
+	abstract void showOptions(String option);  //view view = new view();
 	
 	
 }

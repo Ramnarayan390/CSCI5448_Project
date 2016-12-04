@@ -8,7 +8,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
 public class HibernateUtil {
-	private static SessionFactory sessionFactory = null;
+/*	private static SessionFactory sessionFactory = null;
 
 	public static SessionFactory getSessionFactory() {
 		try {
@@ -23,5 +23,5 @@ public class HibernateUtil {
 			return metadata.getSessionFactoryBuilder().build();
 		} catch(Exception e){}
 		return null;
-	}
+	}*/
 }

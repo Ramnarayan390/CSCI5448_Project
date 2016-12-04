@@ -3,7 +3,8 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import models.Trainer;
+import models.*;
+import views.*;
 
 public class TrainerSystem extends FSystem {
 
@@ -13,19 +14,25 @@ public class TrainerSystem extends FSystem {
 	}
 	
 	@Override
-	void showOptions()
+	void showOptions(String option)
 	{
-		createTrainerProfileView view = new createTrainerProfileView();
+		if ( option.equals("createProfile") )
+		{
+			createTrainerProfileView view = new createTrainerProfileView();
+		}
+			//
 		//view.main("ss");
 		// TODO Auto-generated method stub
 		
 	}
 	
+	
+	
 	public Trainer getUser()
 	{
 		return (Trainer) super.getUser();
 	}
-
+	
 	
 /*	public void viewSchedule()
 	{
@@ -47,7 +54,7 @@ public class TrainerSystem extends FSystem {
 
 		//this.getUser().changeSchedule(dayToAdd, timeToAdd, this.getUser().getName());
 
-		this.getUser().changeSchedule(dayToAdd, timeToAdd);
+//		this.getUser().changeSchedule(dayToAdd, timeToAdd);
 
 		JOptionPane.showMessageDialog(null, "Successfully Added!");
 	}
