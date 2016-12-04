@@ -75,9 +75,8 @@ public class controller {
 		//List result = q.list();
 		List result;
 		dbSearch db = new dbSearch(this);
-		System.out.print("usertype" + this.usertype+ username);
-		result = db.searchDBList(this.usertype,"username",username);
-		System.out.print("result.get(0).username" + "db class works");
+		result = db.searchDBList(this.usertype,"username");
+		System.out.print("result.get(0).name" + "db class works");
 		if (result.isEmpty()) 
 		{
 			System.out.println("Incorrect Username");
@@ -129,9 +128,9 @@ public class controller {
 			//this.fsystem = factory.getSystem(userType);
 			System.out.println("fsystem set");
 			//view.setVisible(false);
-
+			
 			this.view = fsystem.showOptions(displayType,this);
-			//view.setController(this);
+			view.setController(this);
 		}
 		
 	}

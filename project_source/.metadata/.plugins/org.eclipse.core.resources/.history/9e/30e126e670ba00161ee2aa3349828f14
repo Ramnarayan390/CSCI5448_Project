@@ -19,8 +19,7 @@ public class controller {
 	public view view;
 	public SessionFactory userDB;
 	public FSystem fsystem;
-	//public String name;
-	public String usertype;
+	public String name;
 
 	//private ActionListener actionListner;
 	
@@ -32,7 +31,7 @@ public class controller {
 		//this.view.register();
 		this.userDB = new Configuration().configure().buildSessionFactory();
 		///this.view.setController(this);
-
+		this.name = "abc";
 	}
 	
 	
@@ -69,15 +68,12 @@ public class controller {
 	public void login(String username, String password) //add type for login
 	{
 		
-		//Session session = createDBSesssion(this.userDB);		
-		//Query q = session.createQuery("from Trainer as T where T.username = :username");		
-		//q.setString("username",  username);
-		//List result = q.list();
-		List result;
-		dbSearch db = new dbSearch(this);
-		System.out.print("usertype" + this.usertype+ username);
-		result = db.searchDBList(this.usertype,"username",username);
-		System.out.print("result.get(0).username" + "db class works");
+		Session session = createDBSesssion(this.userDB);		
+		Query q = session.createQuery("from Trainer as T where T.username = :username");		
+		q.setString("username",  username);
+		List result = q.list();
+		
+		
 		if (result.isEmpty()) 
 		{
 			System.out.println("Incorrect Username");
@@ -106,8 +102,8 @@ public class controller {
 				System.out.println(user.username + "incorrect passowrd");
 			}
 		}
-		//System.out.println("DB almost");			
-		//session = closeDBSession(session);
+		System.out.println("DB almost");			
+		session = closeDBSession(session);
 	}
 	
 	public void display(String userType, String displayType)
@@ -129,9 +125,9 @@ public class controller {
 			//this.fsystem = factory.getSystem(userType);
 			System.out.println("fsystem set");
 			//view.setVisible(false);
-
+			
 			this.view = fsystem.showOptions(displayType,this);
-			//view.setController(this);
+			view.setController(this);
 		}
 		
 	}

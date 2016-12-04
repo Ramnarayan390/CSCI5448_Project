@@ -14,19 +14,17 @@ public class dbSearch {
 		this.controller = controller;
 	}
 	
-	public List searchDBList(String table, String fieldName, String fieldValue)
+	public List searchDBList(String table, String field)
 	{
 		System.out.println("Query Begin");
 		Session session = controller.createDBSesssion(controller.userDB);
-		System.out.println("Query  " + "from " + table + " as T where T.field = :field");
-		Query q = session.createQuery("from " + table + " as T where T." + fieldName + "= :field");	
-		System.out.println("Query2  " + "from " + table + " as T where T." + fieldName + "= :field");
-		q.setString("field",  fieldValue);
-		
-		
+		System.out.println("Query  " + "from" + table + "as T where T.field = :field");
+		Query q = session.createQuery("from" + table + "as T where T.field = :field");	
+		System.out.println("Query2  " + "from" + table + "as T where T.field = :field");
+		q.setString("field",  field);
 		List result = q.list();
 		session = controller.closeDBSession(session);
-		return result;
+		return q.list();
 	}
 	
 	public User searchDBUser(String table, String field)

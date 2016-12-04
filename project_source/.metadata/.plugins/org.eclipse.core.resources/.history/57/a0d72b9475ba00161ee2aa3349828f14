@@ -129,7 +129,7 @@ public class controller {
 			//this.fsystem = factory.getSystem(userType);
 			System.out.println("fsystem set");
 			//view.setVisible(false);
-
+			
 			this.view = fsystem.showOptions(displayType,this);
 			//view.setController(this);
 		}

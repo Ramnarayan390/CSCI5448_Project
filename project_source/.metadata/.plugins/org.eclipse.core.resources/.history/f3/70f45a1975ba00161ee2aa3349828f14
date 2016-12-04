@@ -26,7 +26,7 @@ public class dbSearch {
 		
 		List result = q.list();
 		session = controller.closeDBSession(session);
-		return result;
+		return q.list();
 	}
 	
 	public User searchDBUser(String table, String field)

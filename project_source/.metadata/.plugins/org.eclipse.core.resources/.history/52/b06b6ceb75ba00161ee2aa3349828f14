@@ -32,7 +32,6 @@ public class AdminSystem extends FSystem {
 		else if (option.equals("homePage"))
 		{
 			//currentView = new AdminProfileView(controller);		
-			System.out.println("Show admin homepage");
 		}
 		return currentView;	//
 		//view.main("ss");

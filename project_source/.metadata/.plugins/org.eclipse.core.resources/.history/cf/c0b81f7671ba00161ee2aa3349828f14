@@ -12,27 +12,30 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import controllers.controller;
-import controllers.systemFactory;
 
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 
-public class startupView extends view implements ActionListener{
+public class loginPageView extends view implements ActionListener{
 	
 	private JFrame frame;
 	private JPanel panel;
 	private JLabel headerLabel;
+	private JLabel userLabel;
+	private JTextField userText; 
+	private JLabel passwordLabel;
+	private JPasswordField passwordText;
 	private JLabel roleText;
 	private JComboBox roleChoice;
 	private JButton loginButton;
 	private JButton resetButton;
 	
-	public startupView(controller controller){
+	public loginPageView(controller controller){
 		
 		super(controller);
 		frame = new JFrame("Login");
-		frame.setSize(400,150);
+		frame.setSize(400,330);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		panel = new JPanel();
@@ -46,13 +49,29 @@ public class startupView extends view implements ActionListener{
 
 		panel.setLayout(null);
 		//JLabel headerLabel;
-		headerLabel = new JLabel(""); 
+		headerLabel = new JLabel("Login"); 
 		headerLabel.setBounds(200,10,100,10);
-		headerLabel.setText(""); 
+		headerLabel.setText("LOGIN"); 
 		panel.add(headerLabel);
 		
+		userLabel = new JLabel("User");
+		userLabel.setBounds(10, 40, 80, 25);
+		panel.add(userLabel);
+
+		userText = new JTextField(20);
+		userText.setBounds(100, 40, 160, 25);
+		panel.add(userText);
+
+		passwordLabel = new JLabel("Password");
+		passwordLabel.setBounds(10, 70, 80, 25);
+		panel.add(passwordLabel);
+
+		passwordText = new JPasswordField(20);
+		passwordText.setBounds(100, 70, 160, 25);
+		panel.add(passwordText);
+		
 		roleText = new JLabel("Role");
-		roleText.setBounds(100, 25, 40, 25);
+		roleText.setBounds(10, 100, 40, 25);
 		panel.add(roleText);
 		
 		String[] roleOptions = { "User", "Trainer", "Admin" };
@@ -61,15 +80,15 @@ public class startupView extends view implements ActionListener{
 		roleChoice = new JComboBox(roleOptions);
 		roleChoice.setSelectedIndex(2);
 		//petList.addActionListener(this);
-		roleChoice.setBounds(150, 25, 100, 20);
+		roleChoice.setBounds(100, 105, 100, 20);
 		panel.add(roleChoice);
 		
 		loginButton = new JButton("Login");
-		loginButton.setBounds(50, 75, 80, 50);
+		loginButton.setBounds(50, 150, 80, 20);
 		panel.add(loginButton);
 		
-		resetButton = new JButton("Create Profile");
-		resetButton.setBounds(150, 75, 180, 50);
+		resetButton = new JButton("Reset Password");
+		resetButton.setBounds(150, 150, 180, 20);
 		panel.add(resetButton);
 
 		//JButton registerButton = new JButton("register");
@@ -93,22 +112,20 @@ public class startupView extends view implements ActionListener{
 	
 	public void actionPerformed(ActionEvent actionEvent)
 	{
-
-
-		systemFactory factory = new systemFactory();
-		controller.fsystem = factory.getSystem(roleChoice.getSelectedItem().toString());
-		controller.usertype = roleChoice.getSelectedItem().toString();
+		String username;
+		String password;
+		
+		username = userText.getText();
+		password = new String(passwordText.getPassword());
 		if (actionEvent.getActionCommand() == "Login")
 		{
 			System.out.println("Login Clicked");	
-			controller.display(roleChoice.getSelectedItem().toString(),"login");			
+			controller.login(username, password);
 		}
-		else if (actionEvent.getActionCommand() == "Create Profile")
+		else if (actionEvent.getActionCommand() == "Reset Password")
 		{
-			System.out.println("Create Profile Clicked");	
-			System.out.println(roleChoice.getSelectedItem().toString());
-			controller.display(roleChoice.getSelectedItem().toString(),"createProfile");
-			//controller.createProfile(profileType);			
+			System.out.println("Reset Clicked");	
+			//controller.login("HEY", "abc");			
 		}
 	}
 
