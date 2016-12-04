@@ -21,7 +21,7 @@ public class driver  {
 		//view view = new loginView();
 		//view view = new createTrainerProfileView();
 		view view = new startupView();
-
+		//view view = new trainerHomepageView();
 		
 		controller control = new controller(model,view);
 		control.control();

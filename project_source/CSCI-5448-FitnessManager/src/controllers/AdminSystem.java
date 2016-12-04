@@ -29,6 +29,10 @@ public class AdminSystem extends FSystem {
 			currentView = new createAdminProfileView();
 			//view.setController(controller);
 		}
+		else if (option.equals("homePage"))
+		{
+			//currentView = new trainerHomepageView();		
+		}
 		return currentView;	//
 		//view.main("ss");
 		// TODO Auto-generated method stub		

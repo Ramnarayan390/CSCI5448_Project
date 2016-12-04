@@ -116,7 +116,7 @@ public class loginPageView extends view implements ActionListener{
 		if (actionEvent.getActionCommand() == "Login")
 		{
 			System.out.println("Login Clicked");	
-			//controller.login("HEY", "abc");			
+			controller.login(username, password);
 		}
 		else if (actionEvent.getActionCommand() == "Reset Password")
 		{

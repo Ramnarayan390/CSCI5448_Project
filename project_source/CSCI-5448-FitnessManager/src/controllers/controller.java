@@ -65,7 +65,7 @@ public class controller {
 		return !result.isEmpty();
 	}
 	
-	public void login(String username, String password)
+	public void login(String username, String password) //add type for login
 	{
 		
 		Session session = createDBSesssion(this.userDB);		
@@ -85,6 +85,8 @@ public class controller {
 			if(  user.verifyPass(password) )
 			{
 				System.out.println("Login Successfull");
+				display("Trainer","homePage");
+				
 				
 				//do system factory here
 				/*FSystem system = new TrainerSystem((Trainer)user); //based on the login type change this	
@@ -105,19 +107,22 @@ public class controller {
 	public void display(String userType, String displayType)
 	{
 		
+		view.setVisible(false);
 		if ( displayType.equals("login"))
 		{
-			view.setVisible(false);
-			this.view = new loginView();
+			
+			System.out.println("login view");
+			this.view = new loginPageView();
 			view.setController(this);
 			
 		}
 		else
 		{
+			System.out.println("other view");
 			systemFactory factory = new systemFactory();
 			this.fsystem = factory.getSystem(userType);
-			view.setVisible(false);
-			this.view = fsystem.showOptions("createProfile");
+			//view.setVisible(false);
+			this.view = fsystem.showOptions(displayType);
 			view.setController(this);
 		}
 		

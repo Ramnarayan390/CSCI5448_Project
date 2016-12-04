@@ -92,13 +92,13 @@ public class loginView extends view implements ActionListener {
 	public JButton resetPasswordButton()
 	{
 		return resetPasswordButton;
-	}*/
+	}
 	
 	@Override
 	public void setVisible(Boolean visiblity)
 	{
 		frame.setVisible(visiblity);
-	}
+	}*/
 	
 	//@Override
 	public void actionPerformed(ActionEvent actionEvent)

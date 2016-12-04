@@ -29,6 +29,10 @@ public class TrainerSystem extends FSystem {
 			currentView = new createTrainerProfileView();
 			//view.setController(controller);
 		}
+		else if (option.equals("homePage"))
+		{
+			currentView = new trainerHomepageView();		
+		}
 		return currentView;	//
 		//view.main("ss");
 		// TODO Auto-generated method stub

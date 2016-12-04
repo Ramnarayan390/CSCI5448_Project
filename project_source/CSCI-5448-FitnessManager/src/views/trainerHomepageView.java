@@ -1,5 +1,6 @@
 package views;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,16 +20,18 @@ public class trainerHomepageView extends view implements ActionListener {
 	private JFrame frame;
 	private JPanel panel;
 	private JLabel headerLabel;
+	private JLabel verifiedLabel;
 	private JButton updateButton;
 	private JButton deleteButton;
 	private JButton viewButton;
 	private JButton editButton;
 
+
 	
 
 	public trainerHomepageView() {
 		frame = new JFrame("Trainer Homepage");
-		frame.setSize(500,500);
+		frame.setSize(500,230);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		panel = new JPanel();
@@ -42,10 +45,14 @@ public class trainerHomepageView extends view implements ActionListener {
 
 		panel.setLayout(null);
 		
-		headerLabel = new JLabel(""); 
-		headerLabel.setBounds(200,10,100,10);
-		headerLabel.setText("Welcome Trainer"); 
+		headerLabel = new JLabel("Welcome Trainer"); 
+		headerLabel.setBounds(200,10,200,10);
 		panel.add(headerLabel);
+		
+		verifiedLabel = new JLabel("Verification Pending");
+		verifiedLabel.setBounds(50,20,150,30);
+		verifiedLabel.setForeground(Color.RED);
+		panel.add(verifiedLabel);
 		
 		updateButton = new JButton("Update profile");
 		updateButton.setBounds(50, 50, 180, 50);
@@ -64,10 +71,11 @@ public class trainerHomepageView extends view implements ActionListener {
 		panel.add(editButton);
 		
 
+		updateButton.setEnabled(false);
+		deleteButton.setEnabled(false);
+		viewButton.setEnabled(false);
+		editButton.setEnabled(false);
 
-		//JButton registerButton = new JButton("register");
-		//registerButton.setBounds(180, 130, 80, 25);
-		//panel.add(registerButton);
 		this.register();
 	}
 	
@@ -85,6 +93,18 @@ public class trainerHomepageView extends view implements ActionListener {
 		public void setVisible(Boolean visiblity)
 		{
 			frame.setVisible(visiblity);
+		}
+		
+		public void setVerified()
+		{
+			updateButton.setEnabled(true);
+			deleteButton.setEnabled(true);
+			viewButton.setEnabled(true);
+			editButton.setEnabled(true);
+		}
+		public void setName(String name)
+		{
+			this.headerLabel.setText("welcome" + name);
 		}
 		
 		public void actionPerformed(ActionEvent actionEvent)
