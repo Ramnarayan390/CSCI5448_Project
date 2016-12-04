@@ -44,11 +44,11 @@ public class TrainerSystem extends FSystem {
 		//this.viewSchedule();
 		String dayToAdd = JOptionPane.showInputDialog(null, "What day would you like to add?");
 		String timeToAdd = JOptionPane.showInputDialog(null, "What time would you like to add for " + dayToAdd + "?");
-
+<<<<<<< HEAD
 		//this.getUser().changeSchedule(dayToAdd, timeToAdd, this.getUser().getName());
-
+=======
 		this.getUser().changeSchedule(dayToAdd, timeToAdd);
-
+>>>>>>> 8898767915aeea94c4f7d2a9a9908ebfbe781fcb
 		JOptionPane.showMessageDialog(null, "Successfully Added!");
 	}
 	

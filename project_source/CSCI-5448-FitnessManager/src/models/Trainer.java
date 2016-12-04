@@ -1,10 +1,9 @@
 package models;
 
-import javax.persistence.AttributeOverride;
+import java.util.ArrayList;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 
@@ -18,7 +17,8 @@ public class Trainer extends User {
 	public String Skills;
 	@Column(name="Summary")
 	public String Summary;
-	
+	@Column(name="Schedule")
+	public ArrayList<String> schedule;
 	public Trainer()
 	{
 		;
@@ -29,7 +29,7 @@ public class Trainer extends User {
 		this.Verified = Verfied;
 		this.Skills = Skills;
 		this.Summary = Summary;
-		
+		this.schedule = new ArrayList<String>();	
 	}
 	public boolean isVerified() {
 		return Verified;
@@ -55,6 +55,19 @@ public class Trainer extends User {
 		Summary = summary;
 	}
 	
+	public ArrayList<String> getSchedule()
+	{
+		return this.schedule;
+	}
 	
+	public void addSchedule(String day, String time)
+	{
+		schedule.add(day + " at " + time);
+	}
+	
+	public void clientSchedule(int index, String name)
+	{
+		schedule.set(index, schedule.get(index) + " is scheduled with " + name);
+	}
 	
 }
