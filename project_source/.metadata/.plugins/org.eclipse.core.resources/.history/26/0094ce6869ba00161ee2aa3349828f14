@@ -1,0 +1,23 @@
+package controllers;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+import models.*;
+public class dbSearch {
+
+	private controller controller;
+	
+	
+	public User searchDB(String table, String field)
+	{
+		Session session = controller.createDBSesssion(controller.userDB);
+		Query q = session.createQuery("from" + table + "as T where T.field = :field");		
+		q.setString("username",  username);
+		List result = q.list();
+		
+	}
+	
+}

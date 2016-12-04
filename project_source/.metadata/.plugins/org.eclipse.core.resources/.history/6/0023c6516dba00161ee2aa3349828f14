@@ -1,0 +1,177 @@
+package controllers;
+
+//import java.awt.*;
+import java.util.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import models.*;
+import views.*;
+
+public class controller {
+
+	private Model model;
+	public view view;
+	public SessionFactory userDB;
+	public FSystem fsystem;
+	public String name;
+
+	//private ActionListener actionListner;
+	
+	public controller(Model model, view view)
+	{
+		this.model = model;
+		this.view = view;
+		
+		//this.view.register();
+		this.userDB = new Configuration().configure().buildSessionFactory();
+		///this.view.setController(this);
+		this.name = "abc";
+	}
+	
+	
+	protected void finalize()
+	{
+		System.out.println("Controller Destructor");
+		userDB.close();
+	}
+	public void control()
+	{
+		
+		//view.getOkButton().addActionListener(this);
+		//view.resetPasswordButton().addActionListener(this);
+
+
+	}
+	private void updateCount()
+	{
+		model.incrementX();
+
+	}
+	
+	public boolean user_exists(String username)
+	{
+	
+		Session session = createDBSesssion(this.userDB);		
+		Query q = session.createQuery("from Trainer as T where T.username = :username");		
+		q.setString("username",  username);
+		List result = q.list();		
+		session = closeDBSession(session);
+		return !result.isEmpty();
+	}
+	
+	public void login(String username, String password) //add type for login
+	{
+		
+		Session session = createDBSesssion(this.userDB);		
+		Query q = session.createQuery("from Trainer as T where T.username = :username");		
+		q.setString("username",  username);
+		List result = q.list();
+		
+		
+		if (result.isEmpty()) 
+		{
+			System.out.println("Incorrect Username");
+		}
+		else
+		{
+
+			User user = (User)result.get(0);			
+			if(  user.verifyPass(password) )
+			{
+				this.fsystem.setUser(user);
+				System.out.println("Login Successfull");
+				display("Trainer","homePage");
+				
+				
+				//do system factory here
+				/*FSystem system = new TrainerSystem((Trainer)user); //based on the login type change this	
+				view.setVisible(false);
+				// view = null;
+				this.view=system.showOptions("createProfile");
+				view.setController(this);*/
+			}
+			else
+			{
+				System.out.println(user.username + "incorrect passowrd");
+			}
+		}
+		System.out.println("DB almost");			
+		session = closeDBSession(session);
+	}
+	
+	public void display(String userType, String displayType)
+	{
+		
+		view.setVisible(false);
+		if ( displayType.equals("login"))
+		{
+			
+			System.out.println("login view");
+			this.view = new loginPageView(this.controller);
+			//view.setController(this);
+			
+		}
+		else
+		{
+			System.out.println("other view");
+			systemFactory factory = new systemFactory();
+			this.fsystem = factory.getSystem(userType);
+			//view.setVisible(false);
+			this.view = fsystem.showOptions(displayType,controller);
+			view.setController(this);
+		}
+		
+	}
+	
+	/*public void createProfile(String profileType, String display)
+	{
+		System.out.println("create profile");
+		//systemFactory factory = new systemFactory();
+		//this.fsystem = factory.getSystem(profileType);		
+		System.out.println("got factory");
+	}*/
+	
+	/*public void createProfile(String...values)
+	{
+		Session session = this.createDBSesssion(this.getUserDB());
+		//this.fsystem.createProfile(false, skills, Summary, username, name, gender, email, location, securityQuestion, securityAnswer, password);
+		this.fsystem.createProfile(values);
+		session.save(this.fsystem.getUser());
+		session = this.closeDBSession(session);
+	}*/
+	public FSystem getFsystem() {
+		return fsystem;
+	}
+
+	
+	public SessionFactory getUserDB() {
+		return userDB;
+	}
+
+
+	public Session createDBSesssion(SessionFactory sessionFactory)
+	{
+		//provides session instances
+		System.out.println("1");
+		Session session = sessionFactory.openSession();
+		System.out.println("2");
+		session.beginTransaction();
+		System.out.println("3");
+		return session;
+	}
+	
+	public Session closeDBSession(Session session)
+	{
+		
+        //commits transaction and closes session instance
+		session.getTransaction().commit();
+        session.close();        
+		return null;
+	}
+}

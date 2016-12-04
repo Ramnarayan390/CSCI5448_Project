@@ -11,6 +11,10 @@ import javax.swing.*;
 public class view {
 	protected controller controller;
 	
+	public view (controller control)
+	{
+		this.controller = control;
+	}
 	public controller getController() {
 		return controller;
 	}

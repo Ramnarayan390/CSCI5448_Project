@@ -1,4 +1,5 @@
 package views;
+import controllers.*;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -29,7 +30,8 @@ public class trainerHomepageView extends view implements ActionListener {
 
 	
 
-	public trainerHomepageView() {
+	public trainerHomepageView(controller controller) {
+		super(controller);
 		frame = new JFrame("Trainer Homepage");
 		frame.setSize(500,230);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,7 +47,7 @@ public class trainerHomepageView extends view implements ActionListener {
 
 		panel.setLayout(null);
 		
-		headerLabel = new JLabel("Welcome Trainer"); 
+		headerLabel = new JLabel("welcome" + controller.fsystem.user.getUsername()); 
 		headerLabel.setBounds(200,10,200,10);
 		panel.add(headerLabel);
 		

@@ -10,6 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
+import controllers.controller;
+
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
@@ -27,7 +30,8 @@ public class clientHomepageView extends view implements ActionListener {
 	private JButton rateButton;
 	
 
-	public clientHomepageView() {
+	public clientHomepageView (controller controller) {
+		super(controller);
 		frame = new JFrame("Client Homepage");
 		frame.setSize(500,500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

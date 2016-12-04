@@ -16,6 +16,8 @@ import javax.swing.JTextField;
 
 import org.hibernate.Session;
 
+import controllers.controller;
+
 //import org.hibernate.Query;
 //import org.hibernate.Session;
 //import org.hibernate.SessionFactory;
@@ -45,8 +47,9 @@ public class createAdminProfileView extends view implements ActionListener{
 	private JButton submitButton;
 	
 		
-	public createAdminProfileView() 
+	public createAdminProfileView(controller controller) 
 	{
+		super(controller);
 		frame = new JFrame("Admin Profile");
 		frame.setSize(650,350);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

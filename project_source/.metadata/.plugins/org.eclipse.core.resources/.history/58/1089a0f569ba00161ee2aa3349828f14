@@ -1,0 +1,33 @@
+package controllers;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+import models.*;
+public class dbSearch {
+
+	private controller controller;
+	
+	
+	public List searchDBList(String table, String field)
+	{
+		Session session = controller.createDBSesssion(controller.userDB);
+		Query q = session.createQuery("from" + table + "as T where T.field = :field");		
+		q.setString("field",  field);
+		List result = q.list();
+		session = controller.closeDBSession(session);
+		return q.list();
+	}
+	
+	public User searchDBUser(String table, String field)
+	{
+		Session session = controller.createDBSesssion(controller.userDB);
+		Query q = session.createQuery("from" + table + "as T where T.field = :field");		
+		q.setString("field",  field);
+		List result = q.list();
+		session = controller.closeDBSession(session);
+		return (User)result.get(0);
+	}
+}

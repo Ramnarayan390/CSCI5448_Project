@@ -22,9 +22,10 @@ public class loginView extends view implements ActionListener {
 	public JTextField userField;
 	public JPasswordField passField;
 	
-	public loginView()
+	public loginView(controller controller)
 	{
 		
+		super(controller);
 		frame = new JFrame("login");
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -10,6 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
+import controllers.controller;
+
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
@@ -28,8 +31,9 @@ public class loginPageView extends view implements ActionListener{
 	private JButton loginButton;
 	private JButton resetButton;
 	
-	public loginPageView(){
+	public loginPageView(controller controller){
 		
+		super(controller);
 		frame = new JFrame("Login");
 		frame.setSize(400,330);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

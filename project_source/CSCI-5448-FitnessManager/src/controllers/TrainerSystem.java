@@ -21,17 +21,17 @@ public class TrainerSystem extends FSystem {
 	}
 	
 	@Override
-	public view showOptions(String option)
+	public view showOptions(String option, controller controller)
 	{
 		view currentView = null;
 		if ( option.equals("createProfile") )
 		{
-			currentView = new createTrainerProfileView();
+			currentView = new createTrainerProfileView(controller);
 			//view.setController(controller);
 		}
 		else if (option.equals("homePage"))
 		{
-			currentView = new trainerHomepageView();		
+			currentView = new trainerHomepageView(controller);		
 		}
 		return currentView;	//
 		//view.main("ss");

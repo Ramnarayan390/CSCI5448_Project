@@ -1,0 +1,15 @@
+package controllers;
+
+import models.*;
+public class dbSearch {
+
+	private controller controller;
+	
+	
+	public User searchDB(String table, String field)
+	{
+		
+		
+	}
+	
+}

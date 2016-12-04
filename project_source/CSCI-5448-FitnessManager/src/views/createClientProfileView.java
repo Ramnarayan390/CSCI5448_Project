@@ -14,6 +14,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import controllers.controller;
+
 //import org.hibernate.Query;
 //import org.hibernate.Session;
 //import org.hibernate.SessionFactory;
@@ -52,8 +54,9 @@ public class createClientProfileView extends view implements ActionListener{
 	private JButton submitButton;
 	
 		
-	public createClientProfileView() 
+	public createClientProfileView(controller controller) 
 	{
+		super(controller);
 		frame = new JFrame("Client Profile Page");
 		frame.setSize(700,500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

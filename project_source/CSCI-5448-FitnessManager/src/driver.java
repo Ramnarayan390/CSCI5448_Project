@@ -20,10 +20,11 @@ public class driver  {
 		Model model = new Model();
 		//view view = new loginView();
 		//view view = new createTrainerProfileView();
-		view view = new startupView();
+		//view view = new startupView();
 		//view view = new trainerHomepageView();
-		
+		view view = null;
 		controller control = new controller(model,view);
+		control.view = new startupView(control);
 		control.control();
 		 
 	}

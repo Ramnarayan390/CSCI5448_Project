@@ -19,6 +19,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import controllers.controller;
 import models.*;
 
 
@@ -45,8 +46,9 @@ public class createTrainerProfileView extends view implements ActionListener{
 	private JButton submitButton;
 	
 		
-	public createTrainerProfileView() 
+	public createTrainerProfileView(controller controller) 
 	{
+		super(controller);
 		frame = new JFrame("Login Page");
 		frame.setSize(850,850);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -196,7 +198,8 @@ public class createTrainerProfileView extends view implements ActionListener{
 		Session session = controller.createDBSesssion(controller.getUserDB());
 		
 		controller.fsystem.createProfile(false, skills, Summary, username, name, gender, email, location, securityQuestion, securityAnswer, password);
-		session.save((Trainer)controller.fsystem.getUser());
+		//session.save((Trainer)controller.fsystem.getUser());
+		session.save(controller.fsystem.getUser());
 		session = controller.closeDBSession(session);
 		
 		//controller.fsystem.createProfile(false, skills, Summary, username, name, gender, email, location, securityQuestion, securityAnswer, password);
@@ -208,6 +211,7 @@ public class createTrainerProfileView extends view implements ActionListener{
         session.close();
         System.out.println("7 created");*/
 		System.out.println(controller.fsystem.user.email);
+		controller.display("Trainer","homePage");
 	}
 	
 	@Override

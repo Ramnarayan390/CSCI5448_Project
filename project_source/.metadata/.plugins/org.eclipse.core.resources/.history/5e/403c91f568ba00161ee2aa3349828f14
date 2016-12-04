@@ -1,0 +1,14 @@
+package controllers;
+
+public class dbSearch {
+
+	private controller controller;
+	
+	
+	public User searchDB(String table, String field)
+	{
+		
+		
+	}
+	
+}

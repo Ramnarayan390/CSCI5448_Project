@@ -16,7 +16,7 @@ import views.*;
 public class controller {
 
 	private Model model;
-	private view view;
+	public view view;
 	public SessionFactory userDB;
 	public FSystem fsystem;
 	public String name;
@@ -30,7 +30,7 @@ public class controller {
 		
 		//this.view.register();
 		this.userDB = new Configuration().configure().buildSessionFactory();
-		this.view.setController(this);
+		///this.view.setController(this);
 		this.name = "abc";
 	}
 	
@@ -85,6 +85,8 @@ public class controller {
 			if(  user.verifyPass(password) )
 			{
 				System.out.println("Login Successfull");
+				this.fsystem.user = user;
+				System.out.println("Login Successfull");
 				display("Trainer","homePage");
 				
 				
@@ -112,17 +114,19 @@ public class controller {
 		{
 			
 			System.out.println("login view");
-			this.view = new loginPageView();
-			view.setController(this);
+			this.view = new loginPageView(this);
+			//view.setController(this);
 			
 		}
 		else
 		{
 			System.out.println("other view");
-			systemFactory factory = new systemFactory();
-			this.fsystem = factory.getSystem(userType);
+			//systemFactory factory = new systemFactory();
+			//this.fsystem = factory.getSystem(userType);
+			System.out.println("fsystem set");
 			//view.setVisible(false);
-			this.view = fsystem.showOptions(displayType);
+			
+			this.view = fsystem.showOptions(displayType,this);
 			view.setController(this);
 		}
 		
