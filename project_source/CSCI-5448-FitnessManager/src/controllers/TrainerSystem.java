@@ -1,8 +1,9 @@
 package controllers;
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
-import models.*;
-import views.*;
+import models.Trainer;
 
 public class TrainerSystem extends FSystem {
 
@@ -26,12 +27,12 @@ public class TrainerSystem extends FSystem {
 	
 	public void viewSchedule()
 	{
-		String[] schedule = this.getUser().getSchedule();
+		ArrayList<String> schedule = this.getUser().getSchedule();
 		
 		String formatString = "";
-		for (int i = 0; i < schedule.length; i++)
+		for (int i = 0; i < schedule.size(); i++)
 		{
-				formatString += (i+1) + ". " + schedule[i] + "\n";
+				formatString += (i+1) + ". " + schedule.get(i) + "\n";
 		}
 		JOptionPane.showMessageDialog(null, formatString);
 	}
@@ -41,7 +42,7 @@ public class TrainerSystem extends FSystem {
 		this.viewSchedule();
 		String dayToAdd = JOptionPane.showInputDialog(null, "What day would you like to add?");
 		String timeToAdd = JOptionPane.showInputDialog(null, "What time would you like to add for " + dayToAdd + "?");
-		this.getUser().changeSchedule(dayToAdd, timeToAdd, "");
+		this.getUser().changeSchedule(dayToAdd, timeToAdd);
 		JOptionPane.showMessageDialog(null, "Successfully Added!");
 	}
 	

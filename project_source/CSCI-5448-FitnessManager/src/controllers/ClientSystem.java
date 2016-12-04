@@ -65,11 +65,11 @@ public class ClientSystem extends FSystem {
 		}
 		String trainerID = JOptionPane.showInputDialog(null, "Please enter the number of the trainer you wish to view the schedule of.\n" + formatString);
 		int tID = Integer.parseInt(trainerID);
-		String[] schedule = trainersList.get(tID).getSchedule();
+		ArrayList<String> schedule = trainersList.get(tID).getSchedule();
 		
-		for (int i = 0; i < schedule.length; i++)
+		for (int i = 0; i < schedule.size(); i++)
 		{
-			formatString += (i+1) + ". " + schedule[i] + "\n";
+			formatString += (i+1) + ". " + schedule.get(i) + "\n";
 		}
 		String scheduleID = JOptionPane.showInputDialog(null, "Please enter the number of the slot you would like to book:\n" + formatString);
 		int sID = Integer.parseInt(scheduleID);
