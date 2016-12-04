@@ -14,6 +14,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import org.hibernate.Session;
+
 //import org.hibernate.Query;
 //import org.hibernate.Session;
 //import org.hibernate.SessionFactory;
@@ -39,7 +41,7 @@ public class createAdminProfileView extends view implements ActionListener{
 	private JComboBox secQuesText;
 	private JTextField secAnsText;
 	private JLabel adminCodeLabel;
-	private JTextField adminCodeText;
+	private JTextField adminRole;
 	private JButton submitButton;
 	
 		
@@ -122,9 +124,9 @@ public class createAdminProfileView extends view implements ActionListener{
 		adminCodeLabel.setBounds(10, 150, 80, 25);
 		panel.add(adminCodeLabel);
 
-		adminCodeText = new JTextField(20);
-		adminCodeText.setBounds(100, 150, 160, 25);
-		panel.add(adminCodeText);
+		adminRole = new JTextField(20);
+		adminRole.setBounds(100, 150, 160, 25);
+		panel.add(adminRole);
 		
 		
 		submitButton = new JButton("Submit");
@@ -142,44 +144,27 @@ public class createAdminProfileView extends view implements ActionListener{
 	public void actionPerformed(ActionEvent actionEvent)	
 	{
 		//String skills = skillsText.getText();
-		//String Summary = summaryText.getText();
+		//String Summary = summaryText.getText();		
+		//String name = "ahahah";
+		//String gender;
+		
 		String username = userText.getText();
-		String name = "ahahah";
-		String gender;
 		String email = emailText.getText();
 		String location = locationText.getText();
 		String securityQuestion;
-		String securityAnswer = secAnsText.getText();;
-		String password = new String(passwordText.getPassword());
-		
-		//if (Male.isSelected())
-		//	gender = "MALE";
-		//else
-			//gender = "FEMALE";
-		
+		String securityAnswer = secAnsText.getText();
+		String AdminRole = adminRole.getText();
+		String password = new String(passwordText.getPassword());		
+		String name = "name";
+		String gender = "N/A";
 		securityQuestion = secQuesText.getSelectedItem().toString();
 		
-		/*SessionFactory factory = new Configuration().configure().buildSessionFactory();
-		System.out.println("creating session");
-		Session session = factory.openSession();
-		session.beginTransaction();
-		//
-		System.out.println("session created");*/
-		//Session session = controller.createDBSesssion(controller.getUserDB());
-		//controller.createProfile("Trainer");
-		//controller.fsystem.createProfile(false, skills, Summary, username, name, gender, email, location, securityQuestion, securityAnswer, password);
-		//session.save((Trainer)controller.fsystem.getUser());
-		//session = controller.closeDBSession(session);
+		Session session = controller.createDBSesssion(controller.getUserDB());
 		
-		//controller.fsystem.createProfile(false, skills, Summary, username, name, gender, email, location, securityQuestion, securityAnswer, password);
-		/*System.out.println("1 created");
-		session.save((Trainer)controller.fsystem.getUser());
-		System.out.println("5 created");
-		session.getTransaction().commit();
-		System.out.println("6 created");
-        session.close();
-        System.out.println("7 created");*/
-		//System.out.println(controller.fsystem.user.email);
+		controller.fsystem.createProfile(AdminRole, username, name, gender, email, location, securityQuestion, securityAnswer, password);
+		session.save((Admin)controller.fsystem.getUser());
+		session = controller.closeDBSession(session);
+
 	}
 	
 	@Override

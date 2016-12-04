@@ -13,6 +13,11 @@ public class systemFactory {
 			fsystem  = new TrainerSystem();
 			System.out.println("trainer system");
 		}
+		if(type.equals("Admin"))
+		{
+			fsystem  = new AdminSystem();
+			System.out.println("admin system");
+		}
 		else
 		{
 			System.out.println("null system");

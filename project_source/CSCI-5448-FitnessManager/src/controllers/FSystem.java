@@ -33,6 +33,7 @@ public abstract class FSystem {
 	//public abstract void createProfile();
 	public abstract void createProfile(boolean Verfied, String skills, String Summary, String username, String name, String gender, String email, String location, String securityQuestion, String securityAnswer, String password);
 	//public abstract void createProfile(String...values);
+	public abstract void createProfile(String AdminRole, String username, String name, String gender,String email, String location,String securityQuestion, String securityAnswer, String password);
 	public abstract view showOptions(String option);  //view view = new view();
 	
 	

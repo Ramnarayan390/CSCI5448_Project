@@ -49,6 +49,11 @@ public class TrainerSystem extends FSystem {
 		super.setUser(user);	
 	}
 	
+	public void createProfile(String AdminRole, String username, String name, String gender,String email, String location,String securityQuestion, String securityAnswer, String password)
+	{
+		System.out.println("wrong constructor");
+		
+	}
 /*	public void viewSchedule()
 	{
 		ArrayList<String> schedule = this.getUser().getSchedule();
