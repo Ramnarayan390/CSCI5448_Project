@@ -119,7 +119,7 @@ public class User implements Subscriber{
 	
 	public void notifySubcribers()
 	{
-		for (Subscriber s : subscribers)
+		for (Subscriber s : Subscribers)
 		{
 			s.update("event");
 		}

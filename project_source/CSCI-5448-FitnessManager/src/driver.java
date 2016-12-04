@@ -18,7 +18,9 @@ public class driver  {
 	public static void main(String[] args)
 	{
 		Model model = new Model();
-		view view = new loginView();
+		//view view = new loginView();
+		//view view = new createTrainerProfileView();
+		view view = new startupView();
 
 		
 		controller control = new controller(model,view);

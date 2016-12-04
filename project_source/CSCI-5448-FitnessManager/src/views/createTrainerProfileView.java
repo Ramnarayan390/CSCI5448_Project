@@ -182,7 +182,7 @@ public class createTrainerProfileView extends view implements ActionListener{
 		else
 			gender = "FEMALE";
 		
-		securityQuestion = secQuesText.getName();
+		securityQuestion = secQuesText.getSelectedItem().toString();
 		
 		/*SessionFactory factory = new Configuration().configure().buildSessionFactory();
 		System.out.println("creating session");
@@ -191,7 +191,7 @@ public class createTrainerProfileView extends view implements ActionListener{
 		//
 		System.out.println("session created");*/
 		Session session = controller.createDBSesssion(controller.getUserDB());
-		controller.createProfile("trainer");
+		//controller.createProfile("Trainer");
 		controller.fsystem.createProfile(false, skills, Summary, username, name, gender, email, location, securityQuestion, securityAnswer, password);
 		session.save((Trainer)controller.fsystem.getUser());
 		session = controller.closeDBSession(session);

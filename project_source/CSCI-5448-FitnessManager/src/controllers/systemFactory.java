@@ -8,12 +8,15 @@ public class systemFactory {
 	{
 		FSystem fsystem = null;
 		
-		if(type.equals("trainer"))
+		if(type.equals("Trainer"))
 		{
 			fsystem  = new TrainerSystem();
 			System.out.println("trainer system");
 		}
-		System.out.println("null system");
+		else
+		{
+			System.out.println("null system");
+		}
 		return fsystem;
 	}
 }

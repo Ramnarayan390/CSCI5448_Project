@@ -45,7 +45,7 @@ public class loginPageView extends view implements ActionListener{
 
 		panel.setLayout(null);
 		//JLabel headerLabel;
-		headerLabel = new JLabel(""); 
+		headerLabel = new JLabel("Login"); 
 		headerLabel.setBounds(200,10,100,10);
 		headerLabel.setText("LOGIN"); 
 		panel.add(headerLabel);

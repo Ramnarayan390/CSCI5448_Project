@@ -54,13 +54,21 @@ public class controller {
 
 	}
 	
+	public boolean user_exists(String username)
+	{
 	
+		Session session = createDBSesssion(this.userDB);		
+		Query q = session.createQuery("from Trainer as T where T.username = :username");		
+		q.setString("username",  username);
+		List result = q.list();		
+		session = closeDBSession(session);
+		return !result.isEmpty();
+	}
 	
 	public void login(String username, String password)
 	{
-		System.out.println("DB almost");
-		Session session = createDBSesssion(this.userDB);
-		System.out.println("DB 1almost");
+		
+		Session session = createDBSesssion(this.userDB);		
 		Query q = session.createQuery("from Trainer as T where T.username = :username");		
 		q.setString("username",  username);
 		List result = q.list();
@@ -79,11 +87,11 @@ public class controller {
 				System.out.println("Login Successfull");
 				
 				//do system factory here
-				FSystem system = new TrainerSystem((Trainer)user); //based on the login type change this	
+				/*FSystem system = new TrainerSystem((Trainer)user); //based on the login type change this	
 				view.setVisible(false);
 				// view = null;
 				this.view=system.showOptions("createProfile");
-				view.setController(this);
+				view.setController(this);*/
 			}
 			else
 			{
@@ -94,13 +102,35 @@ public class controller {
 		session = closeDBSession(session);
 	}
 	
-	public void createProfile(String profileType)
+	public void display(String userType, String displayType)
+	{
+		
+		if ( displayType.equals("login"))
+		{
+			view.setVisible(false);
+			this.view = new loginView();
+			view.setController(this);
+			
+		}
+		else
+		{
+			systemFactory factory = new systemFactory();
+			this.fsystem = factory.getSystem(userType);
+			view.setVisible(false);
+			this.view = fsystem.showOptions("createProfile");
+			view.setController(this);
+		}
+		
+	}
+	
+	/*public void createProfile(String profileType, String display)
 	{
 		System.out.println("create profile");
-		systemFactory factory = new systemFactory();
-		this.fsystem = factory.getSystem(profileType);		
+		//systemFactory factory = new systemFactory();
+		//this.fsystem = factory.getSystem(profileType);		
 		System.out.println("got factory");
-	}
+	}*/
+	
 	public FSystem getFsystem() {
 		return fsystem;
 	}
