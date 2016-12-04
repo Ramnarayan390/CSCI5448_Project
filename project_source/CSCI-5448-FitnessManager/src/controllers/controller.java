@@ -17,9 +17,9 @@ public class controller {
 
 	private Model model;
 	private view view;
-	private SessionFactory userDB;
-	private FSystem fsystem;
-	
+	public SessionFactory userDB;
+	public FSystem fsystem;
+	public String name;
 
 	//private ActionListener actionListner;
 	
@@ -27,10 +27,13 @@ public class controller {
 	{
 		this.model = model;
 		this.view = view;
-		this.view.setController(this);
+		
 		//this.view.register();
 		this.userDB = new Configuration().configure().buildSessionFactory();
+		this.view.setController(this);
+		this.name = "abc";
 	}
+	
 	
 	protected void finalize()
 	{
@@ -79,7 +82,8 @@ public class controller {
 				FSystem system = new TrainerSystem((Trainer)user); //based on the login type change this	
 				view.setVisible(false);
 				// view = null;
-				system.showOptions("createProfile");
+				this.view=system.showOptions("createProfile");
+				view.setController(this);
 			}
 			else
 			{
@@ -90,7 +94,23 @@ public class controller {
 		session = closeDBSession(session);
 	}
 	
+	public void createProfile(String profileType)
+	{
+		System.out.println("create profile");
+		systemFactory factory = new systemFactory();
+		this.fsystem = factory.getSystem(profileType);		
+		System.out.println("got factory");
+	}
+	public FSystem getFsystem() {
+		return fsystem;
+	}
+
 	
+	public SessionFactory getUserDB() {
+		return userDB;
+	}
+
+
 	public Session createDBSesssion(SessionFactory sessionFactory)
 	{
 		//provides session instances
@@ -108,6 +128,6 @@ public class controller {
         //commits transaction and closes session instance
 		session.getTransaction().commit();
         session.close();        
-		return session;
+		return null;
 	}
 }

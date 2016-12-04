@@ -1,0 +1,73 @@
+package controllers;
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+import models.*;
+import views.*;
+
+public class TrainerSystem extends FSystem {
+
+	public TrainerSystem()
+	{
+		;
+	}
+	
+	public TrainerSystem(Trainer trainer){
+		super.setUser(trainer);		
+	}
+	
+	@Override
+	void showOptions(String option)
+	{
+		if ( option.equals("createProfile") )
+		{
+			createTrainerProfileView view = new createTrainerProfileView();
+			view.setController(controller);
+		}
+			//
+		//view.main("ss");
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	
+	public Trainer getUser()
+	{
+		return (Trainer) super.getUser();
+	}
+	
+	public void createProfile(boolean Verfied, String skills, String Summary, String username, String name, String gender, String email, String location, String securityQuestion, String securityAnswer, String password)
+	{
+		User user;
+		user = new Trainer(false,skills, Summary, username, name, gender, email, location, securityQuestion, securityAnswer, password);
+		super.setUser(user);	
+	}
+	
+/*	public void viewSchedule()
+	{
+		ArrayList<String> schedule = this.getUser().getSchedule();
+		
+		String formatString = "";
+		for (int i = 0; i < schedule.size(); i++)
+		{
+				formatString += (i+1) + ". " + schedule.get(i) + "\n";
+		}
+		JOptionPane.showMessageDialog(null, formatString);
+	}*/
+	
+	private void editSchedule()
+	{
+		//this.viewSchedule();
+		String dayToAdd = JOptionPane.showInputDialog(null, "What day would you like to add?");
+		String timeToAdd = JOptionPane.showInputDialog(null, "What time would you like to add for " + dayToAdd + "?");
+
+		//this.getUser().changeSchedule(dayToAdd, timeToAdd, this.getUser().getName());
+
+//		this.getUser().changeSchedule(dayToAdd, timeToAdd);
+
+		JOptionPane.showMessageDialog(null, "Successfully Added!");
+	}
+	
+}

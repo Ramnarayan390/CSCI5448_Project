@@ -1,5 +1,8 @@
 package views;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -11,7 +14,15 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class createTrainerProfileView extends view {
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import models.*;
+
+
+public class createTrainerProfileView extends view implements ActionListener{
 
 	private JFrame frame;
 	private JPanel panel;
@@ -144,7 +155,56 @@ public class createTrainerProfileView extends view {
 		submitButton = new JButton("Submit");
 		submitButton.setBounds(400, 750, 80, 25);
 		panel.add(submitButton);
+		this.register();
 		
+	}
+	
+	public void register() {
+		
+		this.submitButton.addActionListener(this);		
+	}
+	
+	public void actionPerformed(ActionEvent actionEvent)	
+	{
+		String skills = skillsText.getText();
+		String Summary = summaryText.getText();
+		String username = userText.getText();
+		String name = "ahahah";
+		String gender;
+		String email = emailText.getText();
+		String location = locationText.getText();
+		String securityQuestion;
+		String securityAnswer = secAnsText.getText();;
+		String password = new String(passwordText.getPassword());
+		
+		if (Male.isSelected())
+			gender = "MALE";
+		else
+			gender = "FEMALE";
+		
+		securityQuestion = secQuesText.getName();
+		
+		/*SessionFactory factory = new Configuration().configure().buildSessionFactory();
+		System.out.println("creating session");
+		Session session = factory.openSession();
+		session.beginTransaction();
+		//
+		System.out.println("session created");*/
+		Session session = controller.createDBSesssion(controller.getUserDB());
+		controller.createProfile("trainer");
+		controller.fsystem.createProfile(false, skills, Summary, username, name, gender, email, location, securityQuestion, securityAnswer, password);
+		session.save((Trainer)controller.fsystem.getUser());
+		session = controller.closeDBSession(session);
+		
+		//controller.fsystem.createProfile(false, skills, Summary, username, name, gender, email, location, securityQuestion, securityAnswer, password);
+		/*System.out.println("1 created");
+		session.save((Trainer)controller.fsystem.getUser());
+		System.out.println("5 created");
+		session.getTransaction().commit();
+		System.out.println("6 created");
+        session.close();
+        System.out.println("7 created");*/
+		System.out.println(controller.fsystem.user.email);
 	}
 	
 	@Override

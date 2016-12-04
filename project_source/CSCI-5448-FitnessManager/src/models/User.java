@@ -1,4 +1,5 @@
 package models;
+import java.beans.Transient;
 import java.util.ArrayList;
 
 import javax.persistence.Column;
@@ -32,7 +33,8 @@ public class User implements Subscriber{
 	@Column(name="password")
 	protected String password;
 	
-	private ArrayList<Subscriber> subscribers = new ArrayList<Subscriber>();
+	//@Transient
+	//protected ArrayList<Subscriber> subscribers = new ArrayList<Subscriber>();
 	public User()
 	{;}
 	public User(String username, String name, String gender, String email, String location, String securityQuestion, String securityAnswer, String password)	

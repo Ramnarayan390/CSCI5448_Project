@@ -9,7 +9,7 @@ import views.*;
 
 public abstract class FSystem {
 
-	private User user;
+	public User user;
 
 	public User getUser() {
 		return user;
@@ -30,8 +30,9 @@ public abstract class FSystem {
 	}
 	
 	
-	
-	abstract void showOptions(String option);  //view view = new view();
+	//public abstract void createProfile();
+	public abstract void createProfile(boolean Verfied, String skills, String Summary, String username, String name, String gender, String email, String location, String securityQuestion, String securityAnswer, String password);
+	public abstract view showOptions(String option);  //view view = new view();
 	
 	
 }

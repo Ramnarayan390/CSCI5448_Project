@@ -27,7 +27,7 @@ public class Trainer extends User {
 	{
 		super(username, name, gender, email, location, securityQuestion, securityAnswer, password);
 		this.Verified = Verfied;
-		this.Skills = Skills;
+		this.Skills = skills;
 		this.Summary = Summary;
 		this.schedule = new ArrayList<String>();	
 	}

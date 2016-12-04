@@ -1,26 +1,35 @@
 package controllers;
 import java.util.ArrayList;
 
+
+
 import javax.swing.JOptionPane;
 
 import models.*;
 import views.*;
 
+
 public class TrainerSystem extends FSystem {
 
+	public TrainerSystem()
+	{
+		;
+	}
 	
 	public TrainerSystem(Trainer trainer){
 		super.setUser(trainer);		
 	}
 	
 	@Override
-	void showOptions(String option)
+	public view showOptions(String option)
 	{
+		view currentView = null;
 		if ( option.equals("createProfile") )
 		{
-			createTrainerProfileView view = new createTrainerProfileView();
+			currentView = new createTrainerProfileView();
+			//view.setController(controller);
 		}
-			//
+		return currentView;	//
 		//view.main("ss");
 		// TODO Auto-generated method stub
 		
@@ -33,6 +42,12 @@ public class TrainerSystem extends FSystem {
 		return (Trainer) super.getUser();
 	}
 	
+	public void createProfile(boolean Verfied, String skills, String Summary, String username, String name, String gender, String email, String location, String securityQuestion, String securityAnswer, String password)
+	{
+		User user;
+		user = new Trainer(false,skills, Summary, username, name, gender, email, location, securityQuestion, securityAnswer, password);
+		super.setUser(user);	
+	}
 	
 /*	public void viewSchedule()
 	{

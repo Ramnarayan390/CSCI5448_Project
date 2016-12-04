@@ -1,0 +1,15 @@
+package controllers;
+
+import javax.print.DocFlavor.STRING;
+
+public class systemFactory {
+
+	public FSystem getSystem(String type)
+	{
+		FSystem system = null;
+		
+		if(type.equals("trainer"))
+			system  = new TrainerSystem();
+		return system;
+	}
+}
