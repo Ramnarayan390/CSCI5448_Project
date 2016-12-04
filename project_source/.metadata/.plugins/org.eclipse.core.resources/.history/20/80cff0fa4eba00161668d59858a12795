@@ -42,10 +42,10 @@ public class TrainerSystem extends FSystem {
 		return (Trainer) super.getUser();
 	}
 	
-	public void createProfile(boolean verified, String skills, String Summary, String username, String name, String gender, String email, String location, String securityQuestion, String securityAnswer, String password)
+	public void createProfile(boolean Verfied, String skills, String Summary, String username, String name, String gender, String email, String location, String securityQuestion, String securityAnswer, String password)
 	{
 		User user;
-		user = new Trainer(verified ,skills, Summary, username, name, gender, email, location, securityQuestion, securityAnswer, password);
+		user = new Trainer(false,skills, Summary, username, name, gender, email, location, securityQuestion, securityAnswer, password);
 		super.setUser(user);	
 	}
 	

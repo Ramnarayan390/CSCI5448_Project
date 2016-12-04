@@ -192,12 +192,12 @@ public class createTrainerProfileView extends view implements ActionListener{
 		System.out.println("session created");*/
 		//controller.createProfile("Trainer");
 		
-		
+		/*
 		Session session = controller.createDBSesssion(controller.getUserDB());
 		
-		controller.fsystem.createProfile(false, skills, Summary, username, name, gender, email, location, securityQuestion, securityAnswer, password);
+		controller.fsystem.createProfile("false", skills, Summary, username, name, gender, email, location, securityQuestion, securityAnswer, password);
 		session.save((Trainer)controller.fsystem.getUser());
-		session = controller.closeDBSession(session);
+		session = controller.closeDBSession(session);*/
 		
 		//controller.fsystem.createProfile(false, skills, Summary, username, name, gender, email, location, securityQuestion, securityAnswer, password);
 		/*System.out.println("1 created");

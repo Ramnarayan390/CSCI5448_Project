@@ -84,7 +84,7 @@ public class loginView extends view implements ActionListener {
 	}
 	
 
-	/*public JButton getOkButton()
+	public JButton getOkButton()
 	{
 		return okButton;
 	}
@@ -92,7 +92,7 @@ public class loginView extends view implements ActionListener {
 	public JButton resetPasswordButton()
 	{
 		return resetPasswordButton;
-	}*/
+	}
 	
 	@Override
 	public void setVisible(Boolean visiblity)

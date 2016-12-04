@@ -131,14 +131,14 @@ public class controller {
 		System.out.println("got factory");
 	}*/
 	
-	/*public void createProfile(String...values)
+	public void createProfile(String...values)
 	{
 		Session session = this.createDBSesssion(this.getUserDB());
 		//this.fsystem.createProfile(false, skills, Summary, username, name, gender, email, location, securityQuestion, securityAnswer, password);
 		this.fsystem.createProfile(values);
 		session.save(this.fsystem.getUser());
 		session = this.closeDBSession(session);
-	}*/
+	}
 	public FSystem getFsystem() {
 		return fsystem;
 	}
