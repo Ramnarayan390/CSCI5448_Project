@@ -1,0 +1,66 @@
+package controllers;
+import models.*;
+import javax.swing.JOptionPane;
+
+import models.*;
+import views.*;
+
+public class ClientSystem extends FSystem {
+
+	
+	/*public ClientSystem(Client client){
+		super.setUser(client);		
+	}
+	
+	public Client getUser()
+	{
+		return (Client) super.getUser();
+	}*/
+	
+	@Override
+	void showOptions()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+	
+	private void showFitness()
+	{
+		
+	}
+	
+	private void addFitness()
+	{
+		
+	}
+	
+	private void modifyFitness()
+	{
+		
+	}
+	
+	private void deleteFitness()
+	{
+		
+	}
+	
+	private void seeGoals()
+	{
+		
+	}
+	
+	private void searchTrainers()
+	{
+		
+	}
+	
+	private void scheduleAppointment()
+	{
+		
+	}
+	
+	private void reviewTrainer()
+	{
+		
+	}
+}

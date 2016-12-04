@@ -14,6 +14,8 @@ public class TrainerSystem extends FSystem {
 	@Override
 	void showOptions()
 	{
+		createTrainerProfileView view = new createTrainerProfileView();
+		//view.main("ss");
 		// TODO Auto-generated method stub
 		
 	}
@@ -28,7 +30,7 @@ public class TrainerSystem extends FSystem {
 		
 	}
 	
-	public void viewSchedule()
+/*	public void viewSchedule()
 	{
 		String[][] schedule = this.getUser().getSchedule();
 		
@@ -42,14 +44,14 @@ public class TrainerSystem extends FSystem {
 			formatString += "\n";
 		}
 		JOptionPane.showMessageDialog(null, formatString);
-	}
+	}*/
 	
 	public void editSchedule()
 	{
-		this.viewSchedule();
+		//this.viewSchedule();
 		String dayToAdd = JOptionPane.showInputDialog(null, "What day would you like to add?");
 		String timeToAdd = JOptionPane.showInputDialog(null, "What time would you like to add for " + dayToAdd + "?");
-		this.getUser().changeSchedule(dayToAdd, timeToAdd, this.getUser().getName());
+		//this.getUser().changeSchedule(dayToAdd, timeToAdd, this.getUser().getName());
 		JOptionPane.showMessageDialog(null, "Successfully Added!");
 	}
 	

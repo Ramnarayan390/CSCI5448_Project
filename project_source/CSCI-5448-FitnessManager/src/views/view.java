@@ -1,10 +1,35 @@
 package views;
 
+import controllers.*;
+
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 
 public class view {
+	protected controller controller;
+	
+	public controller getController() {
+		return controller;
+	}
+	
+	public void setController(controller controller) {
+		this.controller = controller;
+	}
+	
+	public void setVisible(Boolean visiblity)
+	{
+		;
+	}
+}
 
+/*public class view implements ActionListener {
+
+	protected controller controller;
+	
+	
 	private JFrame frame;
 	private JLabel screenLabel;
 	private JLabel userLabel;
@@ -18,6 +43,7 @@ public class view {
 	
 	public view()
 	{
+		
 		frame = new JFrame("login");
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -65,10 +91,29 @@ public class view {
 		//frame.getContentPane().add(resetPasswordButton);
 				
 		frame.setVisible(true);
-
 	
+		
 	}
 	
+	public void register() {
+		
+		this.okButton.addActionListener(this);
+		this.resetPasswordButton.addActionListener(this);
+	}
+	
+	
+	public controller getController() {
+		return controller;
+	}
+
+
+
+	public void setController(controller controller) {
+		this.controller = controller;
+	}
+
+
+
 	public JButton getOkButton()
 	{
 		return okButton;
@@ -84,4 +129,20 @@ public class view {
 		System.out.println(abc);
 		
 	}
-}
+	
+	//@Override
+	public void actionPerformed(ActionEvent actionEvent)
+	{
+		String username;
+		String password;
+		
+		username = userField.getText();
+		password = new String(passField.getPassword());
+		if (actionEvent.getActionCommand() == "OK")
+		{
+			System.out.println("OK Clicked");	
+			controller.login("HEY", "abc");			
+		}
+	}
+	
+}*/

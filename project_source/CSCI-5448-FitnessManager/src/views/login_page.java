@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
-public class view {
+public class login_page {
 
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("Login");

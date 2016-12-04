@@ -1,4 +1,6 @@
 package models;
+import java.util.ArrayList;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,7 +9,7 @@ import javax.persistence.MappedSuperclass;
 
 
 @MappedSuperclass
-public class User {
+public class User implements Subscriber{
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="UID")
@@ -30,6 +32,7 @@ public class User {
 	@Column(name="password")
 	protected String password;
 	
+	private ArrayList<Subscriber> subscribers = new ArrayList<Subscriber>();
 	public User()
 	{;}
 	public User(String username, String name, String gender, String email, String location, String securityQuestion, String securityAnswer, String password)	
@@ -100,6 +103,29 @@ public class User {
 	{
 		return securityAnswer.equals(this.securityAnswer);
 		
+	}
+	
+	public void registerSubscriber(Subscriber subscriber )
+	{
+		subscribers.add(subscriber);		
+	}
+	
+	public void removeSubscriber(Subscriber subscriber)
+	{
+		subscribers.remove(subscriber);
+	}
+	
+	public void notifySubcribers()
+	{
+		for (Subscriber s : subscribers)
+		{
+			s.update("event");
+		}
+	}
+	
+	public void update(String string)
+	{
+	 ;
 	}
 	
 	

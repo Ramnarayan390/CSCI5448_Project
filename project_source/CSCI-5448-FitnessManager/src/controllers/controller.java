@@ -13,11 +13,12 @@ import org.hibernate.cfg.Configuration;
 import models.*;
 import views.*;
 
-public class controller implements ActionListener {
+public class controller {
 
 	private Model model;
 	private view view;
 	private SessionFactory userDB;
+	private FSystem fsystem;
 	
 
 	//private ActionListener actionListner;
@@ -25,7 +26,9 @@ public class controller implements ActionListener {
 	public controller(Model model, view view)
 	{
 		this.model = model;
-		this.view = view;	
+		this.view = view;
+		this.view.setController(this);
+		//this.view.register();
 		this.userDB = new Configuration().configure().buildSessionFactory();
 	}
 	
@@ -36,8 +39,8 @@ public class controller implements ActionListener {
 	public void control()
 	{
 		
-		view.getOkButton().addActionListener(this);
-		view.resetPasswordButton().addActionListener(this);
+		//view.getOkButton().addActionListener(this);
+		//view.resetPasswordButton().addActionListener(this);
 
 
 	}
@@ -49,52 +52,36 @@ public class controller implements ActionListener {
 	
 	
 	
-	public void actionPerformed(ActionEvent actionEvent)
+	public void login(String username, String password)
 	{
-		System.out.println(actionEvent.getActionCommand());
 		Session session = createDBSesssion(this.userDB);
-		if (actionEvent.getActionCommand() == "OK")
+		Query q = session.createQuery("from Trainer as T where T.username = :username");		
+		q.setString("username",  username);
+		List result = q.list();
+		
+		
+		if (result.isEmpty()) 
 		{
-			//Trainer getTrainer = (Trainer)session.get(Trainer.class,5L);
-			Query q = session.createQuery("from Trainer as T where T.username = :username");
-			
-			q.setString("username",  view.userField.getText());
-			List result = q.list();
-			if (result.isEmpty()) 
-			{
-				System.out.println("Incorrect Username");
-			}
-			else
-			{
-				//System.out.println(((User)result.get(0)).username);
-				//System.out.println("Entered password "+view.passField.getPassword());
-				//System.out.println("DB Password "+((User)result.get(0)).password);
-				
-				//if(view.passField.getPassword().equals(((User)result.get(0)).password))
-				User user = (User)result.get(0);
-				String password = new String(view.passField.getPassword());
-				if(  user.verifyPass(password) )
-				{
-					System.out.println("Login Successfull");
-					FSystem system = new FSystem();
-					system.setUser(user);
-					system.showOptions();
-				}
-				else
-				{
-					System.out.println(user.username + "incorrect passowrd");
-				}
-			}
-			//System.out.println("OK Clicked");			
+			System.out.println("Incorrect Username");
 		}
 		else
 		{
-			updateCount();
-			
-			User user = new Trainer(true,"skills", "Summary", "HEY", "name", "gender", "email", "location", "securityQuestion", "securityAnswer", "abc");
-			session.save(user);
-			
+
+			User user = (User)result.get(0);			
+			if(  user.verifyPass(password) )
+			{
+				System.out.println("Login Successfull");
+				FSystem system = new TrainerSystem((Trainer)user); //based on the login type change this	
+				view.setVisible(false);
+				// view = null;
+				system.showOptions();
+			}
+			else
+			{
+				System.out.println(user.username + "incorrect passowrd");
+			}
 		}
+			//System.out.println("OK Clicked");			
 		session = closeDBSession(session);
 	}
 	

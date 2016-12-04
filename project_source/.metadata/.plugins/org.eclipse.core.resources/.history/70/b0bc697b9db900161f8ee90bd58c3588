@@ -1,0 +1,7 @@
+package models;
+
+public interface Publisher {
+	
+	public void registerObserver(Observer )
+
+}
