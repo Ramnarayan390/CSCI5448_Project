@@ -31,6 +31,16 @@ public class fitnessInfoView extends view implements ActionListener {
 	private JButton updateButton;
 	private JButton delButton;
 	private JButton homeButton;
+	private JComboBox breakfastChoice;
+	private JLabel breakfastText;
+	private JComboBox lunchChoice;
+	private JLabel lunchText;
+	private JComboBox dinnerChoice;
+	private JLabel dinnerText;
+	private JComboBox distChoice;
+	private JLabel distText;
+	private JComboBox sleepChoice;
+	private JLabel sleepText;
 	public DefaultTableModel model;
 	public JTable table;
 	public JTable showAvailtable;
@@ -178,7 +188,7 @@ public void register() {
 		{
 			System.out.println("Home Clicked");	
 			//controller.login("HEY", "abc");	
-			//new clientHomepageView();
+			new clientHomepageView();
 		}
 		
 	}

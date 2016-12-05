@@ -42,7 +42,7 @@ public class ClientSystem extends FSystem {
 		}
 		else if (option.equals("fitnessInfo"))
 		{
-			currentView = new fitnessInfoView(controller);		
+			currentView = new clientHomepageView(controller);		
 		}
 		return currentView;	//
 		

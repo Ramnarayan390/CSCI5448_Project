@@ -178,7 +178,7 @@ public void register() {
 		{
 			System.out.println("Home Clicked");	
 			//controller.login("HEY", "abc");	
-			//new clientHomepageView();
+			new clientHomepageView();
 		}
 		
 	}

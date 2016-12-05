@@ -40,10 +40,6 @@ public class ClientSystem extends FSystem {
 			currentView = new clientHomepageView(controller);		
 			//System.out.println("Show admin homepage");
 		}
-		else if (option.equals("fitnessInfo"))
-		{
-			currentView = new fitnessInfoView(controller);		
-		}
 		return currentView;	//
 		
 	}
