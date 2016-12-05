@@ -8,5 +8,6 @@
 	<classpathentry kind="lib" path="/home/chaitanya/Downloads/mysql-connector-java-5.1.40/mysql-connector-java-5.1.40-bin.jar"/>
 	<classpathentry kind="lib" path="/home/chaitanya/Downloads/hibernate-release-5.2.4.Final.zip"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate Library"/>
+	<classpathentry kind="lib" path="/home/chaitanya/Desktop/Project/CSCI5448_Project/project_source/CSCI-5448-FitnessManager/seaglasslookandfeel-0.2.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

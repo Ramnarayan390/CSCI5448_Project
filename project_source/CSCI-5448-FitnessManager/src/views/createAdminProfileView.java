@@ -56,7 +56,7 @@ public class createAdminProfileView extends view implements ActionListener{
 		frame = new JFrame("Admin Profile");
 		frame.setSize(650,350);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		frame.setLocationRelativeTo(null);
 		panel = new JPanel();
 		frame.add(panel);
 		placeComponents();

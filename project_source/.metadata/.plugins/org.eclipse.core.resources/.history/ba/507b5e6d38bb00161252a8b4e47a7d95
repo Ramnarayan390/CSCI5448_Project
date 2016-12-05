@@ -36,7 +36,7 @@ public class clientHomepageView extends view implements ActionListener {
 		frame = new JFrame("Client Homepage");
 		frame.setSize(500,500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLocationRelativeTo(null);
+
 		panel = new JPanel();
 		frame.add(panel);
 		placeComponents();

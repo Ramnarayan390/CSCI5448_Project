@@ -55,7 +55,7 @@ public class createTrainerProfileView extends view implements ActionListener{
 		frame = new JFrame("Login Page");
 		frame.setSize(850,850);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLocationRelativeTo(null);
+
 		panel = new JPanel();
 		frame.add(panel);
 		placeComponents();

@@ -65,7 +65,7 @@ public class createClientProfileView extends view implements ActionListener{
 		frame = new JFrame("Client Profile Page");
 		frame.setSize(700,500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLocationRelativeTo(null);
+
 		panel = new JPanel();
 		frame.add(panel);
 		placeComponents();

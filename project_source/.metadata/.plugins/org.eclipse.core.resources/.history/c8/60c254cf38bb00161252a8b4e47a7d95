@@ -219,7 +219,7 @@ public void register() {
 		else if (actionEvent.getActionCommand() == "Home")
 		{
 			System.out.println("Home Clicked");	
-			controller.display("Client", "homePage");
+			controller.display("Client", "homePage534");
 		}
 		
 	}

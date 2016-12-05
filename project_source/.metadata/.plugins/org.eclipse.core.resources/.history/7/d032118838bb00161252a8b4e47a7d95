@@ -37,7 +37,7 @@ public class trainerHomepageView extends view implements ActionListener {
 		frame = new JFrame("Trainer Homepage");
 		frame.setSize(700,500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLocationRelativeTo(null);
+
 		panel = new JPanel();
 		frame.add(panel);
 		placeComponents();

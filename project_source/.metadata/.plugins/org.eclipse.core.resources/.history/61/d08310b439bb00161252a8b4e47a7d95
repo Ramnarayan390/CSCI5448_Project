@@ -15,7 +15,6 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-import java.awt.Font;
 
 public class addView implements ActionListener {
 
@@ -38,11 +37,11 @@ public class addView implements ActionListener {
 	public addView(fitnessInfoView mainView) 
 	{
 		frame = new JFrame("Today's Fitness Info");
-		frame.setSize(400,306);
+		frame.setSize(400,400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
 		panel = new JPanel();
-		frame.getContentPane().add(panel);
+		frame.add(panel);
 		placeComponents();
 
 		frame.setVisible(true);
@@ -53,8 +52,7 @@ public class addView implements ActionListener {
 
 		panel.setLayout(null);
 		headerLabel = new JLabel(""); 
-		headerLabel.setFont(new Font("SansSerif", Font.BOLD, 16));
-		headerLabel.setBounds(108,25,200,33);
+		headerLabel.setBounds(135,10,200,50);
 		headerLabel.setText("Adding Fitness Info"); 
 		panel.add(headerLabel);
 
@@ -72,7 +70,7 @@ public class addView implements ActionListener {
 		panel.add(typeText);
 		
 		valueLabel = new JLabel("Value");
-		valueLabel.setBounds(30, 100, 53, 25);
+		valueLabel.setBounds(30, 100, 110, 25);
 		panel.add(valueLabel);
 		
 		//String[] Value = { "1000", "1500", "2000", "2500", "3000" };
@@ -90,7 +88,7 @@ public class addView implements ActionListener {
 		
 
 		timeLabel = new JLabel("Time");
-		timeLabel.setBounds(30, 130, 59, 25);
+		timeLabel.setBounds(30, 130, 110, 25);
 		panel.add(timeLabel);
 		
 		String[] Time = { "Morning", "Noon", "Night" };
@@ -103,7 +101,7 @@ public class addView implements ActionListener {
 		panel.add(timeText);
 		
 		submitButton = new JButton("Submit");
-		submitButton.setBounds(140, 211, 100, 25);
+		submitButton.setBounds(145, 250, 80, 25);
 		panel.add(submitButton);
 		
 		this.register();

@@ -37,7 +37,7 @@ public class loginPageView extends view implements ActionListener{
 		frame = new JFrame("Login");
 		frame.setSize(400,330);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		frame.setLocationRelativeTo(null);
 		panel = new JPanel();
 		frame.add(panel);
 		placeComponents();

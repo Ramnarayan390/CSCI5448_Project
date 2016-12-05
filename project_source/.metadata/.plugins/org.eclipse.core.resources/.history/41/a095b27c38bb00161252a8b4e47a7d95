@@ -42,7 +42,7 @@ public class fitnessInfoView extends view implements ActionListener {
 		frame = new JFrame("Today's Fitness Info");
 		frame.setSize(1500,1500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLocationRelativeTo(null);
+		
 
 		panel = new JPanel();
 		panel.setBounds(10,5,1500,1500);
@@ -219,7 +219,7 @@ public void register() {
 		else if (actionEvent.getActionCommand() == "Home")
 		{
 			System.out.println("Home Clicked");	
-			controller.display("Client", "homePage");
+			controller.display("Client", "homePage534");
 		}
 		
 	}
