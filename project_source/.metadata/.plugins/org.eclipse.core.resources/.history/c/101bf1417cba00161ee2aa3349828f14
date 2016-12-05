@@ -1,6 +1,18 @@
 package views;
 
 import java.awt.event.ActionEvent;
+import models.*;
+import controllers.*;
+
+
+import java.util.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 import controllers.*;
 import java.awt.event.ActionListener;
 
@@ -17,7 +29,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-public class fitnessInfoView extends view implements ActionListener {
+public class adminApproveProfileView extends view implements ActionListener {
 
 	private JFrame frame;
 	private JPanel panel;
@@ -26,18 +38,9 @@ public class fitnessInfoView extends view implements ActionListener {
 	private JButton updateButton;
 	private JButton delButton;
 	private JButton homeButton;
-	private JComboBox breakfastChoice;
-	private JLabel breakfastText;
-	private JComboBox lunchChoice;
-	private JLabel lunchText;
-	private JComboBox dinnerChoice;
-	private JLabel dinnerText;
-	private JComboBox distChoice;
-	private JLabel distText;
-	private JComboBox sleepChoice;
-	private JLabel sleepText;
+	private JTable table;
 	
-	public fitnessInfoView(controller controller) 
+	public adminApproveProfileView(controller controller) 
 	{
 		super(controller);
 		frame = new JFrame("Today's Fitness Info");
@@ -80,11 +83,7 @@ public class fitnessInfoView extends view implements ActionListener {
 	        };
 	         
 	        //actual data for the table in a 2d array
-	        Object[][] data = new Object[][] {
-	            {"1", "John", false },
-	            {"2", "Rambo", false },
-	            {"3", "Zorro", false },
-	        };
+	        Object[][] data = new Object[][] {	        };
 	         
 	        final Class[] columnClass = new Class[] {
 	            String.class, String.class, Boolean.class
@@ -106,16 +105,36 @@ public class fitnessInfoView extends view implements ActionListener {
 	            }
 	        };
 	         
-	        JTable table = new JTable(model);
+	        table = new JTable(model);
 	         
 	        table.setBounds(20, 150, 400, 200);
 			panel.add(table);
 		
-		
+		populateTable();
 		this.register();
 	}
 	
-public void register() {
+	private List populateTable()
+	{
+		List<User> result;
+		dbSearch db = new dbSearch(controller);
+		result = db.searchDBList("Trainer","Verified","false");
+		
+		if (result.isEmpty())
+			System.out.println("empty list");
+		else
+		{
+			for(User temp : result)
+			{
+				
+				System.out.println(temp.username);
+			}
+		}
+		return result;
+		
+	}
+	
+	public void register() {
 		
 		this.addButton.addActionListener(this);
 		this.updateButton.addActionListener(this);

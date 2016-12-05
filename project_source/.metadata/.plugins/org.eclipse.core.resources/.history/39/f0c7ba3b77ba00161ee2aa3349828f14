@@ -1,7 +1,6 @@
 package views;
 
 import java.awt.event.ActionEvent;
-import controllers.*;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
@@ -37,9 +36,8 @@ public class fitnessInfoView extends view implements ActionListener {
 	private JComboBox sleepChoice;
 	private JLabel sleepText;
 	
-	public fitnessInfoView(controller controller) 
+	public fitnessInfoView() 
 	{
-		super(controller);
 		frame = new JFrame("Today's Fitness Info");
 		frame.setSize(500,500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

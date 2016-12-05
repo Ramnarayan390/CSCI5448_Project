@@ -17,7 +17,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-public class fitnessInfoView extends view implements ActionListener {
+public class adminApproveProfileView extends view implements ActionListener {
 
 	private JFrame frame;
 	private JPanel panel;
@@ -37,7 +37,7 @@ public class fitnessInfoView extends view implements ActionListener {
 	private JComboBox sleepChoice;
 	private JLabel sleepText;
 	
-	public fitnessInfoView(controller controller) 
+	public adminApproveProfileView(controller controller) 
 	{
 		super(controller);
 		frame = new JFrame("Today's Fitness Info");

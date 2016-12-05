@@ -18,7 +18,7 @@ public class dbSearch {
 	{
 		System.out.println("Query Begin");
 		Session session = controller.createDBSesssion(controller.userDB);
-		System.out.println("Query  :  " + "from " + table + " as T where T." + fieldName + "= :field" + "  fieldvalue : "+ fieldValue);
+		System.out.println("Query  :  " + "from " + table + " as T where T." + fieldName + "= :field");
 		Query q = session.createQuery("from " + table + " as T where T." + fieldName + "= :field");	
 		System.out.println("Query2  " + "from " + table + " as T where T." + fieldName + "= :field");
 		q.setString("field",  fieldValue);
