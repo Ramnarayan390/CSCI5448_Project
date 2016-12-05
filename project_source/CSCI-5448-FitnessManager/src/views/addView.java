@@ -30,7 +30,7 @@ public class addView implements ActionListener {
 	private JLabel valueLabel;
 	private JLabel timeLabel;
 	private JComboBox timeText;
-	private JComboBox valueText;
+	private JTextField valueText;
 	private JButton submitButton;
 	private fitnessInfoView mainView;
 
@@ -60,7 +60,7 @@ public class addView implements ActionListener {
 		typeLabel.setBounds(30, 70, 110, 25);
 		panel.add(typeLabel);
 		
-		String[] Type = { "Breakfast", "Lunch", "Dinner" };
+		String[] Type = { "Breakfast", "Lunch", "Dinner", "Steps", "Miles" };
 		//Create the combo box, select item at index 4.
 		//Indices start at 0, so 4 specifies the pig.
 		typeText = new JComboBox(Type);
@@ -73,12 +73,16 @@ public class addView implements ActionListener {
 		valueLabel.setBounds(30, 100, 110, 25);
 		panel.add(valueLabel);
 		
-		String[] Value = { "1000", "1500", "2000", "2500", "3000" };
+		//String[] Value = { "1000", "1500", "2000", "2500", "3000" };
+		
+		
 		//Create the combo box, select item at index 4.
 		//Indices start at 0, so 4 specifies the pig.
-		valueText = new JComboBox(Value);
-		valueText.setSelectedIndex(4);
+		//valueText = new JComboBox(Value);
+		//valueText.setSelectedIndex(4);
 		//petList.addActionListener(this);
+		
+		valueText = new JTextField(20);
 		valueText.setBounds(140, 100, 100, 20);
 		panel.add(valueText);
 		
@@ -117,8 +121,11 @@ public void register() {
 	
 	public void actionPerformed(ActionEvent actionEvent)
 	{
-
-		this.mainView.yourAddRow("1","2",true);
+		//typeText.getSelectedItem().toString();
+		//timeText.getSelectedItem().toString();
+		//valueText.getText();
+		this.mainView.yourAddRow(typeText.getSelectedItem().toString(),valueText.getText(), timeText.getSelectedItem().toString());
+		this.setVisible(false);
 		
 	}
 

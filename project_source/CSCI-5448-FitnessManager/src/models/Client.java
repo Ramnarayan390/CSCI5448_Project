@@ -17,7 +17,8 @@ public class Client extends User {
 	public int weight;
 	@Column(name="Age")
 	public int age;
-
+	@Column(name="fitnessInfo")
+	public Object[][] fitnessInfo;
 	public Client()
 	{
 		;

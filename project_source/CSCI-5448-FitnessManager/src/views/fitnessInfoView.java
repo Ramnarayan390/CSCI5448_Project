@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -56,7 +57,7 @@ public class fitnessInfoView extends view implements ActionListener {
 		panel.setLayout(null);
 		headerLabel = new JLabel(""); 
 		headerLabel.setBounds(150,10,200,50);
-		headerLabel.setText("Today's Fitness Info"); 
+		headerLabel.setText("Fitness Info"); 
 		panel.add(headerLabel);
 
 		addButton = new JButton("Add");
@@ -81,18 +82,19 @@ public class fitnessInfoView extends view implements ActionListener {
 	         
 	        //actual data for the table in a 2d array
 	        Object[][] data = new Object[][] {
-	            {"1", "John", false },
-	            {"2", "Rambo", false },
-	            {"3", "Zorro", false },
+	            {"Type", "Value", "Time" },
 	        };
 	         
 	        final Class[] columnClass = new Class[] {
-	            String.class, String.class, Boolean.class
+	            String.class, String.class, String.class
 	        };
 	 
 	        //create table model with data
-	        model = new DefaultTableModel(data, columns) {
+	      //  model = new DefaultTableModel(data, columns) {
 	        
+	        model = new DefaultTableModel(((Client)controller.fsystem.user).fitnessInfo, columns) {
+	        
+			
 	            @Override
 	            public boolean isCellEditable(int row, int column)
 	            {
@@ -105,6 +107,7 @@ public class fitnessInfoView extends view implements ActionListener {
 	                return columnClass[columnIndex];
 	            }
 	        };
+	      
 	         
 	        table = new JTable(model);
 	        
@@ -112,10 +115,10 @@ public class fitnessInfoView extends view implements ActionListener {
 	        table.setBounds(20, 150, 400, 200);
 	        
 			panel.add(table);
-			
+			yourAddRow(0,"Type","Value","Time");
 			//table2 = new JTable(model);
 			
-		
+			
 		
 		this.register();
 	}
@@ -127,6 +130,29 @@ public void register() {
 		this.delButton.addActionListener(this);
 		this.homeButton.addActionListener(this);
 	}
+
+
+	/*private Object[][] populateTable()
+	{
+		/*List<User> result;
+		dbSearch db = new dbSearch(controller);
+		result = db.searchDBList("Client","username",controller.fsystem.user.getUsername());
+		
+		if (result.isEmpty())
+			System.out.println("Username not found");
+		else
+		{
+			result.get
+		}
+		//return result;
+		Object[][] fitnessInfo = ((Client)controller.fsystem.user).fitnessInfo;
+		
+
+	        
+
+	}*/
+
+	
 	
 	@Override
 	public void setVisible(Boolean visiblity)
@@ -146,13 +172,20 @@ public void register() {
 		else if (actionEvent.getActionCommand() == "Update")
 		{
 			System.out.println("Update Clicked");
-			Object[][] newdata = getTableData(table);
+			dbSearch db = new dbSearch(controller);
+			
+			Object[][] fitnessInfo = getTableData (table);
+			db.updateDB("Client","fitnessInfo", fitnessInfo,controller.fsystem.user.getUsername());
+			
+			
+			
+			/*Object[][] newdata = getTableData(table);
 			String[] columns = new String[] {
 		            "Id", "Name", "Verify"
 		        };
 			 
 	        final Class[] columnClass = new Class[] {
-	            String.class, String.class, Boolean.class
+	            String.class, String.class, String.class
 	        };
 	 
 		        
@@ -165,13 +198,21 @@ public void register() {
 			showAvailtable.setBounds(500, 150, 200, 200);
 			panel.add(showAvailtable);
 			
-			frame.setVisible(true);
+			frame.setVisible(true);*/
 			
 			//controller.login("HEY", "abc");			
 		}
 		else if (actionEvent.getActionCommand() == "Delete")
 		{
-			System.out.println("Delete Clicked");	
+			//Reference : http://stackoverflow.com/questions/17254587/remove-1-selected-row-from-jtable
+			
+			DefaultTableModel modelTable = (DefaultTableModel) table.getModel();
+			
+			System.out.println("Delete Clicked");
+			System.out.println(table.getValueAt(table.getSelectedRow(), 0).toString());
+			
+			
+			modelTable.removeRow(table.getSelectedRow());
 			//controller.login("HEY", "abc");			
 		}
 		else if (actionEvent.getActionCommand() == "Home")
@@ -188,17 +229,21 @@ public void register() {
 		    DefaultTableModel dtm = (DefaultTableModel) table.getModel();
 		    int nRow = dtm.getRowCount(), nCol = dtm.getColumnCount();
 		    Object[][] tableData = new Object[nRow][nCol];
-		    for (int i = 0 ; i < nRow ; i++)
+		    for (int i = 1 ; i < nRow ; i++)
 		        for (int j = 0 ; j < nCol ; j++)
-		            tableData[i][j] = dtm.getValueAt(i,j);
+		            tableData[i-1][j] = dtm.getValueAt(i,j);
 		    System.out.println(tableData[1][2]);
 		    return tableData;
 		}
 		
 		//Reference : http://stackoverflow.com/questions/3549206/how-to-add-row-in-jtable
-		public void yourAddRow(String str1, String str2, boolean str3){
+		public void yourAddRow(String str1, String str2, String str3){
 			  DefaultTableModel yourModel = (DefaultTableModel) table.getModel();
 			  yourModel.addRow(new Object[]{str1, str2, str3});
+			}
+		public void yourAddRow(int index, String str1, String str2, String str3){
+			  DefaultTableModel yourModel = (DefaultTableModel) table.getModel();			 
+			  yourModel.insertRow(index, new Object[]{str1, str2, str3});
 			}
 		
 		
