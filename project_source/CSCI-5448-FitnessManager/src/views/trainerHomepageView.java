@@ -1,5 +1,6 @@
 package views;
 import controllers.*;
+import models.*;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -79,6 +80,11 @@ public class trainerHomepageView extends view implements ActionListener {
 		editButton.setEnabled(false);
 
 		this.register();
+		//if( ((Trainer)(controller.fsystem.user)).Verified)
+		if ( ((Trainer)controller.fsystem.user).Verified)
+		{
+			setVerified();
+		}
 	}
 	
 		public void register() {
@@ -103,6 +109,8 @@ public class trainerHomepageView extends view implements ActionListener {
 			deleteButton.setEnabled(true);
 			viewButton.setEnabled(true);
 			editButton.setEnabled(true);
+			verifiedLabel.setText("Verified");
+			verifiedLabel.setForeground(Color.GREEN);
 		}
 		public void setName(String name)
 		{

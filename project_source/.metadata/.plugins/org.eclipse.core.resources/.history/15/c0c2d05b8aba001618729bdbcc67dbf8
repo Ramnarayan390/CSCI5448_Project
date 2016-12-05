@@ -1,0 +1,57 @@
+package controllers;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+import models.*;
+public class dbSearch {
+
+	private controller controller;
+	
+	public dbSearch (controller controller){
+		this.controller = controller;
+	}
+	
+	public List searchDBList(String table, String fieldName, String fieldValue)
+	{
+		System.out.println("Query Begin");
+		Session session = controller.createDBSesssion(controller.userDB);
+		System.out.println("Query  :  " + "from " + table + " as T where T." + fieldName + "= :field" + "  fieldvalue : "+ fieldValue);
+		Query q = session.createQuery("from " + table + " as T where T." + fieldName + "= :field");	
+		System.out.println("Query2  " + "from " + table + " as T where T." + fieldName + "= :field");
+		q.setString("field",  fieldValue);
+		
+		
+		List result = q.list();
+		session = controller.closeDBSession(session);
+		return result;
+	}
+	
+	public User searchDBUser(String table, String field)
+	{
+		Session session = controller.createDBSesssion(controller.userDB);
+		Query q = session.createQuery("from" + table + "as T where T.field = :field");		
+		q.setString("field",  field);
+		List result = q.list();
+		session = controller.closeDBSession(session);
+		return (User)result.get(0);
+	}
+	
+	public void updateDB(User user, String table,String fieldName)
+	{
+		String query;
+		Session session = controller.createDBSesssion(controller.userDB);
+		query = "UPDATE" 
+				
+		"UPDATE RoomTable set roomStatus=:status, roomPrice =:myRoomPrice, wifi =:myWifi, breakfast =:myBreakfast, roomCheckIn=:myroomCheckIn, roomCheckOut=:myroomCheckOut WHERE roomNum =:myRoomNum";
+		Query q = session.createQuery("UPDATE " + table + " set " + fieldName + "= :field");	
+		//"FROM RoomTable AS E WHERE E.roomType = :Type and E.roomStatus =:Status";
+		session.save(user);
+		session = controller.closeDBSession(session);
+		
+		
+	}
+	
+}

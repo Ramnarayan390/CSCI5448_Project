@@ -24,7 +24,9 @@ public class driver  {
 		//view view = new trainerHomepageView();
 		view view = null;
 		controller control = new controller(model,view);
-		control.view = new adminApproveProfileView(control);
+		//control.view = new adminApproveProfileView(control);
+		//control.view = new trainerHomepageView(control);
+		control.view = new startupView(control);
 		control.control();
 		 
 	}
