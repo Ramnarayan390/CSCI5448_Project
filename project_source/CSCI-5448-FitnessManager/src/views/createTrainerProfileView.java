@@ -2,11 +2,13 @@ package views;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
@@ -20,6 +22,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import controllers.controller;
+import controllers.dbSearch;
 import models.*;
 
 
@@ -197,21 +200,26 @@ public class createTrainerProfileView extends view implements ActionListener{
 		
 		Session session = controller.createDBSesssion(controller.getUserDB());
 		
-		controller.fsystem.createProfile(false, skills, Summary, username, name, gender, email, location, securityQuestion, securityAnswer, password);
-		//session.save((Trainer)controller.fsystem.getUser());
-		session.save(controller.fsystem.getUser());
-		session = controller.closeDBSession(session);
 		
-		//controller.fsystem.createProfile(false, skills, Summary, username, name, gender, email, location, securityQuestion, securityAnswer, password);
-		/*System.out.println("1 created");
-		session.save((Trainer)controller.fsystem.getUser());
-		System.out.println("5 created");
-		session.getTransaction().commit();
-		System.out.println("6 created");
-        session.close();
-        System.out.println("7 created");*/
-		System.out.println(controller.fsystem.user.email);
-		controller.display("Trainer","homePage");
+		
+		JOptionPane dialogBox = new JOptionPane();
+		List result;
+		dbSearch db = new dbSearch(controller);	
+		System.out.println("Username : " + username);
+		result = db.searchDBList("Trainer","username",username);
+		if (!result.isEmpty())
+		{
+			dialogBox.showMessageDialog(frame, "Duplicate username : Enter username and try again");
+		}
+		else
+		{
+			controller.fsystem.createProfile(false, skills, Summary, username, name, gender, email, location, securityQuestion, securityAnswer, password);
+			//session.save((Trainer)controller.fsystem.getUser());
+			session.save(controller.fsystem.getUser());
+			session = controller.closeDBSession(session);	
+			System.out.println(controller.fsystem.user.email);
+			controller.display("Trainer","homePage");
+		}
 	}
 	
 	@Override

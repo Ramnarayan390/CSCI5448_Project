@@ -2,11 +2,13 @@ package views;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
@@ -17,6 +19,7 @@ import javax.swing.JTextField;
 import org.hibernate.Session;
 
 import controllers.controller;
+import controllers.dbSearch;
 
 //import org.hibernate.Query;
 //import org.hibernate.Session;
@@ -164,10 +167,23 @@ public class createAdminProfileView extends view implements ActionListener{
 		
 		Session session = controller.createDBSesssion(controller.getUserDB());
 		
-		controller.fsystem.createProfile(AdminRole, username, name, gender, email, location, securityQuestion, securityAnswer, password);
-		session.save((Admin)controller.fsystem.getUser());
-		session = controller.closeDBSession(session);
-
+		JOptionPane dialogBox = new JOptionPane();
+		List result;
+		dbSearch db = new dbSearch(controller);	
+		System.out.println("Username : " + username);
+		result = db.searchDBList("Admin","username",username);
+		if (!result.isEmpty())
+		{
+			dialogBox.showMessageDialog(frame, "Duplicate username : Enter username and try again");
+		}
+		else{
+		
+			controller.fsystem.createProfile(AdminRole, username, name, gender, email, location, securityQuestion, securityAnswer, password);
+			session.save((Admin)controller.fsystem.getUser());
+			session = controller.closeDBSession(session);
+			controller.display("Admin", "homePage");
+		}
+		
 	}
 	
 	@Override

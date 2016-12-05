@@ -64,12 +64,12 @@ public class fitnessInfoView extends view implements ActionListener {
 		addButton.setBounds(20, 100, 90, 20);
 		panel.add(addButton);
 		
-		updateButton = new JButton("Update");
-		updateButton.setBounds(120, 100, 90, 20);
+		updateButton = new JButton("Save");
+		updateButton.setBounds(220, 100, 90, 20);
 		panel.add(updateButton);
 		
-		delButton = new JButton("Delete");
-		delButton.setBounds(220, 100, 90, 20);
+		delButton = new JButton("Delete");		
+		delButton.setBounds(120, 100, 90, 20);
 		panel.add(delButton);
 		
 		homeButton = new JButton("Home");
@@ -169,7 +169,7 @@ public void register() {
 			new addView(this);
 			//controller.login("HEY", "abc");			
 		}
-		else if (actionEvent.getActionCommand() == "Update")
+		else if (actionEvent.getActionCommand() == "Save")
 		{
 			System.out.println("Update Clicked");
 			dbSearch db = new dbSearch(controller);
@@ -218,8 +218,7 @@ public void register() {
 		else if (actionEvent.getActionCommand() == "Home")
 		{
 			System.out.println("Home Clicked");	
-			//controller.login("HEY", "abc");	
-			//new clientHomepageView();
+			controller.display("Client", "homePage534");
 		}
 		
 	}
