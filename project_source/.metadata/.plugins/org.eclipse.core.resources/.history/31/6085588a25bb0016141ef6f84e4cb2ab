@@ -10,7 +10,7 @@ import javax.persistence.MappedSuperclass;
 
 
 @MappedSuperclass
-public class User {
+public class User implements Subscriber{
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="UID")
@@ -107,7 +107,24 @@ public class User {
 		
 	}
 	
-
+	public void registerSubscriber(Subscriber subscriber )
+	{
+		subscribers.add(subscriber);		
+	}
+	
+	public void removeSubscriber(Subscriber subscriber)
+	{
+		subscribers.remove(subscriber);
+	}
+	
+	public void notifySubcribers()
+	{
+		for (Subscriber s : Subscribers)
+		{
+			s.update("event");
+		}
+	}
+	
 	public void update(String string)
 	{
 	 ;
