@@ -55,7 +55,7 @@ public class startupView extends view implements ActionListener{
 		roleText.setBounds(100, 25, 40, 25);
 		panel.add(roleText);
 		
-		String[] roleOptions = { "User", "Trainer", "Admin" };
+		String[] roleOptions = { "Client", "Trainer", "Admin" };
 		//Create the combo box, select item at index 4.
 		//Indices start at 0, so 4 specifies the pig.
 		roleChoice = new JComboBox(roleOptions);

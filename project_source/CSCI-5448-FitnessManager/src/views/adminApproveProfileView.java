@@ -35,10 +35,10 @@ public class adminApproveProfileView extends view implements ActionListener {
 	private JPanel panel;
 	private JLabel headerLabel;
 	private JButton addButton;
-	private JButton updateButton;
-	private JButton delButton;
-	private JButton homeButton;
+	private JButton updateButton;;
+	private JButton logoutButton;
 	private JTable table;
+	private JLabel tableLabel;
 	private DefaultTableModel model;
 	private  Object[][] data;
 	private List list;
@@ -48,7 +48,7 @@ public class adminApproveProfileView extends view implements ActionListener {
 	public adminApproveProfileView(controller controller) 
 	{
 		super(controller);
-		frame = new JFrame("Today's Fitness Info");
+		frame = new JFrame("Admin Welcome");
 		frame.setSize(500,500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -64,24 +64,28 @@ public class adminApproveProfileView extends view implements ActionListener {
 		panel.setLayout(null);
 		headerLabel = new JLabel(""); 
 		headerLabel.setBounds(150,10,200,50);
-		headerLabel.setText("Today's Fitness Info"); 
+		headerLabel.setText("Welcom Admin"); 
+		panel.add(headerLabel);
+		
+		headerLabel = new JLabel("Unverfied trainer profiles"); 
+		headerLabel.setBounds(20,120,200,20);
 		panel.add(headerLabel);
 
-		addButton = new JButton("Add");
+		/*addButton = new JButton("Add");
 		addButton.setBounds(20, 100, 90, 20);
-		panel.add(addButton);
+		panel.add(addButton);*/
 		
-		updateButton = new JButton("Update");
-		updateButton.setBounds(120, 100, 90, 20);
+		updateButton = new JButton("Verify");
+		updateButton.setBounds(90, 100, 90, 20);
 		panel.add(updateButton);
 		
-		delButton = new JButton("Delete");
+		/*delButton = new JButton("Delete");
 		delButton.setBounds(220, 100, 90, 20);
-		panel.add(delButton);
+		panel.add(delButton);*/
 		
-		homeButton = new JButton("Home");
-		homeButton.setBounds(320, 100, 90, 20);
-		panel.add(homeButton);
+		logoutButton = new JButton("LogOut");
+		logoutButton.setBounds(220, 100, 90, 20);
+		panel.add(logoutButton);
 		
 		String[] columns = new String[] {
 	            "Id", "Name", "Verify"
@@ -91,7 +95,7 @@ public class adminApproveProfileView extends view implements ActionListener {
 	        data = new Object[][] {	        };
 	         
 	        final Class[] columnClass = new Class[] {
-	            Integer.class, String.class, Boolean.class
+	            String.class, String.class, Boolean.class
 	        };
 	 
 	        //create table model with data
@@ -133,7 +137,7 @@ public class adminApproveProfileView extends view implements ActionListener {
 			{
 				
 				System.out.println(temp.username);
-				yourAddRow(index++, temp.username,false);
+				yourAddRow(new Integer(index++).toString(), temp.username,false);
 			}
 		}
 		return result;
@@ -142,10 +146,10 @@ public class adminApproveProfileView extends view implements ActionListener {
 	
 	public void register() {
 		
-		this.addButton.addActionListener(this);
+		//this.addButton.addActionListener(this);
 		this.updateButton.addActionListener(this);
-		this.delButton.addActionListener(this);
-		this.homeButton.addActionListener(this);
+		//this.delButton.addActionListener(this);
+		this.logoutButton.addActionListener(this);
 	}
 	
 	@Override
@@ -158,13 +162,13 @@ public class adminApproveProfileView extends view implements ActionListener {
 	public void actionPerformed(ActionEvent actionEvent)
 	{
 
-		if (actionEvent.getActionCommand() == "Add")
+	/*	if (actionEvent.getActionCommand() == "Add")
 		{
 			System.out.println("Add Clicked");	
 			yourAddRow(1,"2",true);
 			//controller.login("HEY", "abc");			
-		}
-		else if (actionEvent.getActionCommand() == "Update")
+		}*/
+		if (actionEvent.getActionCommand() == "Verify")
 		{
 	
 			dbSearch db = new dbSearch(controller);
@@ -174,26 +178,24 @@ public class adminApproveProfileView extends view implements ActionListener {
 				if((boolean)table.getValueAt(i, 2))
 				{
 					System.out.println(table.getValueAt(i,1));
-					db.updateDB("Trainer","Verified",true);
+					db.updateDB("Trainer","Verified",true,(String)table.getValueAt(i,1));
+					//reference : http://stackoverflow.com/questions/1117888/how-to-remove-a-row-from-jtable
+					((DefaultTableModel)table.getModel()).removeRow(i);
 				}
 			}
 		}
-		else if (actionEvent.getActionCommand() == "Delete")
+		else if (actionEvent.getActionCommand() == "LogOut")
 		{
-			System.out.println("Delete Clicked");	
-			populateTable();
-			//controller.login("HEY", "abc");			
-		}
-		else if (actionEvent.getActionCommand() == "Home")
-		{
-			System.out.println("Home Clicked");	
-			//controller.login("HEY", "abc");			
+			//System.out.println("Home Clicked");	
+			controller.view.setVisible(false);
+			controller.view = new startupView(controller);	
+			
 		}
 
 		
 	}
 	//Reference : http://stackoverflow.com/questions/3549206/how-to-add-row-in-jtable
-	public void yourAddRow(Integer str1, String str2, boolean str3){
+	public void yourAddRow(String str1, String str2, boolean str3){
 		  DefaultTableModel yourModel = (DefaultTableModel) table.getModel();
 		  yourModel.addRow(new Object[]{str1, str2, str3});
 		}

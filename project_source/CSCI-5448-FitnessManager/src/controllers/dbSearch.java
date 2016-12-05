@@ -69,15 +69,16 @@ public class dbSearch {
 		q.executeUpdate();
 		session = controller.closeDBSession(session);			
 	}
-	public void updateDB(String table, String fieldName, String fieldValue)
+	public void updateDB(String table, String fieldName, boolean fieldValue, String username)
 	{
 		String query;
 		Session session = controller.createDBSesssion(controller.userDB);
-		query = "UPDATE " + table + " set " + fieldName + "=:field";
+		query = "UPDATE " + table + " set " + fieldName + "=:field where username = :username";
 				
 		System.out.println(query);
 		Query q = session.createQuery(query);
 		q.setParameter("field",  fieldValue);
+		q.setParameter("username",  username);
 		//"FROM RoomTable AS E WHERE E.roomType = :Type and E.roomStatus =:Status";
 		q.executeUpdate();
 		session = controller.closeDBSession(session);			

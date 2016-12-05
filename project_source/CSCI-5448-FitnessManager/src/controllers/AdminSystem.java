@@ -58,5 +58,9 @@ public class AdminSystem extends FSystem {
 		super.setUser(user);	
 		
 	}
+	public void createProfile(double height, int weight, int age, String username, String name, String gender, String email, String location, String securityQuestion, String securityAnswer, String password)
+	{
+		System.out.println("wrong constructor");
+	}
 	
 }

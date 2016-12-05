@@ -13,10 +13,15 @@ public class systemFactory {
 			fsystem  = new TrainerSystem();
 			System.out.println("trainer system");
 		}
-		if(type.equals("Admin"))
+		else if(type.equals("Admin"))
 		{
 			fsystem  = new AdminSystem();
 			System.out.println("admin system");
+		}
+		else if(type.equals("Client"))
+		{
+			fsystem  = new ClientSystem();
+			System.out.println("Client system");
 		}
 		else
 		{

@@ -58,6 +58,10 @@ public class TrainerSystem extends FSystem {
 		System.out.println("wrong constructor");
 		
 	}
+	public void createProfile(double height, int weight, int age, String username, String name, String gender, String email, String location, String securityQuestion, String securityAnswer, String password)
+	{
+		System.out.println("wrong constructor");
+	}
 /*	public void viewSchedule()
 	{
 		ArrayList<String> schedule = this.getUser().getSchedule();

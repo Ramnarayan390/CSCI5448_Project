@@ -28,6 +28,7 @@ public class clientHomepageView extends view implements ActionListener {
 	private JButton fitnessButton;
 	private JButton searchButton;
 	private JButton rateButton;
+	private JButton logoutButton;
 	
 
 	public clientHomepageView (controller controller) {
@@ -47,9 +48,9 @@ public class clientHomepageView extends view implements ActionListener {
 
 		panel.setLayout(null);
 		
-		headerLabel = new JLabel(""); 
-		headerLabel.setBounds(200,10,100,10);
-		headerLabel.setText("Welcome User"); 
+		headerLabel = new JLabel("welcome  " + controller.fsystem.user.getUsername()); 
+		headerLabel.setBounds(170,10,200,30);
+		//headerLabel.setText("Welcome User"); 
 		panel.add(headerLabel);
 		
 		updateButton = new JButton("Update profile");
@@ -75,6 +76,10 @@ public class clientHomepageView extends view implements ActionListener {
 		rateButton = new JButton("Rate Trainer");
 		rateButton.setBounds(250, 250, 180, 50);
 		panel.add(rateButton);
+		
+		logoutButton = new JButton("Logout");
+		logoutButton.setBounds(125, 320, 180, 50);
+		panel.add(logoutButton);
 
 		//JButton registerButton = new JButton("register");
 		//registerButton.setBounds(180, 130, 80, 25);
@@ -90,6 +95,7 @@ public class clientHomepageView extends view implements ActionListener {
 			this.fitnessButton.addActionListener(this);
 			this.searchButton.addActionListener(this);
 			this.rateButton.addActionListener(this);
+			this.logoutButton.addActionListener(this);
 			
 		}
 		
@@ -131,6 +137,12 @@ public class clientHomepageView extends view implements ActionListener {
 			{
 				System.out.println("Rate Trainer Clicked");	
 				//controller.login("HEY", "abc");			
+			}
+			else if (actionEvent.getActionCommand() == "Logout")
+			{
+				System.out.println("Logout Clicked");	
+				controller.view.setVisible(false);
+				controller.view = new startupView(controller);				
 			}
 		}
 

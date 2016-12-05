@@ -17,15 +17,30 @@ public class ClientSystem extends FSystem {
 		super.setUser(client);		
 	}
 	
+	public ClientSystem(){
+		;		
+	}
+	
 	public Client getUser()
 	{
 		return (Client) super.getUser();
 	}
 	
 	@Override
-	void showOptions()
+	public view showOptions(String option, controller controller)
 	{
-		// TODO Auto-generated method stub
+		view currentView = null;
+		if ( option.equals("createProfile") )
+		{
+			currentView = new createClientProfileView(controller);
+			//view.setController(controller);
+		}
+		else if (option.equals("homePage"))
+		{
+			currentView = new clientHomepageView(controller);		
+			//System.out.println("Show admin homepage");
+		}
+		return currentView;	//
 		
 	}
 	
@@ -84,5 +99,26 @@ public class ClientSystem extends FSystem {
 	private void reviewTrainer()
 	{
 		
+	}
+	
+	public void createProfile(boolean verified, String skills, String Summary, String username, String name, String gender, String email, String location, String securityQuestion, String securityAnswer, String password)
+	{
+		System.out.println("wrong constructor");
+
+	}
+	
+	public void createProfile(String AdminRole, String username, String name, String gender,String email, String location,String securityQuestion, String securityAnswer, String password)
+	{
+		//User user;
+		//user = new Admin (AdminRole, username, name, gender, email, location, securityQuestion, securityAnswer, password);
+		//super.setUser(user);	
+		System.out.println("wrong constructor");
+
+	}
+	public void createProfile(double height, int weight, int age, String username, String name, String gender, String email, String location, String securityQuestion, String securityAnswer, String password)
+	{
+		User user;
+		user = new Client (height, weight, age, username, name, gender, email, location, securityQuestion, securityAnswer, password);
+		super.setUser(user);	
 	}
 }

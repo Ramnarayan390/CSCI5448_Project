@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="soma_krishnamurthy_Client" )
+@Table(name="Client" )
 public class Client extends User {
 
 	@Column(name="Height")

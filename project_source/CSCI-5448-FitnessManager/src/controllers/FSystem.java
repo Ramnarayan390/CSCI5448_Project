@@ -34,6 +34,7 @@ public abstract class FSystem {
 	public abstract void createProfile(boolean Verfied, String skills, String Summary, String username, String name, String gender, String email, String location, String securityQuestion, String securityAnswer, String password);
 	//public abstract void createProfile(String...values);
 	public abstract void createProfile(String AdminRole, String username, String name, String gender,String email, String location,String securityQuestion, String securityAnswer, String password);
+	public abstract void createProfile(double height, int weight, int age, String username, String name, String gender, String email, String location, String securityQuestion, String securityAnswer, String password);
 	public abstract view showOptions(String option, controller controller);  //view view = new view();
 	
 	

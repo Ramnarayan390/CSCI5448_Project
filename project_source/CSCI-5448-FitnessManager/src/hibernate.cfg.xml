@@ -30,6 +30,7 @@
     <property name="hbm2ddl.auto">update</property>
     <mapping class="models.Trainer"/>
     <mapping class="models.Admin"/>
+    <mapping class="models.Client"/>
     
   </session-factory>
 </hibernate-configuration>

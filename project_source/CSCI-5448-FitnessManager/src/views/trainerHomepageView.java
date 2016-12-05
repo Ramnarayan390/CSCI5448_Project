@@ -27,6 +27,7 @@ public class trainerHomepageView extends view implements ActionListener {
 	private JButton deleteButton;
 	private JButton viewButton;
 	private JButton editButton;
+	private JButton logoutButton;
 
 
 	
@@ -34,7 +35,7 @@ public class trainerHomepageView extends view implements ActionListener {
 	public trainerHomepageView(controller controller) {
 		super(controller);
 		frame = new JFrame("Trainer Homepage");
-		frame.setSize(500,230);
+		frame.setSize(700,500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		panel = new JPanel();
@@ -65,12 +66,17 @@ public class trainerHomepageView extends view implements ActionListener {
 		deleteButton.setBounds(250, 50, 180, 50);
 		panel.add(deleteButton);
 		
+		logoutButton = new JButton("Logout");
+		logoutButton.setBounds(50, 110, 180, 50);
+		panel.add(logoutButton);
+		
+		
 		viewButton = new JButton("View Schedule");
-		viewButton.setBounds(50, 150, 180, 50);
+		viewButton.setBounds(50, 170, 180, 50);
 		panel.add(viewButton);
 		
 		editButton = new JButton("Edit Schedule");
-		editButton.setBounds(250, 150, 180, 50);
+		editButton.setBounds(250, 170, 180, 50);
 		panel.add(editButton);
 		
 
@@ -90,6 +96,7 @@ public class trainerHomepageView extends view implements ActionListener {
 		public void register() {
 			
 			this.updateButton.addActionListener(this);
+			this.logoutButton.addActionListener(this);
 			this.deleteButton.addActionListener(this);
 			this.viewButton.addActionListener(this);
 			this.editButton.addActionListener(this);
@@ -123,22 +130,19 @@ public class trainerHomepageView extends view implements ActionListener {
 			if (actionEvent.getActionCommand() == "Update profile")
 			{
 				System.out.println("Update profile Clicked");	
-				//controller.login("HEY", "abc");			
-			}
-			else if (actionEvent.getActionCommand() == "Delete Profile")
-			{
-				System.out.println("Delete Profile Clicked");	
-				//controller.login("HEY", "abc");			
-			}
-			else if (actionEvent.getActionCommand() == "View Schedule")
-			{
-				System.out.println("View Clicked");	
-				//controller.login("HEY", "abc");			
+		
 			}
 			else if (actionEvent.getActionCommand() == "Edit Schedule")
 			{
-				System.out.println("Edit Clicked");	
-				//controller.login("HEY", "abc");			
+				System.out.println("Edit Clicked");
+				controller.view = new startupView(controller);
+			
+			}
+			else if (actionEvent.getActionCommand() == "Logout")
+			{
+				controller.view.setVisible(false);
+				controller.view = new startupView(controller);	
+			
 			}
 
 		}

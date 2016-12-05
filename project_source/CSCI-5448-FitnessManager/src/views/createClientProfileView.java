@@ -14,6 +14,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import org.hibernate.Session;
+
 import controllers.controller;
 
 //import org.hibernate.Query;
@@ -234,6 +236,16 @@ public class createClientProfileView extends view implements ActionListener{
         session.close();
         System.out.println("7 created");*/
 		//System.out.println(controller.fsystem.user.email);
+		Session session = controller.createDBSesssion(controller.getUserDB());
+		
+		//create user
+		double height = Double.parseDouble(heightText.getText());
+		int weight = Integer.parseInt(weightText.getText()); 
+		int age = Integer.parseInt(ageText.getText());;
+		controller.fsystem.createProfile(height, weight, age, username, name, gender, email, location, securityQuestion, securityAnswer, password);
+		session.save(controller.fsystem.getUser());
+		session = controller.closeDBSession(session);
+		controller.display("Trainer","homePage");
 	}
 	
 	@Override

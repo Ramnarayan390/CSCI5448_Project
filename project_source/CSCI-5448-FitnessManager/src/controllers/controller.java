@@ -75,7 +75,7 @@ public class controller {
 		//List result = q.list();
 		List result;
 		dbSearch db = new dbSearch(this);
-		System.out.print("usertype" + this.usertype+ username);
+		System.out.print("usertype" + this.usertype + username);
 		result = db.searchDBList(this.usertype,"username",username);
 		System.out.print("result.get(0).username" + "db class works");
 		if (result.isEmpty()) 
