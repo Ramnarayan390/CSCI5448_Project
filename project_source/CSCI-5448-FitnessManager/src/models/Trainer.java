@@ -65,7 +65,7 @@ public class Trainer extends User {
 		schedule.add(day + " at " + time);
 	}
 	
-	public void clientSchedule(int index, String name)
+	public void addClientToSchedule(int index, String name)
 	{
 		schedule.set(index, schedule.get(index) + " is scheduled with " + name);
 	}

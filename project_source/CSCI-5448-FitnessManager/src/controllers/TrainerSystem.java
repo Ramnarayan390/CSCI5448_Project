@@ -33,6 +33,10 @@ public class TrainerSystem extends FSystem {
 		{
 			currentView = new trainerHomepageView(controller);		
 		}
+		else if (option.equals("editSchedule"))
+		{
+			editSchedule();
+		}
 		return currentView;	//
 		//view.main("ss");
 		// TODO Auto-generated method stub
@@ -62,7 +66,7 @@ public class TrainerSystem extends FSystem {
 	{
 		System.out.println("wrong constructor");
 	}
-/*	public void viewSchedule()
+	public void viewSchedule()
 	{
 		ArrayList<String> schedule = this.getUser().getSchedule();
 		
@@ -72,17 +76,15 @@ public class TrainerSystem extends FSystem {
 				formatString += (i+1) + ". " + schedule.get(i) + "\n";
 		}
 		JOptionPane.showMessageDialog(null, formatString);
-	}*/
+	}
 	
 	private void editSchedule()
 	{
-		//this.viewSchedule();
+		this.viewSchedule();
 		String dayToAdd = JOptionPane.showInputDialog(null, "What day would you like to add?");
 		String timeToAdd = JOptionPane.showInputDialog(null, "What time would you like to add for " + dayToAdd + "?");
 
-		//this.getUser().changeSchedule(dayToAdd, timeToAdd, this.getUser().getName());
-
-//		this.getUser().changeSchedule(dayToAdd, timeToAdd);
+		this.getUser().addSchedule(dayToAdd, timeToAdd);
 
 		JOptionPane.showMessageDialog(null, "Successfully Added!");
 	}

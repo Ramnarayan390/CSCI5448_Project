@@ -3,9 +3,12 @@ package controllers;
 import models.*;
 
 import java.util.ArrayList;
-
+import java.util.List;
 
 import javax.swing.JOptionPane;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
 
 import models.*;
 import views.*;
@@ -44,44 +47,21 @@ public class ClientSystem extends FSystem {
 		{
 			currentView = new fitnessInfoView(controller);		
 		}
+		else if (option.equals("scheduleAppointment"))
+		{
+			scheduleAppointment(controller);
+		}
 		return currentView;	//
 		
 	}
 	
-	private void showFitness()
+	private void scheduleAppointment(controller controller)
 	{
+		dbSearch db = new dbSearch(controller);
 		
-	}
-	
-	private void addFitness()
-	{
-		
-	}
-	
-	private void modifyFitness()
-	{
-		
-	}
-	
-	private void deleteFitness()
-	{
-		
-	}
-	
-	private void seeGoals()
-	{
-		
-	}
-	
-	private void searchTrainers()
-	{
-		
-	}
-	
-	private void scheduleAppointment()
-	{
-		//ArrayList<Trainer> trainersList = controller.searchDB("trainers");
-/*		String formatString = "";
+		List result = db.searchDBList("Trainer", "", "");				
+		ArrayList<Trainer> trainersList = (ArrayList<Trainer>) result;
+		String formatString = "";
 		for (int i = 0; i < trainersList.size(); i++)
 		{
 			formatString += i + " " + trainersList.get(i).getName();
@@ -96,15 +76,10 @@ public class ClientSystem extends FSystem {
 		}
 		String scheduleID = JOptionPane.showInputDialog(null, "Please enter the number of the slot you would like to book:\n" + formatString);
 		int sID = Integer.parseInt(scheduleID);
-		trainersList.get(tID).clientSchedule(sID, super.getUser().getName());
-		JOptionPane.showMessageDialog(null, "Appointment successfully added!");*/
+		trainersList.get(tID).addClientToSchedule(sID, super.getUser().getName());
+		JOptionPane.showMessageDialog(null, "Appointment successfully added!");
 	}
-	
-	private void reviewTrainer()
-	{
-		
-	}
-	
+
 	public void createProfile(boolean verified, String skills, String Summary, String username, String name, String gender, String email, String location, String securityQuestion, String securityAnswer, String password)
 	{
 		System.out.println("wrong constructor");
