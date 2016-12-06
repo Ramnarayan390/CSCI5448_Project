@@ -69,7 +69,7 @@ public class Trainer extends User {
 	
 	public void addSchedule(String day, String time)
 	{
-		if (this.getSchedule()[this.getSchedule().length-1] != "")
+		if (this.getSchedule().length > 1)
 		{
 			String[] newSchedule = new String[this.getSchedule().length+1];
 			for (int i=0;i<this.schedule.length;i++)

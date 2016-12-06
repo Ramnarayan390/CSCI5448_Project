@@ -73,7 +73,7 @@ public class ClientSystem extends FSystem {
 		}
 		String scheduleID = JOptionPane.showInputDialog(null, "Please enter the number of the slot you would like to book:\n" + formatString);
 		int sID = Integer.parseInt(scheduleID);
-		trainersList.get(tID).addClientToSchedule(sID, super.getUser().getName());
+		trainersList.get(tID).addClientToSchedule(sID-1, super.getUser().getName());
 		db.updateDB("Trainer", "Schedule", trainersList.get(tID).getSchedule(), trainersList.get(tID).getUsername());
 		JOptionPane.showMessageDialog(null, "Appointment successfully added!");
 	}
