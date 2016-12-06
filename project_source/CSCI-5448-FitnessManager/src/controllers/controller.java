@@ -15,23 +15,22 @@ import views.*;
 
 public class controller {
 
-	private Model model;
+	//private Model model;
 	public view view;
 	public SessionFactory userDB;
 	public FSystem fsystem;
-	//public String name;
 	public String usertype;
-
+	public systemFactory factory;
+ 
 	//private ActionListener actionListner;
 	
-	public controller(Model model, view view)
+	public controller(view view)
 	{
-		this.model = model;
-		this.view = view;
 		
-		//this.view.register();
+		this.view = view;
+		factory = new systemFactory();		
 		this.userDB = new Configuration().configure().buildSessionFactory();
-		///this.view.setController(this);
+	
 
 	}
 	
@@ -49,11 +48,7 @@ public class controller {
 
 
 	}
-	private void updateCount()
-	{
-		model.incrementX();
 
-	}
 	
 	public boolean user_exists(String username)
 	{

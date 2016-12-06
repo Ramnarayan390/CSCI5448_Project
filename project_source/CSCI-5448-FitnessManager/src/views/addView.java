@@ -33,7 +33,7 @@ public class addView implements ActionListener {
 	private JComboBox timeText;
 	private JTextField valueText;
 	private JButton submitButton;
-	private fitnessInfoView mainView;
+	private static fitnessInfoView mainView;
 
 	public addView(fitnessInfoView mainView) 
 	{

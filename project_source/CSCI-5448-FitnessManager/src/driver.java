@@ -24,13 +24,13 @@ public class driver  {
 		    e.printStackTrace();
 		}
 		
-		Model model = new Model();
+		//Model model = new Model();
 		//view view = new loginView();
 		//view view = new createTrainerProfileView();
 		//view view = new startupView();
 		//view view = new trainerHomepageView();
 		view view = null;
-		controller control = new controller(model,view);
+		controller control = new controller(view);
 		//control.view = new adminApproveProfileView(control);
 		//control.view = new trainerHomepageView(control);
 		control.view = new startupView(control);

@@ -96,8 +96,8 @@ public class startupView extends view implements ActionListener{
 	{
 
 
-		systemFactory factory = new systemFactory();
-		controller.fsystem = factory.getSystem(roleChoice.getSelectedItem().toString());
+		//systemFactory factory = new systemFactory();
+		controller.fsystem = controller.factory.getSystem(roleChoice.getSelectedItem().toString());
 		controller.usertype = roleChoice.getSelectedItem().toString();
 		if (actionEvent.getActionCommand() == "Login")
 		{
