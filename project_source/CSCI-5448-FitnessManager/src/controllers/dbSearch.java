@@ -44,6 +44,19 @@ public class dbSearch {
 		return result;
 	}
 	
+	public List searchDBList(String table)
+	{
+		//System.out.println("Query Begin");
+		Session session = controller.createDBSesssion(controller.userDB);
+		//System.out.println("Query  :  " + "from " + table + " as T where T." + fieldName + "= :field" + "  fieldvalue : "+ fieldValue);
+		Query q = session.createQuery("from " + table);	
+		//System.out.println("Query2  " + "from " + table + " as T where T." + fieldName + "= :field");		
+		
+		List result = q.list();
+		session = controller.closeDBSession(session);
+		return result;
+	}
+	
 	public User searchDBUser(String table, String field)
 	{
 		Session session = controller.createDBSesssion(controller.userDB);

@@ -55,7 +55,7 @@ public class ClientSystem extends FSystem {
 	{
 		dbSearch db = new dbSearch(controller);
 		
-		List result = db.searchDBList("Trainer", "", "");				
+		List result = db.searchDBList("Trainer");				
 		ArrayList<Trainer> trainersList = (ArrayList<Trainer>) result;
 		String formatString = "";
 		for (int i = 0; i < trainersList.size(); i++)
