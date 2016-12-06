@@ -60,10 +60,11 @@ public class ClientSystem extends FSystem {
 		String formatString = "";
 		for (int i = 0; i < trainersList.size(); i++)
 		{
-			formatString += i + " " + trainersList.get(i).getName();
+			formatString += (i+1) + " " + trainersList.get(i).getName() + "\n";
 		}
 		String trainerID = JOptionPane.showInputDialog(null, "Please enter the number of the trainer you wish to view the schedule of.\n" + formatString);
 		int tID = Integer.parseInt(trainerID);
+		tID--;
 		ArrayList<String> schedule = trainersList.get(tID).getSchedule();
 		
 		for (int i = 0; i < schedule.size(); i++)
@@ -73,6 +74,7 @@ public class ClientSystem extends FSystem {
 		String scheduleID = JOptionPane.showInputDialog(null, "Please enter the number of the slot you would like to book:\n" + formatString);
 		int sID = Integer.parseInt(scheduleID);
 		trainersList.get(tID).addClientToSchedule(sID, super.getUser().getName());
+		db.updateDB("Trainer", "Schedule", trainersList.get(tID).getSchedule(), trainersList.get(tID).getUsername());
 		JOptionPane.showMessageDialog(null, "Appointment successfully added!");
 	}
 

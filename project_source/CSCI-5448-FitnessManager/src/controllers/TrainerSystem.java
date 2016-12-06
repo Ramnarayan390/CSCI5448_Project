@@ -74,14 +74,18 @@ public class TrainerSystem extends FSystem {
 		JOptionPane.showMessageDialog(null, formatString);
 	}
 	
-	public void editSchedule()
+	public void editSchedule(controller controller)
 	{
+		dbSearch db = new dbSearch(controller);
+		
 		this.viewSchedule();
 		String dayToAdd = JOptionPane.showInputDialog(null, "What day would you like to add?");
 		String timeToAdd = JOptionPane.showInputDialog(null, "What time would you like to add for " + dayToAdd + "?");
 
 		this.getUser().addSchedule(dayToAdd, timeToAdd);
-
+		
+		db.updateDB("Trainer", "Schedule", this.getUser().getSchedule(), this.getUser().getUsername());
+		
 		JOptionPane.showMessageDialog(null, "Successfully Added!");
 	}
 	
