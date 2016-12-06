@@ -1,0 +1,228 @@
+package views;
+
+import models.*;
+import controllers.*;
+
+import java.awt.BorderLayout;
+import java.awt.Font;
+import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
+public class FitnessInfoView extends View implements ActionListener {
+
+	private JFrame frame;
+	private JPanel panel;
+	private JLabel headerLabel;
+	private JButton addButton;
+	private JButton updateButton;
+	private JButton delButton;
+	private JButton homeButton;
+	public DefaultTableModel model;
+	public JTable table;
+	public JTable showAvailtable;
+	
+	public FitnessInfoView (Controller controller) 
+	{
+		super(controller);
+		frame = new JFrame("Today's Fitness Info");
+		frame.setSize(600,600);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
+
+		panel = new JPanel();
+		panel.setBounds(10,5,1500,1500);
+		frame.getContentPane().add(panel);
+		
+		placeComponents();
+
+		frame.setVisible(true);
+	}
+
+	private void placeComponents() {
+
+		panel.setLayout(null);
+		headerLabel = new JLabel(""); 
+		headerLabel.setFont(new Font("Dialog", Font.BOLD, 16));
+		headerLabel.setBounds(203,38,200,50);
+		headerLabel.setText("Daily Fitness Info"); 
+		panel.add(headerLabel);
+
+		addButton = new JButton("Add");
+		addButton.setBounds(62, 100, 90, 40);
+		panel.add(addButton);
+		
+		updateButton = new JButton("Save");
+		updateButton.setBounds(313, 100, 90, 40);
+		panel.add(updateButton);
+		
+		delButton = new JButton("Delete");		
+		delButton.setBounds(187, 100, 90, 40);
+		panel.add(delButton);
+		
+		homeButton = new JButton("Home");
+		homeButton.setBounds(430, 100, 90, 40);
+		panel.add(homeButton);
+		
+		String[] columns = new String[] {
+	            "Id", "Name", "Verify"
+	        };
+	         
+	        //actual data for the table in a 2d array
+	        Object[][] data = new Object[][] {
+	            {"Type", "Value", "Time" },
+	        };
+	         
+	        final Class[] columnClass = new Class[] {
+	            String.class, String.class, String.class
+	        };
+	 
+	        //create table model with data
+	      //  model = new DefaultTableModel(data, columns) {
+	        
+	        model = new DefaultTableModel(((Client)controller.fsystem.user).fitnessInfo, columns) {
+	        
+			
+	            @Override
+	            public boolean isCellEditable(int row, int column)
+	            {
+	                return true;
+	            }
+	 
+	            @Override
+	            public Class<?> getColumnClass(int columnIndex)
+	            {
+	                return columnClass[columnIndex];
+	            }
+	        };
+	      
+	         
+	        table = new JTable(model);
+	        
+	         //table.getValueAt(arg0, arg1)
+	        table.setBounds(62, 158, 479, 301);
+	        
+			panel.add(table);
+			yourAddRow(0,"Type","Value","Time");
+			//table2 = new JTable(model);
+			
+			
+		
+		this.register();
+	}
+	
+public void register() {
+		
+		this.addButton.addActionListener(this);
+		this.updateButton.addActionListener(this);
+		this.delButton.addActionListener(this);
+		this.homeButton.addActionListener(this);
+	}
+
+
+	/*private Object[][] populateTable()
+	{
+		/*List<User> result;
+		dbSearch db = new dbSearch(controller);
+		result = db.searchDBList("Client","username",controller.fsystem.user.getUsername());
+		
+		if (result.isEmpty())
+			System.out.println("Username not found");
+		else
+		{
+			result.get
+		}
+		//return result;
+		Object[][] fitnessInfo = ((Client)controller.fsystem.user).fitnessInfo;
+		
+
+	        
+
+	}*/
+
+	
+	
+	@Override
+	public void setVisible(Boolean visiblity)
+	{
+		frame.setVisible(visiblity);
+	}
+	
+	public void actionPerformed(ActionEvent actionEvent)
+	{
+
+		if (actionEvent.getActionCommand() == "Add")
+		{
+			System.out.println("Add Clicked");
+			new AddView(this);
+			//controller.login("HEY", "abc");			
+		}
+		else if (actionEvent.getActionCommand() == "Save")
+		{
+			System.out.println("Update Clicked");
+			DbSearch db = new DbSearch(controller);
+			
+			Object[][] fitnessInfo = getTableData (table);
+			db.updateDB("Client","fitnessInfo", fitnessInfo,controller.fsystem.user.getUsername());
+	
+		}
+		else if (actionEvent.getActionCommand() == "Delete")
+		{
+			//Reference : http://stackoverflow.com/questions/17254587/remove-1-selected-row-from-jtable
+			
+			DefaultTableModel modelTable = (DefaultTableModel) table.getModel();
+			
+			System.out.println("Delete Clicked");
+			System.out.println(table.getValueAt(table.getSelectedRow(), 0).toString());
+			
+			
+			modelTable.removeRow(table.getSelectedRow());
+			//controller.login("HEY", "abc");			
+		}
+		else if (actionEvent.getActionCommand() == "Home")
+		{
+			System.out.println("Home Clicked");	
+			controller.display("Client", "homePage");
+		}
+		
+	}
+	
+		
+		public Object[][] getTableData (JTable table) {
+		    DefaultTableModel dtm = (DefaultTableModel) table.getModel();
+		    int nRow = dtm.getRowCount(), nCol = dtm.getColumnCount();
+		    Object[][] tableData = new Object[nRow][nCol];
+		    for (int i = 1 ; i < nRow ; i++)
+		        for (int j = 0 ; j < nCol ; j++)
+		            tableData[i-1][j] = dtm.getValueAt(i,j);
+		    //System.out.println(tableData[1][2]);
+		    return tableData;
+		}
+		
+		//Reference : http://stackoverflow.com/questions/3549206/how-to-add-row-in-jtable
+		public void yourAddRow(String str1, String str2, String str3){
+			  DefaultTableModel yourModel = (DefaultTableModel) table.getModel();
+			  yourModel.addRow(new Object[]{str1, str2, str3});
+			}
+		public void yourAddRow(int index, String str1, String str2, String str3){
+			  DefaultTableModel yourModel = (DefaultTableModel) table.getModel();			 
+			  yourModel.insertRow(index, new Object[]{str1, str2, str3});
+			}
+		
+		
+
+}

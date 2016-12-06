@@ -1,0 +1,42 @@
+import models.*;
+import controllers.*;
+import views.*;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+import java.util.*;
+
+
+
+
+
+public class driver  {
+	
+	
+	public static void main(String[] args)
+	{
+		
+		try {
+		    UIManager.setLookAndFeel("com.seaglasslookandfeel.SeaGlassLookAndFeel");
+		} catch (Exception e) {
+		    e.printStackTrace();
+		}
+		
+		//Model model = new Model();
+		//view view = new loginView();
+		//view view = new createTrainerProfileView();
+		//view view = new startupView();
+		//view view = new trainerHomepageView();
+		view view = null;
+		Controller control = new Controller(view);
+		//control.view = new adminApproveProfileView(control);
+		//control.view = new trainerHomepageView(control);
+		control.view = new startupView(control);
+		control.control();
+		 
+	}
+	
+
+}

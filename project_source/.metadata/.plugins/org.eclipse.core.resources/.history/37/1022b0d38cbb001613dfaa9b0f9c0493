@@ -1,0 +1,230 @@
+package views;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import controllers.Controller;
+import controllers.dbSearch;
+import models.*;
+
+
+public class createTrainerProfileView extends view implements ActionListener{
+
+	private JFrame frame;
+	private JPanel panel;
+	
+	private JLabel userLabel;
+	private JTextField userText;
+	private JLabel passwordLabel;
+	private JPasswordField passwordText;
+	private JLabel emailLabel;
+	private JTextField emailText;
+	private JLabel LocationLabel;
+	private JTextField locationText;	
+	private JLabel SecQues;
+	private JComboBox secQuesText;
+	private JTextField secAnsText;
+	private JRadioButton Male;
+	private JRadioButton Female;
+	private JTextArea summaryText;
+	private JTextArea skillsText;
+	private JButton submitButton;
+	
+		
+	public createTrainerProfileView(Controller controller) 
+	{
+		super(controller);
+		frame = new JFrame("Create Trainer Profile");
+		frame.setSize(850,850);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
+		panel = new JPanel();
+		frame.getContentPane().add(panel);
+		placeComponents();
+
+		frame.setVisible(true);
+	}
+
+	private void placeComponents() {
+
+		panel.setLayout(null);
+
+		userLabel = new JLabel("User");
+		userLabel.setBounds(10, 10, 80, 25);
+		panel.add(userLabel);
+
+		userText = new JTextField(20);
+		userText.setBounds(100, 10, 160, 25);
+		panel.add(userText);
+
+		passwordLabel = new JLabel("Password");
+		passwordLabel.setBounds(10, 40, 80, 25);
+		panel.add(passwordLabel);
+
+		passwordText = new JPasswordField(20);
+		passwordText.setBounds(100, 40, 160, 25);
+		panel.add(passwordText);
+		
+		emailLabel = new JLabel("Email");
+		emailLabel.setBounds(300, 10, 80, 25);
+		panel.add(emailLabel);
+
+		emailText = new JTextField(20);
+		emailText.setBounds(400, 10, 160, 25);
+		panel.add(emailText);
+		
+		LocationLabel = new JLabel("Location");
+		LocationLabel.setBounds(300, 40, 80, 25);
+		panel.add(LocationLabel);
+
+		locationText = new JTextField(20);
+		locationText.setBounds(400, 40, 160, 25);
+		panel.add(locationText);
+		
+		SecQues = new JLabel("Security Question");
+		SecQues.setBounds(10, 77, 147, 25);
+		panel.add(SecQues);
+		
+		String[] petStrings = { "Why did the chicken cross the road?", "Can you smell what the Rock is cooking?", "Who let the dogs out?", "How many feet do you have?" };
+		//Indices start at 0, so 4 specifies the pig.
+		secQuesText = new JComboBox(petStrings);
+		secQuesText.setSelectedIndex(3);
+		//petList.addActionListener(this);
+		secQuesText.setBounds(175, 79, 318, 20);
+		panel.add(secQuesText);
+		
+		//JTextField userText3 = new JTextField(20);
+		//userText3.setBounds(100, 70, 160, 25);
+		//panel.add(userText3);
+		
+		JLabel Answer = new JLabel("Answer");
+		Answer.setBounds(10, 107, 80, 25);
+		panel.add(Answer);
+
+		secAnsText = new JTextField(20);
+		secAnsText.setBounds(175, 107, 160, 25);
+		panel.add(secAnsText);
+		
+		JLabel Gender = new JLabel("Gender");
+		Gender.setBounds(10, 150, 80, 25);
+		panel.add(Gender);
+		
+		Male = new JRadioButton("Male");
+		Male.setBounds(100, 150, 80, 25);
+		panel.add(Male);
+		
+		Female = new JRadioButton("Female");
+		Female.setBounds(195, 150, 80, 25);
+		panel.add(Female);
+		    
+		
+		JLabel Skills = new JLabel("Skills");
+		Skills.setBounds(10, 200, 80, 25);
+		panel.add(Skills);
+		
+		skillsText = new JTextArea(200, 200);
+		JScrollPane scrollPane = new JScrollPane(skillsText);
+		
+		scrollPane.setBounds(100, 200, 200, 200);
+		panel.add(scrollPane);
+		
+		JLabel Summary = new JLabel("Summary");
+		Summary.setBounds(10, 500, 80, 25);
+		panel.add(Summary);
+		
+		summaryText = new JTextArea(500, 200);
+		JScrollPane scrollPane1 = new JScrollPane(summaryText);
+		
+		scrollPane1.setBounds(100, 500, 500, 200);
+		panel.add(scrollPane1);
+		
+		submitButton = new JButton("Submit");
+		submitButton.setBounds(384, 750, 96, 50);
+		panel.add(submitButton);
+		this.register();
+		
+	}
+	
+	public void register() {
+		
+		this.submitButton.addActionListener(this);		
+	}
+	
+	public void actionPerformed(ActionEvent actionEvent)	
+	{
+		String skills = skillsText.getText();
+		String Summary = summaryText.getText();
+		String username = userText.getText();
+		String name = "ahahah";
+		String gender;
+		String email = emailText.getText();
+		String location = locationText.getText();
+		String securityQuestion;
+		String securityAnswer = secAnsText.getText();;
+		String password = new String(passwordText.getPassword());
+		
+		if (Male.isSelected())
+			gender = "MALE";
+		else
+			gender = "FEMALE";
+		
+		securityQuestion = secQuesText.getSelectedItem().toString();
+		
+		/*SessionFactory factory = new Configuration().configure().buildSessionFactory();
+		System.out.println("creating session");
+		Session session = factory.openSession();
+		session.beginTransaction();
+		//
+		System.out.println("session created");*/
+		//controller.createProfile("Trainer");
+		
+		
+		Session session = controller.createDBSesssion(controller.getUserDB());
+		
+		
+		
+		JOptionPane dialogBox = new JOptionPane();
+		List result;
+		dbSearch db = new dbSearch(controller);	
+		System.out.println("Username : " + username);
+		result = db.searchDBList("Trainer","username",username);
+		if (!result.isEmpty())
+		{
+			dialogBox.showMessageDialog(frame, "Duplicate username : Enter username and try again");
+		}
+		else
+		{
+			controller.fsystem.createProfile(false, skills, Summary, username, name, gender, email, location, securityQuestion, securityAnswer, password);
+			//session.save((Trainer)controller.fsystem.getUser());
+			session.save(controller.fsystem.getUser());
+			session = controller.closeDBSession(session);	
+			System.out.println(controller.fsystem.user.email);
+			controller.display("Trainer","homePage");
+		}
+	}
+	
+	@Override
+	public void setVisible(Boolean visiblity)
+	{
+		frame.setVisible(visiblity);
+	}
+
+}

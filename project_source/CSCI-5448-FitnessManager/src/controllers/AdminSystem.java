@@ -21,17 +21,17 @@ public class AdminSystem extends FSystem {
 	}
 	
 	@Override
-	public view showOptions(String option, controller controller)
+	public View showOptions(String option, Controller controller)
 	{
-		view currentView = null;
+		View currentView = null;
 		if ( option.equals("createProfile") )
 		{
-			currentView = new createAdminProfileView(controller);
+			currentView = new CreateAdminProfileView(controller);
 			//view.setController(controller);
 		}
 		else if (option.equals("homePage"))
 		{
-			currentView = new adminApproveProfileView(controller);		
+			currentView = new AdminApproveProfileView(controller);		
 			//System.out.println("Show admin homepage");
 		}
 		return currentView;	//

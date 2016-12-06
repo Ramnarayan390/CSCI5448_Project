@@ -29,11 +29,11 @@ public class driver  {
 		//view view = new createTrainerProfileView();
 		//view view = new startupView();
 		//view view = new trainerHomepageView();
-		view view = null;
-		controller control = new controller(view);
+		View view = null;
+		Controller control = new Controller(view);
 		//control.view = new adminApproveProfileView(control);
 		//control.view = new trainerHomepageView(control);
-		control.view = new startupView(control);
+		control.view = new StartupView(control);
 		control.control();
 		 
 	}

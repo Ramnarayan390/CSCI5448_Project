@@ -14,3 +14,17 @@
 1480979407613	Delete element
 1480988554207	Delete element
 1480998236885	Delete elements
+1481012351096	Rename type 'controller'
+1481012421184	Rename type 'dbSearch'
+1481012435504	Rename type 'systemFactory'
+1481012490040	Rename type 'addView'
+1481012503087	Rename type 'adminApproveProfileView'
+1481012515848	Rename type 'clientHomepageView'
+1481012531683	Rename type 'createAdminProfileView'
+1481012542307	Rename type 'createClientProfileView'
+1481012556694	Rename type 'createTrainerProfileView'
+1481012567677	Rename type 'fitnessInfoView'
+1481012578029	Rename type 'loginPageView'
+1481012588469	Rename type 'startupView'
+1481012610886	Rename type 'trainerHomepageView'
+1481012634808	Rename type 'view'

@@ -30,30 +30,30 @@ public class ClientSystem extends FSystem {
 	}
 	
 	@Override
-	public view showOptions(String option, controller controller)
+	public View showOptions(String option, Controller controller)
 	{
-		view currentView = null;
+		View currentView = null;
 		if ( option.equals("createProfile") )
 		{
-			currentView = new createClientProfileView(controller);
+			currentView = new CreateClientProfileView(controller);
 			//view.setController(controller);
 		}
 		else if (option.equals("homePage"))
 		{
-			currentView = new clientHomepageView(controller);		
+			currentView = new ClientHomepageView(controller);		
 			//System.out.println("Show admin homepage");
 		}
 		else if (option.equals("fitnessInfo"))
 		{
-			currentView = new fitnessInfoView(controller);		
+			currentView = new FitnessInfoView(controller);		
 		}
 		return currentView;	//
 		
 	}
 	
-	public void scheduleAppointment(controller controller)
+	public void scheduleAppointment(Controller controller)
 	{
-		dbSearch db = new dbSearch(controller);
+		DbSearch db = new DbSearch(controller);
 		
 		List result = db.searchDBList("Trainer");				
 		ArrayList<Trainer> trainersList = (ArrayList<Trainer>) result;

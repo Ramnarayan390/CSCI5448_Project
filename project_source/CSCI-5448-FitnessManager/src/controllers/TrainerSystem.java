@@ -21,17 +21,17 @@ public class TrainerSystem extends FSystem {
 	}
 	
 	@Override
-	public view showOptions(String option, controller controller)
+	public View showOptions(String option, Controller controller)
 	{
-		view currentView = null;
+		View currentView = null;
 		if ( option.equals("createProfile") )
 		{
-			currentView = new createTrainerProfileView(controller);
+			currentView = new CreateTrainerProfileView(controller);
 			//view.setController(controller);
 		}
 		else if (option.equals("homePage"))
 		{
-			currentView = new trainerHomepageView(controller);		
+			currentView = new TrainerHomepageView(controller);		
 		}		
 		return currentView;	//
 		//view.main("ss");
@@ -74,9 +74,9 @@ public class TrainerSystem extends FSystem {
 		JOptionPane.showMessageDialog(null, formatString);
 	}
 	
-	public void editSchedule(controller controller)
+	public void editSchedule(Controller controller)
 	{
-		dbSearch db = new dbSearch(controller);
+		DbSearch db = new DbSearch(controller);
 		
 		this.viewSchedule();
 		String dayToAdd = JOptionPane.showInputDialog(null, "What day would you like to add?");
