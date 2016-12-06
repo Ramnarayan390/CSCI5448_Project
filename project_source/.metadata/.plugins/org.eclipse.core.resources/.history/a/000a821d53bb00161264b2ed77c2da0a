@@ -11,16 +11,12 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import controllers.ClientSystem;
-import controllers.TrainerSystem;
 import controllers.controller;
 
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import java.awt.Font;
-
-import controllers.*;
 
 public class clientHomepageView extends view implements ActionListener {
 	
@@ -138,9 +134,7 @@ public class clientHomepageView extends view implements ActionListener {
 			}
 			else if (actionEvent.getActionCommand() == "Search Trainers")
 			{
-				System.out.println("Search Trainers Clicked");
-				
-				((ClientSystem)controller.fsystem).scheduleAppointment(controller);
+				System.out.println("Search Trainers Clicked");	
 				//controller.login("HEY", "abc");			
 			}
 			else if (actionEvent.getActionCommand() == "Rate Trainer")

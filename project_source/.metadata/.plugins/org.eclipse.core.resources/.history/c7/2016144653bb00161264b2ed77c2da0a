@@ -47,6 +47,10 @@ public class ClientSystem extends FSystem {
 		{
 			currentView = new fitnessInfoView(controller);		
 		}
+		else if (option.equals("scheduleAppointment"))
+		{
+			scheduleAppointment(controller);
+		}
 		return currentView;	//
 		
 	}

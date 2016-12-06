@@ -140,7 +140,7 @@ public class clientHomepageView extends view implements ActionListener {
 			{
 				System.out.println("Search Trainers Clicked");
 				
-				((ClientSystem)controller.fsystem).scheduleAppointment(controller);
+				((ClientSystem)controller.fsystem).viewSchedule();
 				//controller.login("HEY", "abc");			
 			}
 			else if (actionEvent.getActionCommand() == "Rate Trainer")

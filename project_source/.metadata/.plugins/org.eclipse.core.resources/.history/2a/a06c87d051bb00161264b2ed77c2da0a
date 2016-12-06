@@ -32,7 +32,11 @@ public class TrainerSystem extends FSystem {
 		else if (option.equals("homePage"))
 		{
 			currentView = new trainerHomepageView(controller);		
-		}		
+		}
+		else if (option.equals("editSchedule"))
+		{
+			editSchedule();
+		}
 		return currentView;	//
 		//view.main("ss");
 		// TODO Auto-generated method stub
@@ -74,7 +78,7 @@ public class TrainerSystem extends FSystem {
 		JOptionPane.showMessageDialog(null, formatString);
 	}
 	
-	public void editSchedule()
+	private void editSchedule()
 	{
 		this.viewSchedule();
 		String dayToAdd = JOptionPane.showInputDialog(null, "What day would you like to add?");

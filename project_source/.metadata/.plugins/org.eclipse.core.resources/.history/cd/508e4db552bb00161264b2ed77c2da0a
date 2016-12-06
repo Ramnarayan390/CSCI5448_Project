@@ -140,11 +140,11 @@ public class trainerHomepageView extends view implements ActionListener {
 				//controller.view = new startupView(controller);
 			
 			}
-			else if (actionEvent.getActionCommand() == "View Schedule")
+			else if (actionEvent.getActionCommand() == "Edit Schedule")
 			{
 		
-				System.out.println("View Clicked");
-				((TrainerSystem)controller.fsystem).viewSchedule();
+				System.out.println("Edit Clicked");
+				((TrainerSystem)controller.fsystem).editSchedule();
 				//controller.view = new startupView(controller);
 			
 			}

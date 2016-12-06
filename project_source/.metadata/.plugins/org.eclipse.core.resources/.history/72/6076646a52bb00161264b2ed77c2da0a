@@ -74,7 +74,7 @@ public class TrainerSystem extends FSystem {
 		JOptionPane.showMessageDialog(null, formatString);
 	}
 	
-	public void editSchedule()
+	private void editSchedule()
 	{
 		this.viewSchedule();
 		String dayToAdd = JOptionPane.showInputDialog(null, "What day would you like to add?");

@@ -28,11 +28,10 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-import java.awt.Font;
 
 public class adminApproveProfileView extends view implements ActionListener {
 
-	private JFrame frmAdminWelcomePage;
+	private JFrame frame;
 	private JPanel panel;
 	private JLabel headerLabel;
 	private JButton addButton;
@@ -49,29 +48,27 @@ public class adminApproveProfileView extends view implements ActionListener {
 	public adminApproveProfileView(controller controller) 
 	{
 		super(controller);
-		frmAdminWelcomePage = new JFrame("Admin Welcome");
-		frmAdminWelcomePage.setTitle("Admin Welcome Page");
-		frmAdminWelcomePage.setSize(500,500);
-		frmAdminWelcomePage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmAdminWelcomePage.setLocationRelativeTo(null);
+		frame = new JFrame("Admin Welcome");
+		frame.setSize(500,500);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setLocationRelativeTo(null);
 		panel = new JPanel();
-		frmAdminWelcomePage.getContentPane().add(panel);
+		frame.add(panel);
 		placeComponents();
 
-		frmAdminWelcomePage.setVisible(true);
+		frame.setVisible(true);
 	}
 
 	private void placeComponents() {
 
 		panel.setLayout(null);
 		headerLabel = new JLabel(""); 
-		headerLabel.setFont(new Font("Dialog", Font.BOLD, 16));
-		headerLabel.setBounds(163,39,200,50);
-		headerLabel.setText("Welcome Admin"); 
+		headerLabel.setBounds(150,10,200,50);
+		headerLabel.setText("Welcom Admin"); 
 		panel.add(headerLabel);
 		
-		headerLabel = new JLabel("Unverfied Trainer Profiles"); 
-		headerLabel.setBounds(136,155,200,20);
+		headerLabel = new JLabel("Unverfied trainer profiles"); 
+		headerLabel.setBounds(20,120,200,20);
 		panel.add(headerLabel);
 
 		/*addButton = new JButton("Add");
@@ -79,7 +76,7 @@ public class adminApproveProfileView extends view implements ActionListener {
 		panel.add(addButton);*/
 		
 		updateButton = new JButton("Verify");
-		updateButton.setBounds(122, 100, 90, 20);
+		updateButton.setBounds(90, 100, 90, 20);
 		panel.add(updateButton);
 		
 		/*delButton = new JButton("Delete");
@@ -87,7 +84,7 @@ public class adminApproveProfileView extends view implements ActionListener {
 		panel.add(delButton);*/
 		
 		logoutButton = new JButton("LogOut");
-		logoutButton.setBounds(246, 100, 90, 20);
+		logoutButton.setBounds(220, 100, 90, 20);
 		panel.add(logoutButton);
 		
 		String[] columns = new String[] {
@@ -119,7 +116,7 @@ public class adminApproveProfileView extends view implements ActionListener {
 	         
 	        table = new JTable(model);
 	         
-	        table.setBounds(32, 190, 400, 200);
+	        table.setBounds(20, 150, 400, 200);
 			panel.add(table);
 		this.index = 1;
 		list = populateTable();
@@ -158,7 +155,7 @@ public class adminApproveProfileView extends view implements ActionListener {
 	@Override
 	public void setVisible(Boolean visiblity)
 	{
-		frmAdminWelcomePage.setVisible(visiblity);
+		frame.setVisible(visiblity);
 		
 	}
 	
