@@ -99,7 +99,7 @@ public class addView implements ActionListener {
 		timeText = new JComboBox(Time);
 		timeText.setSelectedIndex(2);
 		//petList.addActionListener(this);
-		timeText.setBounds(140, 130, 100, 20);
+		timeText.setBounds(140, 130, 100, 25);
 		panel.add(timeText);
 		
 		submitButton = new JButton("Submit");

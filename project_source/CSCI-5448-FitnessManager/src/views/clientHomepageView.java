@@ -54,8 +54,8 @@ public class clientHomepageView extends view implements ActionListener {
 		panel.setLayout(null);
 		
 		headerLabel = new JLabel("Welcome " + controller.fsystem.user.getUsername()); 
-		headerLabel.setFont(new Font("Dialog", Font.BOLD, 14));
-		headerLabel.setBounds(170,10,200,30);
+		headerLabel.setFont(new Font("Dialog", Font.BOLD, 16));
+		headerLabel.setBounds(138,12,200,30);
 		//headerLabel.setText("Welcome User"); 
 		panel.add(headerLabel);
 		

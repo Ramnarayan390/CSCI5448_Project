@@ -67,7 +67,7 @@ public class createClientProfileView extends view implements ActionListener{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
 		panel = new JPanel();
-		frame.add(panel);
+		frame.getContentPane().add(panel);
 		placeComponents();
 
 		frame.setVisible(true);
@@ -131,16 +131,16 @@ public class createClientProfileView extends view implements ActionListener{
 		    
 		
 		SecQues = new JLabel("Security Question");
-		SecQues.setBounds(10, 100, 80, 25);
+		SecQues.setBounds(10, 100, 133, 25);
 		panel.add(SecQues);
 		
-		String[] petStrings = { "Bird", "Cat", "Dog", "Rabbit", "Pig" };
+		String[] petStrings = { "Why did the chicken cross the road?", "Can you smell what the Rock is cooking?", "Who let the dogs out?", "How many feet do you have?" };
 		//Create the combo box, select item at index 4.
 		//Indices start at 0, so 4 specifies the pig.
 		secQuesText = new JComboBox(petStrings);
-		secQuesText.setSelectedIndex(4);
+		secQuesText.setSelectedIndex(3);
 		//petList.addActionListener(this);
-		secQuesText.setBounds(100, 100, 100, 20);
+		secQuesText.setBounds(161, 102, 334, 20);
 		panel.add(secQuesText);
 		
 		//JTextField userText3 = new JTextField(20);
@@ -184,7 +184,7 @@ public class createClientProfileView extends view implements ActionListener{
 		
 		
 		submitButton = new JButton("Submit");
-		submitButton.setBounds(285, 400, 80, 25);
+		submitButton.setBounds(265, 400, 100, 40);
 		panel.add(submitButton);
 		this.register();
 		

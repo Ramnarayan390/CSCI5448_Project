@@ -16,6 +16,7 @@ import controllers.controller;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
+import java.awt.Font;
 
 public class loginPageView extends view implements ActionListener{
 	
@@ -39,7 +40,7 @@ public class loginPageView extends view implements ActionListener{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
 		panel = new JPanel();
-		frame.add(panel);
+		frame.getContentPane().add(panel);
 		placeComponents();
 
 		frame.setVisible(true);
@@ -50,7 +51,8 @@ public class loginPageView extends view implements ActionListener{
 		panel.setLayout(null);
 		//JLabel headerLabel;
 		headerLabel = new JLabel("Login"); 
-		headerLabel.setBounds(200,10,100,10);
+		headerLabel.setFont(new Font("Dialog", Font.BOLD, 16));
+		headerLabel.setBounds(162,12,100,16);
 		headerLabel.setText("LOGIN"); 
 		panel.add(headerLabel);
 		
@@ -84,16 +86,18 @@ public class loginPageView extends view implements ActionListener{
 		panel.add(roleChoice);
 		
 		loginButton = new JButton("Login");
-		loginButton.setBounds(50, 150, 80, 20);
+		loginButton.setBounds(50, 150, 80, 40);
 		panel.add(loginButton);
 		
 		resetButton = new JButton("Reset Password");
-		resetButton.setBounds(150, 150, 180, 20);
+		resetButton.setBounds(150, 150, 180, 40);
 		panel.add(resetButton);
 
 		//JButton registerButton = new JButton("register");
 		//registerButton.setBounds(180, 130, 80, 25);
 		//panel.add(registerButton);
+		roleChoice.setVisible(false);
+		roleText.setVisible(false);
 		this.register();
 
 	}

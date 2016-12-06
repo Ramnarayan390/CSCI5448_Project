@@ -40,13 +40,13 @@ public class fitnessInfoView extends view implements ActionListener {
 	{
 		super(controller);
 		frame = new JFrame("Today's Fitness Info");
-		frame.setSize(1500,1500);
+		frame.setSize(600,600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
 
 		panel = new JPanel();
 		panel.setBounds(10,5,1500,1500);
-		frame.add(panel);
+		frame.getContentPane().add(panel);
 		
 		placeComponents();
 
@@ -57,24 +57,25 @@ public class fitnessInfoView extends view implements ActionListener {
 
 		panel.setLayout(null);
 		headerLabel = new JLabel(""); 
-		headerLabel.setBounds(150,10,200,50);
-		headerLabel.setText("Fitness Info"); 
+		headerLabel.setFont(new Font("Dialog", Font.BOLD, 16));
+		headerLabel.setBounds(203,38,200,50);
+		headerLabel.setText("Daily Fitness Info"); 
 		panel.add(headerLabel);
 
 		addButton = new JButton("Add");
-		addButton.setBounds(20, 100, 90, 20);
+		addButton.setBounds(62, 100, 90, 40);
 		panel.add(addButton);
 		
 		updateButton = new JButton("Save");
-		updateButton.setBounds(220, 100, 90, 20);
+		updateButton.setBounds(313, 100, 90, 40);
 		panel.add(updateButton);
 		
 		delButton = new JButton("Delete");		
-		delButton.setBounds(120, 100, 90, 20);
+		delButton.setBounds(187, 100, 90, 40);
 		panel.add(delButton);
 		
 		homeButton = new JButton("Home");
-		homeButton.setBounds(320, 100, 90, 20);
+		homeButton.setBounds(430, 100, 90, 40);
 		panel.add(homeButton);
 		
 		String[] columns = new String[] {
@@ -113,7 +114,7 @@ public class fitnessInfoView extends view implements ActionListener {
 	        table = new JTable(model);
 	        
 	         //table.getValueAt(arg0, arg1)
-	        table.setBounds(20, 150, 400, 200);
+	        table.setBounds(62, 158, 479, 301);
 	        
 			panel.add(table);
 			yourAddRow(0,"Type","Value","Time");
@@ -208,7 +209,7 @@ public void register() {
 		    for (int i = 1 ; i < nRow ; i++)
 		        for (int j = 0 ; j < nCol ; j++)
 		            tableData[i-1][j] = dtm.getValueAt(i,j);
-		    System.out.println(tableData[1][2]);
+		    //System.out.println(tableData[1][2]);
 		    return tableData;
 		}
 		

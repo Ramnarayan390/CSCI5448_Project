@@ -52,12 +52,12 @@ public class createTrainerProfileView extends view implements ActionListener{
 	public createTrainerProfileView(controller controller) 
 	{
 		super(controller);
-		frame = new JFrame("Login Page");
+		frame = new JFrame("Create Trainer Profile");
 		frame.setSize(850,850);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
 		panel = new JPanel();
-		frame.add(panel);
+		frame.getContentPane().add(panel);
 		placeComponents();
 
 		frame.setVisible(true);
@@ -100,16 +100,15 @@ public class createTrainerProfileView extends view implements ActionListener{
 		panel.add(locationText);
 		
 		SecQues = new JLabel("Security Question");
-		SecQues.setBounds(10, 70, 80, 25);
+		SecQues.setBounds(10, 77, 147, 25);
 		panel.add(SecQues);
 		
-		String[] petStrings = { "Bird", "Cat", "Dog", "Rabbit", "Pig" };
-		//Create the combo box, select item at index 4.
+		String[] petStrings = { "Why did the chicken cross the road?", "Can you smell what the Rock is cooking?", "Who let the dogs out?", "How many feet do you have?" };
 		//Indices start at 0, so 4 specifies the pig.
 		secQuesText = new JComboBox(petStrings);
-		secQuesText.setSelectedIndex(4);
+		secQuesText.setSelectedIndex(3);
 		//petList.addActionListener(this);
-		secQuesText.setBounds(100, 70, 100, 20);
+		secQuesText.setBounds(175, 79, 318, 20);
 		panel.add(secQuesText);
 		
 		//JTextField userText3 = new JTextField(20);
@@ -117,23 +116,23 @@ public class createTrainerProfileView extends view implements ActionListener{
 		//panel.add(userText3);
 		
 		JLabel Answer = new JLabel("Answer");
-		Answer.setBounds(300, 70, 80, 25);
+		Answer.setBounds(10, 107, 80, 25);
 		panel.add(Answer);
 
 		secAnsText = new JTextField(20);
-		secAnsText.setBounds(400, 70, 160, 25);
+		secAnsText.setBounds(175, 107, 160, 25);
 		panel.add(secAnsText);
 		
 		JLabel Gender = new JLabel("Gender");
-		Gender.setBounds(10, 100, 80, 25);
+		Gender.setBounds(10, 150, 80, 25);
 		panel.add(Gender);
 		
 		Male = new JRadioButton("Male");
-		Male.setBounds(100, 100, 80, 25);
+		Male.setBounds(100, 150, 80, 25);
 		panel.add(Male);
 		
 		Female = new JRadioButton("Female");
-		Female.setBounds(190, 100, 80, 25);
+		Female.setBounds(195, 150, 80, 25);
 		panel.add(Female);
 		    
 		
@@ -158,7 +157,7 @@ public class createTrainerProfileView extends view implements ActionListener{
 		panel.add(scrollPane1);
 		
 		submitButton = new JButton("Submit");
-		submitButton.setBounds(400, 750, 80, 25);
+		submitButton.setBounds(384, 750, 96, 50);
 		panel.add(submitButton);
 		this.register();
 		

@@ -58,7 +58,7 @@ public class createAdminProfileView extends view implements ActionListener{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
 		panel = new JPanel();
-		frame.add(panel);
+		frame.getContentPane().add(panel);
 		placeComponents();
 
 		frame.setVisible(true);
@@ -101,16 +101,16 @@ public class createAdminProfileView extends view implements ActionListener{
 		panel.add(locationText);
 		
 		SecQues = new JLabel("Security Question");
-		SecQues.setBounds(10, 70, 110, 25);
+		SecQues.setBounds(10, 73, 140, 25);
 		panel.add(SecQues);
 		
-		String[] petStrings = { "Bird", "Cat", "Dog", "Rabbit", "Pig" };
+		String[] petStrings = { "Why did the chicken cross the road?", "Can you smell what the Rock is cooking?", "Who let the dogs out?", "How many feet do you have?" };
 		//Create the combo box, select item at index 4.
 		//Indices start at 0, so 4 specifies the pig.
 		secQuesText = new JComboBox(petStrings);
-		secQuesText.setSelectedIndex(4);
+		secQuesText.setSelectedIndex(3);
 		//petList.addActionListener(this);
-		secQuesText.setBounds(130, 72, 100, 20);
+		secQuesText.setBounds(160, 75, 282, 20);
 		panel.add(secQuesText);
 		
 		//JTextField userText3 = new JTextField(20);
@@ -118,11 +118,11 @@ public class createAdminProfileView extends view implements ActionListener{
 		//panel.add(userText3);
 		
 		JLabel Answer = new JLabel("Answer");
-		Answer.setBounds(300, 70, 80, 25);
+		Answer.setBounds(10, 107, 80, 25);
 		panel.add(Answer);
 
 		secAnsText = new JTextField(20);
-		secAnsText.setBounds(400, 70, 160, 25);
+		secAnsText.setBounds(100, 107, 160, 25);
 		panel.add(secAnsText);
 		
 
@@ -136,7 +136,7 @@ public class createAdminProfileView extends view implements ActionListener{
 		
 		
 		submitButton = new JButton("Submit");
-		submitButton.setBounds(295, 250, 80, 25);
+		submitButton.setBounds(280, 250, 95, 40);
 		panel.add(submitButton);
 		this.register();
 		

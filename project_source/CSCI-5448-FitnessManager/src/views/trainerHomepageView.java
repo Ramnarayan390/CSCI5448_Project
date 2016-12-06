@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
+import java.awt.Font;
 
 public class trainerHomepageView extends view implements ActionListener {
 	
@@ -35,11 +36,11 @@ public class trainerHomepageView extends view implements ActionListener {
 	public trainerHomepageView(controller controller) {
 		super(controller);
 		frame = new JFrame("Trainer Homepage");
-		frame.setSize(700,500);
+		frame.setSize(600,500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
 		panel = new JPanel();
-		frame.add(panel);
+		frame.getContentPane().add(panel);
 		placeComponents();
 
 		frame.setVisible(true);
@@ -49,34 +50,35 @@ public class trainerHomepageView extends view implements ActionListener {
 
 		panel.setLayout(null);
 		
-		headerLabel = new JLabel("welcome" + controller.fsystem.user.getUsername()); 
-		headerLabel.setBounds(200,10,200,10);
+		headerLabel = new JLabel("Welcome  " + controller.fsystem.user.getUsername()); 
+		headerLabel.setFont(new Font("Dialog", Font.BOLD, 16));
+		headerLabel.setBounds(200,10,200,19);
 		panel.add(headerLabel);
 		
 		verifiedLabel = new JLabel("Verification Pending");
-		verifiedLabel.setBounds(50,20,150,30);
+		verifiedLabel.setBounds(50,51,150,30);
 		verifiedLabel.setForeground(Color.RED);
 		panel.add(verifiedLabel);
 		
 		updateButton = new JButton("Update profile");
-		updateButton.setBounds(50, 50, 180, 50);
+		updateButton.setBounds(50, 108, 180, 50);
 		panel.add(updateButton);
 		
 		deleteButton = new JButton("Delete Profile");
-		deleteButton.setBounds(250, 50, 180, 50);
+		deleteButton.setBounds(250, 108, 180, 50);
 		panel.add(deleteButton);
 		
 		logoutButton = new JButton("Logout");
-		logoutButton.setBounds(50, 110, 180, 50);
+		logoutButton.setBounds(175, 292, 180, 50);
 		panel.add(logoutButton);
 		
 		
 		viewButton = new JButton("View Schedule");
-		viewButton.setBounds(50, 170, 180, 50);
+		viewButton.setBounds(50, 197, 180, 50);
 		panel.add(viewButton);
 		
 		editButton = new JButton("Edit Schedule");
-		editButton.setBounds(250, 170, 180, 50);
+		editButton.setBounds(250, 197, 180, 50);
 		panel.add(editButton);
 		
 

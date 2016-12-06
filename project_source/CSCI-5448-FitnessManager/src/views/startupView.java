@@ -37,7 +37,7 @@ public class startupView extends view implements ActionListener{
 		frame.setLocationRelativeTo(null);
 		
 		panel = new JPanel();
-		frame.add(panel);
+		frame.getContentPane().add(panel);
 		placeComponents();
 
 		frame.setVisible(true);
@@ -53,7 +53,7 @@ public class startupView extends view implements ActionListener{
 		panel.add(headerLabel);
 		
 		roleText = new JLabel("Role");
-		roleText.setBounds(100, 25, 40, 25);
+		roleText.setBounds(103, 23, 40, 25);
 		panel.add(roleText);
 		
 		String[] roleOptions = { "Client", "Trainer", "Admin" };
@@ -66,11 +66,11 @@ public class startupView extends view implements ActionListener{
 		panel.add(roleChoice);
 		
 		loginButton = new JButton("Login");
-		loginButton.setBounds(50, 75, 80, 50);
+		loginButton.setBounds(62, 60, 80, 50);
 		panel.add(loginButton);
 		
 		resetButton = new JButton("Create Profile");
-		resetButton.setBounds(150, 75, 180, 50);
+		resetButton.setBounds(160, 57, 180, 50);
 		panel.add(resetButton);
 
 		//JButton registerButton = new JButton("register");
