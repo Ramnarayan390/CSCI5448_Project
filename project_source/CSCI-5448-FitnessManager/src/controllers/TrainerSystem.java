@@ -64,12 +64,12 @@ public class TrainerSystem extends FSystem {
 	}
 	public void viewSchedule()
 	{
-		ArrayList<String> schedule = this.getUser().getSchedule();
+		String[] schedule = this.getUser().getSchedule();
 		
 		String formatString = "Your current schedule:\n";
-		for (int i = 0; i < schedule.size(); i++)
+		for (int i = 0; i < schedule.length; i++)
 		{
-				formatString += (i+1) + ". " + schedule.get(i) + "\n";
+				formatString += (i+1) + ". " + schedule[i] + "\n";
 		}
 		JOptionPane.showMessageDialog(null, formatString);
 	}

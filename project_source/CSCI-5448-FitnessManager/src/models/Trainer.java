@@ -1,5 +1,6 @@
 package models;
 
+
 import java.util.ArrayList;
 
 import javax.persistence.Column;
@@ -18,7 +19,7 @@ public class Trainer extends User {
 	@Column(name="Summary")
 	public String Summary;
 	@Column(name="Schedule")
-	public ArrayList<String> schedule;
+	public String[] schedule;
 	public Trainer()
 	{
 		;
@@ -29,7 +30,8 @@ public class Trainer extends User {
 		this.Verified = Verfied;
 		this.Skills = skills;
 		this.Summary = Summary;
-		this.schedule = new ArrayList<String>();	
+		this.schedule = new String[1];
+		this.schedule[0] = "";
 	}
 	public boolean isVerified() {
 		return Verified;
@@ -55,19 +57,33 @@ public class Trainer extends User {
 		Summary = summary;
 	}
 	
-	public ArrayList<String> getSchedule()
+	public String[] getSchedule()
 	{
 		return this.schedule;
 	}
 	
+	private void setSchedule(String[] schedule)
+	{
+		this.schedule = schedule;
+	}
+	
 	public void addSchedule(String day, String time)
 	{
-		schedule.add(day + " at " + time);
+		if (this.getSchedule()[this.getSchedule().length-1] != "")
+		{
+			String[] newSchedule = new String[this.getSchedule().length+1];
+			for (int i=0;i<this.schedule.length;i++)
+			{
+				newSchedule[i] = getSchedule()[i];
+			}	
+			this.setSchedule(newSchedule);
+		}
+		this.getSchedule()[this.getSchedule().length-1] = day + " at " + time;
 	}
 	
 	public void addClientToSchedule(int index, String name)
 	{
-		schedule.set(index, schedule.get(index) + " is scheduled with " + name);
+		schedule[index] = schedule[index] + " is scheduled with " + name;
 	}
 	
 }

@@ -114,7 +114,7 @@ public class dbSearch {
 		session = controller.closeDBSession(session);			
 	}
 	
-	public void updateDB(String table, String fieldName, ArrayList<String> fieldValue, String username)
+	public void updateDB(String table, String fieldName, String[] fieldValue, String username)
 	{
 		String query;
 		Session session = controller.createDBSesssion(controller.userDB);
