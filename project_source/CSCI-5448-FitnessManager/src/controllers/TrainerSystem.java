@@ -66,7 +66,7 @@ public class TrainerSystem extends FSystem {
 	{
 		ArrayList<String> schedule = this.getUser().getSchedule();
 		
-		String formatString = "";
+		String formatString = "Your current schedule:\n";
 		for (int i = 0; i < schedule.size(); i++)
 		{
 				formatString += (i+1) + ". " + schedule.get(i) + "\n";
