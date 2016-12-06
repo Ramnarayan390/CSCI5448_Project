@@ -47,7 +47,16 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="models.User" project="CSCI-5448-FitnessManager" 
+  <class id="6" language="java" name="controllers.HibernateUtil" project="CSCI-5448-FitnessManager" 
+    file="/CSCI-5448-FitnessManager/src/controllers/HibernateUtil.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="79" width="99" x="3142" y="-200"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="models.User" project="CSCI-5448-FitnessManager" 
     file="/CSCI-5448-FitnessManager/src/models/User.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="529" width="302" x="2653" y="787"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -56,7 +65,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="views.addView" project="CSCI-5448-FitnessManager" 
+  <class id="8" language="java" name="views.addView" project="CSCI-5448-FitnessManager" 
     file="/CSCI-5448-FitnessManager/src/views/addView.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="403" width="191" x="511" y="344"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -65,7 +74,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="controllers.AdminSystem" project="CSCI-5448-FitnessManager" 
+  <class id="9" language="java" name="controllers.AdminSystem" project="CSCI-5448-FitnessManager" 
     file="/CSCI-5448-FitnessManager/src/controllers/AdminSystem.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="187" width="464" x="2995" y="787"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -74,7 +83,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="views.clientHomepageView" project="CSCI-5448-FitnessManager" 
+  <class id="10" language="java" name="views.clientHomepageView" project="CSCI-5448-FitnessManager" 
     file="/CSCI-5448-FitnessManager/src/views/clientHomepageView.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="331" width="191" x="1262" y="787"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -83,7 +92,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="views.createAdminProfileView" project="CSCI-5448-FitnessManager" 
+  <class id="11" language="java" name="views.createAdminProfileView" project="CSCI-5448-FitnessManager" 
     file="/CSCI-5448-FitnessManager/src/views/createAdminProfileView.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="439" width="191" x="1493" y="787"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -92,7 +101,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="controllers.ClientSystem" project="CSCI-5448-FitnessManager" 
+  <class id="12" language="java" name="controllers.ClientSystem" project="CSCI-5448-FitnessManager" 
     file="/CSCI-5448-FitnessManager/src/controllers/ClientSystem.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="331" width="464" x="3499" y="787"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -101,7 +110,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="controllers.systemFactory" project="CSCI-5448-FitnessManager" 
+  <class id="13" language="java" name="controllers.systemFactory" project="CSCI-5448-FitnessManager" 
     file="/CSCI-5448-FitnessManager/src/controllers/systemFactory.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="97" width="157" x="1440" y="344"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -110,7 +119,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="views.createTrainerProfileView" project="CSCI-5448-FitnessManager" 
+  <class id="14" language="java" name="views.createTrainerProfileView" project="CSCI-5448-FitnessManager" 
     file="/CSCI-5448-FitnessManager/src/views/createTrainerProfileView.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="475" width="196" x="1724" y="787"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -119,7 +128,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="views.startupView" project="CSCI-5448-FitnessManager" 
+  <class id="15" language="java" name="views.startupView" project="CSCI-5448-FitnessManager" 
     file="/CSCI-5448-FitnessManager/src/views/startupView.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="277" width="191" x="1960" y="787"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -128,7 +137,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="models.Trainer" project="CSCI-5448-FitnessManager" 
+  <class id="16" language="java" name="models.Trainer" project="CSCI-5448-FitnessManager" 
     file="/CSCI-5448-FitnessManager/src/models/Trainer.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="331" width="417" x="2653" y="1410"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -137,7 +146,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="views.createClientProfileView" project="CSCI-5448-FitnessManager" 
+  <class id="17" language="java" name="views.createClientProfileView" project="CSCI-5448-FitnessManager" 
     file="/CSCI-5448-FitnessManager/src/views/createClientProfileView.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="583" width="191" x="2191" y="787"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -146,7 +155,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="17" language="java" name="controllers.FSystem" project="CSCI-5448-FitnessManager" 
+  <class id="18" language="java" name="controllers.FSystem" project="CSCI-5448-FitnessManager" 
     file="/CSCI-5448-FitnessManager/src/controllers/FSystem.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="205" width="464" x="2995" y="344"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -155,7 +164,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="18" language="java" name="views.loginPageView" project="CSCI-5448-FitnessManager" 
+  <class id="19" language="java" name="views.loginPageView" project="CSCI-5448-FitnessManager" 
     file="/CSCI-5448-FitnessManager/src/views/loginPageView.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="349" width="191" x="2422" y="787"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -164,7 +173,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="models.Client" project="CSCI-5448-FitnessManager" 
+  <class id="20" language="java" name="models.Client" project="CSCI-5448-FitnessManager" 
     file="/CSCI-5448-FitnessManager/src/models/Client.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="277" width="369" x="3110" y="1410"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -173,7 +182,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="controllers.TrainerSystem" project="CSCI-5448-FitnessManager" 
+  <class id="21" language="java" name="controllers.TrainerSystem" project="CSCI-5448-FitnessManager" 
     file="/CSCI-5448-FitnessManager/src/controllers/TrainerSystem.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="205" width="464" x="4003" y="787"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -182,7 +191,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="21" language="java" name="views.fitnessInfoView" project="CSCI-5448-FitnessManager" 
+  <class id="22" language="java" name="views.fitnessInfoView" project="CSCI-5448-FitnessManager" 
     file="/CSCI-5448-FitnessManager/src/views/fitnessInfoView.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="385" width="222" x="511" y="787"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -191,7 +200,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="22" language="java" name="controllers.controller" project="CSCI-5448-FitnessManager" 
+  <class id="23" language="java" name="controllers.controller" project="CSCI-5448-FitnessManager" 
     file="/CSCI-5448-FitnessManager/src/controllers/controller.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="277" width="234" x="1637" y="27"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -200,120 +209,120 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="23">    
+  <generalization id="24">    
     <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="5"/>  
   </generalization>  
-  <generalization id="24">    
-    <end type="SOURCE" refId="21"/>    
-    <end type="TARGET" refId="5"/>  
-  </generalization>  
   <generalization id="25">    
-    <end type="SOURCE" refId="13"/>    
+    <end type="SOURCE" refId="22"/>    
     <end type="TARGET" refId="5"/>  
   </generalization>  
   <generalization id="26">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="17"/>  
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="5"/>  
   </generalization>  
-  <association id="27">    
+  <generalization id="27">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="18"/>  
+  </generalization>  
+  <association id="28">    
     <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="28" name="controller"/>      
-      <multiplicity id="29" minimum="0" maximum="1"/>    
+      <attribute id="29" name="controller"/>      
+      <multiplicity id="30" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="31">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="32">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <association id="33">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="34" name="fsystem"/>      
+      <multiplicity id="35" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="36">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <association id="37">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="38" name="mainView"/>      
+      <multiplicity id="39" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="22" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="30">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="5"/>  
-  </generalization>  
-  <generalization id="31">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="6"/>  
-  </generalization>  
-  <association id="32">    
-    <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="33" name="fsystem"/>      
-      <multiplicity id="34" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="35">    
+  <generalization id="40">    
     <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="6"/>  
-  </generalization>  
-  <association id="36">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="37" name="mainView"/>      
-      <multiplicity id="38" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="39">    
-    <end type="SOURCE" refId="18"/>    
     <end type="TARGET" refId="5"/>  
   </generalization>  
-  <association id="40">    
-    <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="41" name="factory"/>      
-      <multiplicity id="42" minimum="0" maximum="1"/>    
+  <association id="41">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="42" name="factory"/>      
+      <multiplicity id="43" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
+    <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="43">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="17"/>  
-  </generalization>  
   <generalization id="44">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="5"/>  
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="18"/>  
   </generalization>  
   <generalization id="45">    
-    <end type="SOURCE" refId="20"/>    
-    <end type="TARGET" refId="17"/>  
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="5"/>  
   </generalization>  
-  <association id="46">    
-    <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="47" name="view"/>      
-      <multiplicity id="48" minimum="0" maximum="1"/>    
+  <generalization id="46">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="18"/>  
+  </generalization>  
+  <association id="47">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="48" name="view"/>      
+      <multiplicity id="49" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="49">    
+  <generalization id="50">    
     <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="6"/>  
+    <end type="TARGET" refId="7"/>  
   </generalization>  
-  <association id="50">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="51" name="user"/>      
-      <multiplicity id="52" minimum="0" maximum="1"/>    
+  <association id="51">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="52" name="user"/>      
+      <multiplicity id="53" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="53">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="5"/>  
-  </generalization>  
   <generalization id="54">    
-    <end type="SOURCE" refId="10"/>    
+    <end type="SOURCE" refId="15"/>    
     <end type="TARGET" refId="5"/>  
   </generalization>  
   <generalization id="55">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="56">    
     <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="5"/>  
   </generalization>  
-  <association id="56">    
+  <association id="57">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="57" name="controller"/>      
-      <multiplicity id="58" minimum="0" maximum="1"/>    
+      <attribute id="58" name="controller"/>      
+      <multiplicity id="59" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="22" navigable="true"/>    
+    <end type="TARGET" refId="23" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
