@@ -93,9 +93,6 @@ public class LoginPageView extends View implements ActionListener{
 		resetButton.setBounds(150, 150, 180, 40);
 		panel.add(resetButton);
 
-		//JButton registerButton = new JButton("register");
-		//registerButton.setBounds(180, 130, 80, 25);
-		//panel.add(registerButton);
 		roleChoice.setVisible(false);
 		roleText.setVisible(false);
 		this.register();

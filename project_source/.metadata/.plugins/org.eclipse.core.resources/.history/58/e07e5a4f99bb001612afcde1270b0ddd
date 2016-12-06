@@ -134,6 +134,28 @@ public void register() {
 	}
 
 
+	/*private Object[][] populateTable()
+	{
+		/*List<User> result;
+		dbSearch db = new dbSearch(controller);
+		result = db.searchDBList("Client","username",controller.fsystem.user.getUsername());
+		
+		if (result.isEmpty())
+			System.out.println("Username not found");
+		else
+		{
+			result.get
+		}
+		//return result;
+		Object[][] fitnessInfo = ((Client)controller.fsystem.user).fitnessInfo;
+		
+
+	        
+
+	}*/
+
+	
+	
 	@Override
 	public void setVisible(Boolean visiblity)
 	{

@@ -188,8 +188,19 @@ public class CreateTrainerProfileView extends View implements ActionListener{
 		
 		securityQuestion = secQuesText.getSelectedItem().toString();
 		
+		/*SessionFactory factory = new Configuration().configure().buildSessionFactory();
+		System.out.println("creating session");
+		Session session = factory.openSession();
+		session.beginTransaction();
+		//
+		System.out.println("session created");*/
+		//controller.createProfile("Trainer");
+		
+		
 		Session session = controller.createDBSesssion(controller.getUserDB());
-			
+		
+		
+		
 		JOptionPane dialogBox = new JOptionPane();
 		List result;
 		DbSearch db = new DbSearch(controller);	

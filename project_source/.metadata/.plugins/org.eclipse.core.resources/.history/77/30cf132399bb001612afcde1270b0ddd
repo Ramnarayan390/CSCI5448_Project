@@ -74,10 +74,17 @@ public class AdminApproveProfileView extends View implements ActionListener {
 		headerLabel.setBounds(136,155,200,20);
 		panel.add(headerLabel);
 
+		/*addButton = new JButton("Add");
+		addButton.setBounds(20, 100, 90, 20);
+		panel.add(addButton);*/
+		
 		updateButton = new JButton("Verify");
 		updateButton.setBounds(122, 100, 90, 20);
 		panel.add(updateButton);
 		
+		/*delButton = new JButton("Delete");
+		delButton.setBounds(220, 100, 90, 20);
+		panel.add(delButton);*/
 		
 		logoutButton = new JButton("LogOut");
 		logoutButton.setBounds(246, 100, 90, 20);
@@ -142,8 +149,9 @@ public class AdminApproveProfileView extends View implements ActionListener {
 	
 	public void register() {
 		
-
+		//this.addButton.addActionListener(this);
 		this.updateButton.addActionListener(this);
+		//this.delButton.addActionListener(this);
 		this.logoutButton.addActionListener(this);
 	}
 	
@@ -157,6 +165,12 @@ public class AdminApproveProfileView extends View implements ActionListener {
 	public void actionPerformed(ActionEvent actionEvent)
 	{
 
+	/*	if (actionEvent.getActionCommand() == "Add")
+		{
+			System.out.println("Add Clicked");	
+			yourAddRow(1,"2",true);
+			//controller.login("HEY", "abc");			
+		}*/
 		if (actionEvent.getActionCommand() == "Verify")
 		{
 	

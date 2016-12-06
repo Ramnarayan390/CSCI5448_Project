@@ -106,11 +106,16 @@ public class CreateAdminProfileView extends View implements ActionListener{
 		
 		String[] petStrings = { "Why did the chicken cross the road?", "Can you smell what the Rock is cooking?", "Who let the dogs out?", "How many feet do you have?" };
 		//Create the combo box, select item at index 4.
+		//Indices start at 0, so 4 specifies the pig.
 		secQuesText = new JComboBox(petStrings);
 		secQuesText.setSelectedIndex(3);
 		//petList.addActionListener(this);
 		secQuesText.setBounds(160, 75, 282, 20);
 		panel.add(secQuesText);
+		
+		//JTextField userText3 = new JTextField(20);
+		//userText3.setBounds(100, 70, 160, 25);
+		//panel.add(userText3);
 		
 		JLabel Answer = new JLabel("Answer");
 		Answer.setBounds(10, 107, 80, 25);
@@ -144,6 +149,11 @@ public class CreateAdminProfileView extends View implements ActionListener{
 	
 	public void actionPerformed(ActionEvent actionEvent)	
 	{
+		//String skills = skillsText.getText();
+		//String Summary = summaryText.getText();		
+		//String name = "ahahah";
+		//String gender;
+		
 		String username = userText.getText();
 		String email = emailText.getText();
 		String location = locationText.getText();

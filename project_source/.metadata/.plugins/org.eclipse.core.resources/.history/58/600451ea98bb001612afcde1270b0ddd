@@ -64,6 +64,10 @@ public class Controller {
 	public void login(String username, String password) //add type for login
 	{
 		
+		//Session session = createDBSesssion(this.userDB);		
+		//Query q = session.createQuery("from Trainer as T where T.username = :username");		
+		//q.setString("username",  username);
+		//List result = q.list();
 		List result;
 		DbSearch db = new DbSearch(this);
 		System.out.print("usertype" + this.usertype + username);
@@ -83,14 +87,22 @@ public class Controller {
 				this.fsystem.user = user;
 				System.out.println("Login Successfull");
 				display("Trainer","homePage");
-
+				
+				
+				//do system factory here
+				/*FSystem system = new TrainerSystem((Trainer)user); //based on the login type change this	
+				view.setVisible(false);
+				// view = null;
+				this.view=system.showOptions("createProfile");
+				view.setController(this);*/
 			}
 			else
 			{
 				System.out.println(user.username + "incorrect passowrd");
 			}
 		}
-
+		//System.out.println("DB almost");			
+		//session = closeDBSession(session);
 	}
 	
 	public void display(String userType, String displayType)
@@ -102,19 +114,39 @@ public class Controller {
 			
 			System.out.println("login view");
 			this.view = new LoginPageView(this);
-
+			//view.setController(this);
 			
 		}
 		else
 		{
-
+			System.out.println("other view");
+			//systemFactory factory = new systemFactory();
+			//this.fsystem = factory.getSystem(userType);
 			System.out.println("fsystem set");
-			this.view = fsystem.showOptions(displayType,this);
+			//view.setVisible(false);
 
+			this.view = fsystem.showOptions(displayType,this);
+			//view.setController(this);
 		}
 		
 	}
 	
+	/*public void createProfile(String profileType, String display)
+	{
+		System.out.println("create profile");
+		//systemFactory factory = new systemFactory();
+		//this.fsystem = factory.getSystem(profileType);		
+		System.out.println("got factory");
+	}*/
+	
+	/*public void createProfile(String...values)
+	{
+		Session session = this.createDBSesssion(this.getUserDB());
+		//this.fsystem.createProfile(false, skills, Summary, username, name, gender, email, location, securityQuestion, securityAnswer, password);
+		this.fsystem.createProfile(values);
+		session.save(this.fsystem.getUser());
+		session = this.closeDBSession(session);
+	}*/
 	public FSystem getFsystem() {
 		return fsystem;
 	}

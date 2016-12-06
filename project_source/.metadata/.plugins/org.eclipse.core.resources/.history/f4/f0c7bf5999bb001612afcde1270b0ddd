@@ -73,6 +73,9 @@ public class StartupView extends View implements ActionListener{
 		resetButton.setBounds(160, 57, 180, 50);
 		panel.add(resetButton);
 
+		//JButton registerButton = new JButton("register");
+		//registerButton.setBounds(180, 130, 80, 25);
+		//panel.add(registerButton);
 		this.register();
 
 	}

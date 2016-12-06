@@ -143,10 +143,7 @@ public class CreateClientProfileView extends View implements ActionListener{
 		secQuesText.setBounds(161, 102, 334, 20);
 		panel.add(secQuesText);
 		
-		//JTextField userText3 = new JTextField(20);
-		//userText3.setBounds(100, 70, 160, 25);
-		//panel.add(userText3);
-		
+	
 		JLabel Answer = new JLabel("Answer");
 		Answer.setBounds(10, 130, 80, 25);
 		panel.add(Answer);
